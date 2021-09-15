@@ -1,5 +1,5 @@
 .navbartop{
-
+    margin-left: 350px;
     padding: 20px 30px;
     display: flex;
 }
@@ -10,12 +10,20 @@
 }
 
 .help{
-
-    color: orangered;
+    color: #ee4d2d;
+    font-size: .875rem;
+    cursor: pointer;
     margin-top: -50px;
-    margin-right: 80px;
+    margin-right: 300px;
     float: right;
 }
+
+.help:hover{
+    color: #ee4d2d;
+    text-decoration: none;
+}
+
+
 .logo img{
     width: 150px;
     
@@ -51,6 +59,7 @@
     width: 100%;
     font-size: 16px;
     padding: 10px;
+    margin-top: 20px;
     border: 1px solid rgba(0,0,0,.14);
     border-radius: 2px;
     box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
@@ -60,6 +69,7 @@
 .rightbody button{
     width: 100%;
     padding: 10px 0px;
+    margin-top: 20px;
     color: #fff;
     background-color: #ee4d2d;
     box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
@@ -67,7 +77,220 @@
     text-align: center;
 }
 
+.spana{
+    font-size: 14px; 
+    margin-top: 135px;
+}
+
+.spana span{
+    color: rgba(0,0,0,.54);
+}
+
+
+.spana a{
+    color: #ee4d2d;
+}
 .mainbody img{
-    width: 500px;
+    width: 300px;
     
+}
+
+.footer1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.footer1 h6{
+    padding: 5px 90px;
+    font-size: .75rem;
+    font-weight: 700;
+    color: rgba(0,0,0,.54);
+    
+}
+
+.footer1 a{
+    font-size: .75rem;
+    color: rgba(0,0,0,.54);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 10px;
+    margin-left: 90px;
+    
+}
+
+.footer1 a:hover{
+    color: #ee4d2d;
+    text-decoration: none;
+}
+
+.howpay{
+    justify-content: left;
+    margin-top: 10px;
+    margin-left: 90px;
+}
+
+.hp1{
+    justify-content: center;
+    width: 55px;
+    height: 22px;
+    
+}
+.hp2{
+    justify-content: center;
+    width: 59px;
+    height: 25px;
+}
+.hp3{
+    justify-content: center;
+    width: 59px;
+    height: 25px;
+}
+.hp4{
+    justify-content: center;
+    width: 59px;
+    height: 25px;
+    margin-top: 10px;
+}
+.hp5{
+    justify-content: center;
+    width: 53px;
+    height: 25px;
+    margin-top: 10px;
+}
+.hp6{
+    justify-content: center;
+    width: 53px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+.hp7{
+    justify-content: center;
+    width: 55px;
+    height: 25px;
+    margin-top: 10px;
+}
+.hp8{
+    justify-content: center;
+    width: 62px;
+    height: 22px;
+    margin-top: 10px;
+}
+.hp9{
+    justify-content: center;
+    width: 55px;
+    height: 25px;
+    margin-top: 10px;
+}
+.hp10{
+    justify-content: center;
+    width: 59px;
+    height: 25px;
+    margin-top: 10px;
+}
+.hp11{
+    justify-content: center;
+    width: 65px;
+    height: 32px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.delivery{
+    justify-content: left;
+    margin-top: 10px;
+    margin-left: 90px;
+}
+
+
+.der1{
+    justify-content: center;
+    width: 55px;
+    height: 18px;
+    
+}
+.der2{
+    justify-content: center;
+    width: 55px;
+    height: 25px;
+    margin-left: 8px;
+}
+.der3{
+    justify-content: center;
+    width: 50px;
+    height: 25px;
+    margin-left: 8px;
+}
+.der4{
+    justify-content: center;
+    width: 55px;
+    height: 15px;
+    margin-top: 12px;
+}
+.der5{
+    justify-content: center;
+    width: 53px;
+    height: 13px;
+    margin-top: 12px;
+    margin-left: 8px;
+
+}
+.der6{
+    justify-content: center;
+    width: 59px;
+    height: 18px;
+    margin-top: 12px;
+    margin-left: 9px;
+}
+.der7{
+    justify-content: center;
+    width: 48px;
+    height: 27px;
+    margin-top: 12px;
+}
+.der8{
+    justify-content: center;
+    width: 58px;
+    height: 18px;
+    margin-top: 12px;
+    margin-left: 13px;
+}
+.der9{
+    justify-content: center;
+    width: 50px;
+    height: 11px;
+    margin-top: 12px;
+    margin-left: 8px;
+}
+
+.row4 img{
+    margin-top: 10px;
+    width: 17px;
+    height: 16px;
+}
+
+.row4 h5{
+    font-size: .75rem;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.row4 a{
+    color: rgba(0,0,0,.54);
+}
+
+.row4 a:hover{
+    color: #ee4d2d;
+}
+
+.download{
+    margin-top: 20px;
+}
+
+.footer2{
+    padding: 100px 0px 40px 360px;
+    color: rgba(0,0,0,.54);
 }
