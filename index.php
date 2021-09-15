@@ -31,7 +31,7 @@
                     <a class="aspec right" href="#">การแจ้งเตือน</a>
                     <a class="iconapp" href="#"><i class="far fa-question-circle"></i></a>
                     <a class="aspec right" href="#">ช่วยเหลือ</a>
-                    <a class="aspec right" href="#">สมัครใหม่</a>
+                    <a class="aspec right" href="register">สมัครใหม่</a>
                     <a class="alogin right" href="login">เข้าสู่ระบบ</a>
                 </div>
             </div>
