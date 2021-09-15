@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เข้าสู่ระบบช็อปปี้ออนไลน์ได้แล้วที่นี่</title>
+    <title>สมัครสมาชิกช็อปปี้ออนไลน์ที่นี่</title>
     <link href="assets/css/login.css?v=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
             <div class="logo">
                 <img src="./assets/img/logologin.png" alt="">
             </div>
-            <h4>เข้าสู่ระบบ</h4>
+            <h4>สมัครใหม่</h4>
             
         </div>
         <a href="#" class="help">ต้องการความช่วยเหลือ?</a>
@@ -34,14 +34,14 @@
                 </div>
                 <div class="rightbody">
                     <form action="#" method="POST">
-                        <h5>เข้าสู่ระบบ</h5>
-                        <input type="text" name="Uname" placeholder="หมายเลขโทรศัพท์ / Email / ชื่อผู้ใช้"><br>
+                        <h5>สมัครสมาชิก</h5>
+                        <input type="text" name="uname" placeholder="ชื่อผู้ใช้"><br>
                         <input type="password" name="pw1" placeholder="รหัสผ่าน"> <br>
-                        <button type="submit">เข้าสู่ระบบ</button><br>
-                        <a href="#" style="float: right; font-size: 12px; margin-top: 3px;">ลืมรหัสผ่าน</a><br>
-                        <div class="spana">
-                            <span >เพิ่งเคยเข้ามาใน Shopee ใช่หรือไม่</span><a href="register"> สมัครใหม่</a>
-                        </div>
+                        <input type="password" name="pw2" placeholder="ยืนยัน-รหัสผ่าน"> <br>
+                        <input type="email" name="uemail" placeholder="Email"><br>
+                        <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์"><br>
+                        <button type="submit">สมัครสมาชิก</button><br>
+                        <a href="index" style="float: right; font-size: 12px; margin-top: 3px;">กลับหน้าหลัก</a><br>
                     </form>
                 </div>
             </div>
