@@ -107,6 +107,73 @@
                 <div class="eventimg">
                     <a href="#"><img src="./assets/img/event3.png"></a>
                 </div>
+
+                <div class="category_box">
+                    <h5>หมวดหมู่</h5>
+                    <div class="category_carditem">
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/1.png"> เสื้อผ้าแฟชั่นผู้ชาย</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/2.png"> มือถือและอุปกรณ์เสริม</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/3.png"> อาการเสริมและผลิตภัณฑ์สุขภาพ</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/4.png"> นาฬิกาและแว่นตา</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/5.png"> รองเท้าผู้ชาย</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/6.png"> คอมพิวเตอร์และแล็ปท็อป</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/7.png"> กล้องและอุปกรณ์ถ่ายภาพ</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/8.png"> กิฬาและกิจกรรมกลางแจ้ง</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/9.png"> สื่อบันเทิงภายในบ้าน</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/10.png"> เกมและอุปกรณ์เสริม</a>
+                        </div>
+                        <!-- rows 2 -->
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/11.png"> เสื้อผ้าแฟชั่นผู้หญิง</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/12.png"> ความงามและของใช้ส่วนตัว</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/13.png"> ของเล่น สินค้าแม่และเด็ก</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/14.png"> เครื่องใช้ในบ้าน</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/15.png"> กระเป๋า</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/16.png"> รองเท้าผู้หญิง</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/17.png"> เครื่องประดับ</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/18.png"> อาหารและเครื่องดื่ม</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/19.png"> เครื่องใช้ไฟฟ้าภายในบ้าน</a>
+                        </div>
+                        <div class="img-carditem">
+                            <a href="#"><img style="width:100px;" src="assets/img/categorys/20.png"> สัตว์เลี้ยง</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>  

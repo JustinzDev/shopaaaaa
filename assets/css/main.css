@@ -1,17 +1,18 @@
 
 body, html {
     font-family: Tahoma,sans-serif;
+    overflow-x: hidden;
 }
 
 .navbartop{
     overflow: hidden;
     background: #f53d2d;
     background: linear-gradient(-180deg,#f53d2d,#f63);
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 13.5%;
+    height: 16.5%;
+    overflow-x: hidden;
 }
 
 .navbar-warpper{
@@ -119,6 +120,7 @@ body, html {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .navbar-warpperdowntoo a{
@@ -133,12 +135,8 @@ body, html {
     color: rgb(206, 206, 206);
 }
 
-#main{
-    display: block;
-}
-
 .body1{
-    margin-top: 160px;
+    margin-top: 27px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -157,10 +155,11 @@ body, html {
 }
 
 .body2{
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-y: hidden;
 }
 
 .body2 a{
@@ -168,8 +167,9 @@ body, html {
     color: black;
     font-size: 13px;
     text-align: center;
-    padding: 0px 20px;
+    padding: 10px 20px;
     transition: transform .2s;
+    
 }
 
 .body2 img{
@@ -194,8 +194,91 @@ hr{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    min-width: 300px;
+    width: 100%;
 }
 
 .body3 .eventimg{
+    margin: auto;
     margin-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.category_box{
+    width: 63%;
+    margin: auto;
+    margin-bottom: 20px;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    height: 100%;
+}
+
+.category_box h5{
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: rgba(0,0,0,.54);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.category_carditem{
+    margin-top: -8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    overflow-y: hidden;
+}
+
+.img-carditem{
+    width: 100%;
+    position: relative;
+    width: 10%;
+    border-right: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 10px 3px;
+}
+
+.img-carditem:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.img-carditem a{
+    color: rgba(0,0,0,.8);
+    font-size: 14px;
+}
+
+.img-carditem a:hover{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar-warpper{
+        visibility: hidden;
+    }
+
+    .navbar-warpperdown{
+        margin-top: -50px;
+    }
+
+    .navbar-warpperdown img, .cart{
+        visibility: hidden;
+    }
+
+    .category_box{
+        width: 90%;
+    }
+
+    .category_carditem{
+        display:block;
+        width: 100%;
+    }
+
+    .img-carditem{
+        width: 100%;
+    }
 }
