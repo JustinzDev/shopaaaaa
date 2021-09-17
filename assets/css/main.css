@@ -160,6 +160,7 @@ body, html {
     flex-wrap: wrap;
     justify-content: center;
     overflow-y: hidden;
+    margin-bottom: -25px;
 }
 
 .body2 a{
