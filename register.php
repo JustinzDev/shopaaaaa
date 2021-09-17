@@ -10,6 +10,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        input:invalid{
+            border: 1px solid #FF938C;
+        }
+    </style>
 </head>
 <body>
     <header>    
@@ -35,11 +41,12 @@
                 <div class="rightbody">
                     <form action="#" method="POST">
                         <h5>สมัครสมาชิก</h5>
-                        <input type="text" name="uname" placeholder="ชื่อผู้ใช้"><br>
-                        <input type="password" name="pw1" placeholder="รหัสผ่าน"> <br>
-                        <input type="password" name="pw2" placeholder="ยืนยัน-รหัสผ่าน"> <br>
-                        <input type="email" name="uemail" placeholder="Email"><br>
-                        <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์"><br>
+                        <input type="text" name="uname" pattern="[A-z0-9]{1,24}" placeholder="ชื่อผู้ใช้" require><br>
+                        <input id="password1" type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
+                        <input id="password2" type="password" name="pw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="ยืนยัน-รหัสผ่าน" require> <br>
+                        <span id='message'></span>
+                        <input type="email" name="uemail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email" require><br>
+                        <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์" pattern="[0-9]{10}" minlength="1" maxlength="10" require><br>
                         <button type="submit">สมัครสมาชิก</button><br>
                         <a href="index" style="float: right; font-size: 12px; margin-top: 3px;">กลับหน้าหลัก</a><br>
                     </form>
@@ -138,4 +145,12 @@
         </div>
     </footer>
 </body>
+<script>
+        $('#password1, #password2').on('keyup', function () {
+        if ($('#password1').val() == $('#password2').val()) {
+            $('#message').html('').css('color', 'green');
+        } else 
+            $('#message').html('รหัสผ่านทั้งสองไม่ตรงกัน!!').css('color', 'red');
+        });
+</script>
 </html>

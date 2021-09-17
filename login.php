@@ -35,8 +35,8 @@
                 <div class="rightbody">
                     <form action="#" method="POST">
                         <h5>เข้าสู่ระบบ</h5>
-                        <input type="text" name="Uname" placeholder="หมายเลขโทรศัพท์ / Email / ชื่อผู้ใช้"><br>
-                        <input type="password" name="pw1" placeholder="รหัสผ่าน"> <br>
+                        <input type="text" name="Uname" pattern="[A-z0-9]{1,24}" placeholder="หมายเลขโทรศัพท์ / Email / ชื่อผู้ใช้" require><br>
+                        <input type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
                         <button type="submit">เข้าสู่ระบบ</button><br>
                         <a href="#" style="float: right; font-size: 12px; margin-top: 3px;">ลืมรหัสผ่าน</a><br>
                         <div class="spana">
