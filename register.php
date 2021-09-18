@@ -39,14 +39,14 @@
                     </h2>
                 </div>
                 <div class="rightbody">
-                    <form action="#" method="POST">
+                    <form action="api/checkregister" method="POST">
                         <h5>สมัครสมาชิก</h5>
                         <input type="text" name="uname" pattern="[A-z0-9]{1,24}" placeholder="ชื่อผู้ใช้" require><br>
                         <input id="password1" type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
                         <input id="password2" type="password" name="pw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="ยืนยัน-รหัสผ่าน" require> <br>
                         <span id='message'></span>
                         <input type="email" name="uemail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email" require><br>
-                        <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์" pattern="[0-9]{10}" minlength="1" maxlength="10" require><br>
+                        <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์มือถือ" pattern="(08|09|06)[0-9]{8}" minlength="1" maxlength="10" require><br>
                         <button type="submit">สมัครสมาชิก</button><br>
                         <a href="index" style="float: right; font-size: 12px; margin-top: 3px;">กลับหน้าหลัก</a><br>
                     </form>

@@ -2,6 +2,7 @@
 body, html {
     font-family: Tahoma,sans-serif;
     overflow-x: hidden;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .navbartop{
@@ -186,12 +187,12 @@ body, html {
 }
 
 hr{
-    background-color: rgba(165, 165, 165, 0.1);
+    background-color: rgba(156, 156, 156, 0.1);
 }
 
 .body3{
-    margin-top: -15.6px;
-    background-color: rgb(0, 0, 0, 0.1);
+    margin-top: -17.6px;
+    background-color: rgba(156, 156, 156, 0.1);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -258,12 +259,13 @@ hr{
 }
 
 @media screen and (max-width: 1000px) {
-    .navbar-warpper{
+    .navbar-warpper .navbar-warpperleft{
         visibility: hidden;
     }
 
-    .navbar-warpperdown{
-        margin-top: -50px;
+    .navbar-warpper .navbar-warpperright{
+        margin-top: -30px;
+        margin-left: -5px;
     }
 
     .navbar-warpperdown img, .cart{
