@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include('mysql_connection/my_connection.php');
+    error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +36,12 @@
                     <a class="aspec right" href="#">การแจ้งเตือน</a>
                     <a class="iconapp" href="#"><i class="far fa-question-circle"></i></a>
                     <a class="aspec right" href="#">ช่วยเหลือ</a>
-                    <a class="aspec right" href="register">สมัครใหม่</a>
-                    <a class="alogin right" href="login">เข้าสู่ระบบ</a>
+                    <?php if($_SESSION['Uall_id'] == ""){ ?>
+                        <a class="aspec right" href="register">สมัครใหม่</a>
+                        <a class="alogin right" href="login">เข้าสู่ระบบ</a>
+                    <?php } else { ?>
+                        <a class="alogin right" href="logout"><?php echo $_SESSION['Uall_username']; ?> </a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="navbar-warpperdown">
