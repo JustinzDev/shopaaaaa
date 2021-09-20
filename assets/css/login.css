@@ -22,6 +22,7 @@ body, html {
     margin-top: -50px;
     margin-right: 300px;
     float: right;
+    text-decoration: none;
 }
 
 .help:hover{

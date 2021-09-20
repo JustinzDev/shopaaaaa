@@ -22,6 +22,5 @@
             echo "<script>alert('$message');</script>";
             echo "<script>window.location='../index';</script>";
         }
-
     }
 ?>

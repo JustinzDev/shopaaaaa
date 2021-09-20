@@ -7,9 +7,12 @@
     <title>เข้าสู่ระบบช็อปปี้ออนไลน์ได้แล้วที่นี่</title>
     <link href="assets/css/login.css?v=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 </head>
 <body>
     <header>    
@@ -32,16 +35,16 @@
                     </h2>
                 </div>
                 <div class="rightbody">
-                    <form action="api/checklogin" method="POST">
+                    <form action="api/checklogin" id="login1" method="POST">
                         <h5>เข้าสู่ระบบ</h5>
                         <input type="text" name="Uname" placeholder="หมายเลขโทรศัพท์ / Email / ชื่อผู้ใช้" require><br>
                         <input type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
-                        <button type="submit">เข้าสู่ระบบ</button><br>
+                        <button id="login2" type="submit">เข้าสู่ระบบ</button><br>
                         <a href="#" style="float: right; font-size: 12px; margin-top: 3px;">ลืมรหัสผ่าน</a><br>
-                        <div class="spana">
-                            <span >เพิ่งเคยเข้ามาใน Shopee ใช่หรือไม่</span><a href="register"> สมัครใหม่</a>
-                        </div>
                     </form>
+                    <div class="spana">
+                        <span >เพิ่งเคยเข้ามาใน Shopee ใช่หรือไม่</span><a href="register"> สมัครใหม่</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,5 +139,57 @@
             © 2021 Shopa. All Rights Reserved Design By Top-Kod-Geem.
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
+<script>
+    $(document).ready(function()
+    {
+        $("#login2").click(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                type: "POST",
+                url:  "api/checklogin",
+                data: $("#login1").serialize(),
+                success:function(result)
+                {
+                    if(result.status == 1)
+                    {
+                        swal({
+                            title: "สำเร็จ!",
+                            text: "คุณเข้าสู่ระบบสำเร็จ!",
+                            type: "success",
+                            showButtonCancel: true,
+                        }, function(isConfirm) {
+                                if(isConfirm){
+                                    window.location = "index";
+                                }
+                                if(isCancel){
+                                    window.location = "index";
+                                }
+                        });
+                    }
+                    else if(result.status == 0)
+                    {
+                        swal({
+                            title: "ผิดพลาด!",
+                            text: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!",
+                            type: "error",
+                            showButtonCancel: true,
+                        }, function(isConfirm) {
+                                if(isConfirm){
+                                    window.location = "login";
+                                }
+                                if(isCancel){
+                                    window.location = "login";
+                                }
+                        });
+                    }
+                }
+            });
+
+        });
+    });
+  </script>
 </html>

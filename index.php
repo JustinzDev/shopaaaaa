@@ -13,9 +13,12 @@
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
     <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 </head>
 <body>
     <header>    
@@ -40,7 +43,14 @@
                         <a class="aspec right" href="register">สมัครใหม่</a>
                         <a class="alogin right" href="login">เข้าสู่ระบบ</a>
                     <?php } else { ?>
-                        <a class="alogin right" href="logout"><?php echo $_SESSION['Uall_username']; ?> </a>
+                        <div class="dropdown">
+                            <span class="dropbtn"><?php echo $_SESSION['Uall_username']; ?></span>
+                            <div class="dropdown-content">
+                                <a href="#">บัญชีของฉัน</a>
+                                <a href="#">การซื้อของฉัน</a>
+                                <a href="#" onclick="clickonme();">ออกจากระบบ</a>
+                            </div>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
@@ -114,7 +124,7 @@
             <br><hr>
             <div class="body3">
                 <div class="eventimg">
-                    <a href="#"><img src="./assets/img/event3.png"></a>
+                    <a href="#"><img style="border-radius: 10px;" src="./assets/img/event3.png"></a>
                 </div>
 
                 <div class="category_box">
@@ -187,4 +197,21 @@
         </div>
     </div>  
 </body>
+<script>
+function clickonme(){
+    swal({
+        title: "ออกจากระบบ",
+        text: "คุณออกจากระบบสำเร็จ!",
+        type: "success",
+        showButtonCancel: true,
+    }, function(isConfirm) {
+            if(isConfirm){
+                window.location = "logout";
+            }
+            if(isCancel){
+                window.location = "logout";
+            }
+    });
+}
+</script>
 </html>

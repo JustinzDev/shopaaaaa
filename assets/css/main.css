@@ -203,7 +203,6 @@ hr{
 .body3 .eventimg{
     margin: auto;
     margin-top: 20px;
-    border-radius: 10px;
     margin-bottom: 20px;
     width: 100%;
     text-align: center;
@@ -257,6 +256,50 @@ hr{
 .img-carditem a:hover{
     text-decoration: none;
 }
+
+.dropbtn {
+    color: white;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    float:left;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    margin-top: 15px;
+    margin-left: -50px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 4px 5px;
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover{
+    color:#26aa99;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {background-color: rgb(233, 233, 233);}
+
+.dropdown:hover .dropdown-content {display: block;}
 
 @media screen and (max-width: 1000px) {
     .navbar-warpper .navbar-warpperleft{
