@@ -43,7 +43,7 @@
                         <a href="#" style="float: right; font-size: 12px; margin-top: 3px;">ลืมรหัสผ่าน</a><br>
                     </form>
                     <div class="spana">
-                        <span >เพิ่งเคยเข้ามาใน Shopee ใช่หรือไม่</span><a href="register"> สมัครใหม่</a>
+                        <span >เพิ่งเคยเข้ามาใน Shopa ใช่หรือไม่</span><a href="register"> สมัครใหม่</a>
                     </div>
                 </div>
             </div>

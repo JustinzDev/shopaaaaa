@@ -7,9 +7,13 @@
     <title>สมัครสมาชิกช็อปปี้ออนไลน์ที่นี่</title>
     <link href="assets/css/login.css?v=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 
     <style>
         input:invalid{
@@ -39,7 +43,7 @@
                     </h2>
                 </div>
                 <div class="rightbody">
-                    <form action="api/checkregister" method="POST">
+                    <form action="api/checkregister" method="POST" id="register1">
                         <h5>สมัครสมาชิก</h5>
                         <input type="text" name="uname" pattern="[A-z0-9]{1,24}" placeholder="ชื่อผู้ใช้" require><br>
                         <input id="password1" type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
@@ -47,7 +51,7 @@
                         <span id='message'></span>
                         <input type="email" name="uemail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email" require><br>
                         <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์มือถือ" pattern="(08|09|06)[0-9]{8}" minlength="1" maxlength="10" require><br>
-                        <button type="submit">สมัครสมาชิก</button><br>
+                        <button id="register2" type="submit">สมัครสมาชิก</button><br>
                         <a href="index" style="float: right; font-size: 12px; margin-top: 3px;">กลับหน้าหลัก</a><br>
                     </form>
                 </div>
@@ -145,6 +149,41 @@
         </div>
     </footer>
 </body>
+<script>
+    $(document).ready(function()
+    {
+        $("#register2").click(function(e)
+        {
+            e.preventDefault();
+            $.ajax(
+            {
+                type: "POST",
+                url:  "api/checkregister",
+                data: $("#register1").serialize(),
+                success:function(result)
+                {
+                    if(result.status == 0)
+                    {
+                        swal({
+                            title: "ผิดพลาด!",
+                            text: "บัญชีผู้ใช้ หรือ Email หรือ โทรศัพท์มือถือ นี้ถูกใช้งานแล้ว!",
+                            type: "error",
+                            showButtonCancel: true,
+                        }, function(isConfirm) {
+                                if(isConfirm){
+                                    window.location = "login";
+                                }
+                                if(isCancel){
+                                    window.location = "login";
+                                }
+                        });
+                    }
+                }
+            });
+
+        });
+    });
+  </script>
 <script>
         $('#password1, #password2').on('keyup', function () {
         if ($('#password1').val() == $('#password2').val()) {
