@@ -178,6 +178,22 @@
                                 }
                         });
                     }
+                    else if(result.status == 1)
+                    {
+                        swal({
+                            title: "สำเร็จ!",
+                            text: result.message,
+                            type: "success",
+                            showButtonCancel: true,
+                        }, function(isConfirm) {
+                                if(isConfirm){
+                                    window.location = "login";
+                                }
+                                if(isCancel){
+                                    window.location = "login";
+                                }
+                        });
+                    }
                 }
             });
 
