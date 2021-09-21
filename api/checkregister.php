@@ -6,12 +6,7 @@
     $email = $_POST['uemail'];
     $numberphone = $_POST['telphone'];
 
-    if($username == "") return 1;
-    if($email == "") return 1;
-    if($numberphone == "") return 1;
-    if($_POST['pw1'] == "") return 1;
-    if($_POST['pw2'] == "") return 1;
-
+    if($username == "") return 1; if($email == "") return 1; if($numberphone == "") return 1; if($_POST['pw1'] == "") return 1; if($_POST['pw2'] == "") return 1;
     if($_POST['pw1'] != $_POST['pw2']) return 1;
 
     $sql = "SELECT cus_username, cus_email, cus_contact FROM customers WHERE cus_username = '".$username."' OR cus_email = '".$email."' OR cus_contact = '".$numberphone."'";
