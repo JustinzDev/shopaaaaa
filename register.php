@@ -47,6 +47,7 @@
                         <h5>สมัครสมาชิก</h5>
                         <input type="text" name="uname" pattern="[A-z0-9]{1,24}" placeholder="ชื่อผู้ใช้" require><br>
                         <input id="password1" type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
+                        <h6 style="font-size: 11px">ใช้อักขระ 8 ตัวขึ้นไปที่มีทั้งตัวอักษรพิมพ์เล็ก-พิมพ์ใหญ่ และตัวเลขผสมกัน</h6>
                         <input id="password2" type="password" name="pw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="ยืนยัน-รหัสผ่าน" require> <br>
                         <span id='message'></span>
                         <input type="email" name="uemail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email" require><br>
