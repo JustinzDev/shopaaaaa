@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2021 at 07:53 PM
+-- Generation Time: Sep 21, 2021 at 01:41 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -69,8 +69,16 @@ CREATE TABLE `customers` (
   `cus_password` varchar(128) DEFAULT NULL,
   `cus_email` varchar(64) DEFAULT NULL,
   `cus_address` varchar(64) DEFAULT NULL,
-  `cus_contact` int(20) NOT NULL DEFAULT 0
+  `cus_contact` varchar(10) DEFAULT NULL,
+  `cus_birthday` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=tis620;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`cus_id`, `cus_username`, `cus_password`, `cus_email`, `cus_address`, `cus_contact`, `cus_birthday`) VALUES
+(1, 'JustinzDev', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'fullyz1532@gmail.com', NULL, '0616450118', NULL);
 
 -- --------------------------------------------------------
 
@@ -142,7 +150,10 @@ ALTER TABLE `categories`
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`cus_id`);
+  ADD PRIMARY KEY (`cus_id`),
+  ADD UNIQUE KEY `cus_email` (`cus_email`),
+  ADD UNIQUE KEY `cus_contact` (`cus_contact`),
+  ADD UNIQUE KEY `cus_username` (`cus_username`);
 
 --
 -- Indexes for table `invoices`
@@ -162,7 +173,9 @@ ALTER TABLE `products`
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  ADD PRIMARY KEY (`sup_id`);
+  ADD PRIMARY KEY (`sup_id`),
+  ADD UNIQUE KEY `sup_username` (`sup_username`),
+  ADD UNIQUE KEY `sup_email` (`sup_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -190,7 +203,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cus_id` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `cus_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `invoices`
@@ -218,20 +231,20 @@ ALTER TABLE `suppliers`
 -- Constraints for table `carts`
 --
 ALTER TABLE `carts`
-  ADD CONSTRAINT `foreign key cus_id` FOREIGN KEY (`cus_id`) REFERENCES `customers` (`cus_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `foreign key product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `foreign key cus_id` FOREIGN KEY (`cus_id`) REFERENCES `customers` (`cus_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `foreign key product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD CONSTRAINT `foreign key item_id` FOREIGN KEY (`item_id`) REFERENCES `carts` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `foreign key item_id` FOREIGN KEY (`item_id`) REFERENCES `carts` (`item_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `foreign key sup_id` FOREIGN KEY (`sup_id`) REFERENCES `suppliers` (`sup_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `foreign key sup_id` FOREIGN KEY (`sup_id`) REFERENCES `suppliers` (`sup_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

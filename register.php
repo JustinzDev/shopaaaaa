@@ -30,6 +30,7 @@
             border: 1px solid #FF938C;
         }
     </style>
+
 </head>
 <body>
     <header>    
@@ -55,13 +56,20 @@
                 <div class="rightbody">
                     <form action="api/checkregister" method="POST" id="register1">
                         <h5>สมัครสมาชิก</h5>
-                        <input type="text" name="uname" pattern="[A-z0-9]{1,24}" placeholder="ชื่อผู้ใช้" require><br>
+                        <label for="uname">ชื่อผู้ใช้</label>
+                        <input id="uname" type="text" name="uname" pattern="^[A-z0-9]+$" placeholder="ชื่อผู้ใช้" require><br>
+                        <label for="pw1">รหัสผ่าน</label>
                         <input id="password1" type="password" name="pw1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="รหัสผ่าน" require> <br>
-                        <h6 style="font-size: 11px">ใช้อักขระ 8 ตัวขึ้นไปที่มีทั้งตัวอักษรพิมพ์เล็ก-พิมพ์ใหญ่ และตัวเลขผสมกัน</h6>
+                        <h6 style="font-size: 11px">* ใช้อักขระ 8 ตัวขึ้นไปที่มีทั้งตัวอักษรพิมพ์เล็ก-พิมพ์ใหญ่ และตัวเลขผสมกัน</h6>
+                        <label for="pw2">ยืนยัน-รหัสผ่าน</label>
                         <input id="password2" type="password" name="pw2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" placeholder="ยืนยัน-รหัสผ่าน" require> <br>
-                        <span id='message'></span>
-                        <input type="email" name="uemail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email" require><br>
-                        <input type="tel" name="telphone" placeholder="เบอร์โทรศัพท์มือถือ" pattern="(08|09|06)[0-9]{8}" minlength="1" maxlength="10" require><br>
+                        <span id='message'></span><br>
+                        <label for="uemail">Email</label>
+                        <input id="uemail" type="email" name="uemail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email" require><br>
+                        <label for="telphone">เบอร์โทรศัพท์</label>
+                        <input id="telphone" type="tel" name="telphone" placeholder="เบอร์โทรศัพท์มือถือ" pattern="(08|09|06)[0-9]{8}" minlength="1" maxlength="10" require><br>
+                        <label for="telphone">วัน/เดือน/ปี ที่เกิด</label>
+                        <input type="date" id="birthday" name="birthday" value="<?php echo date('Y-m-d'); ?>" require onchange="handler(event);"><br>
                         <button id="register2" type="submit">สมัครสมาชิก</button><br>
                         <a href="index" style="float: right; font-size: 12px; margin-top: 3px;">กลับหน้าหลัก</a><br>
                     </form>
@@ -161,10 +169,55 @@
     </footer>
 </body>
 <script>
-    $(document).ready(function()
-    {
-        $("#register2").click(function(e)
-        {
+
+    if(uname.value == "" || password1 == "" || password2 == "" || uemail == "" || telphone == ""){
+        document.getElementById("register2").style.background="#C8C8C8";
+        document.getElementById("register2").disabled = true;
+    }
+
+    $('#uname, #password1, #password2, #uemail, #telphone, #birthday').on('change', function () {
+        var uname = document.getElementById("uname"), reuname = uname.pattern;
+        var password1 = document.getElementById("password1"), repassword1 = password1.pattern;
+        var password2 = document.getElementById("password2"), repassword2 = password2.pattern;
+        var uemail = document.getElementById("uemail"), reuemail = uemail.pattern;
+        var telphone = document.getElementById("telphone"), retelphone = telphone.pattern;
+
+        var patternuname = new RegExp(reuname);
+        var resultuname = patternuname.test(uname.value);
+
+        var patternpassword1 = new RegExp(repassword1);
+        var resultpassword1 = patternpassword1.test(password1.value);
+
+        var patternpassword2 = new RegExp(repassword2);
+        var resultpassword2 = patternpassword2.test(password2.value);
+
+        var patternuemail = new RegExp(reuemail);
+        var resultuemail = patternuemail.test(uemail.value);
+
+        var patterntelphone = new RegExp(retelphone);
+        var resulttelphone = patterntelphone.test(telphone.value);
+
+        var patterntelphone = new RegExp(retelphone);
+        var resulttelphone = patterntelphone.test(telphone.value);
+
+        var birthday = document.getElementById("birthday").value;
+        const formatYmd = date => date.toISOString().slice(0, 10);
+        var date = formatYmd(new Date());
+
+        //==== [ เงื่อนไขไม่ถูกต้อง ปิดการใช้งานปุ่ม Submit ] ====//
+        if (!resultuname || !resultpassword1 || !resultpassword2 || !resultuemail || !resulttelphone || password1.value != password2.value || date == birthday) {
+            document.getElementById("register2").style.background="#C8C8C8";
+            document.getElementById("register2").disabled = true;
+        }
+        //==== [ เงื่อนไขถูกต้อง เปิดการใช้งานปุ่ม Submit ] ====//
+        else if(resultuname && resultpassword1 && resultpassword2 && resultuemail && resulttelphone && date != birthday){
+            document.getElementById("register2").style.background="#f5552d";
+            document.getElementById("register2").disabled = false;
+        }
+    });
+
+    $(document).ready(function(){
+        $("#register2").click(function(e){
             e.preventDefault();
             $.ajax(
             {
@@ -207,16 +260,17 @@
                     }
                 }
             });
-
         });
     });
   </script>
 <script>
         $('#password1, #password2').on('keyup', function () {
-        if ($('#password1').val() == $('#password2').val()) {
-            $('#message').html('').css('color', 'green');
-        } else 
-            $('#message').html('รหัสผ่านทั้งสองไม่ตรงกัน!!').css('color', 'red');
-        });
+            if ($('#password1').val() == $('#password2').val()) {
+                $('#message').html('').css('color', 'green');
+            } else 
+                $('#message').html('รหัสผ่านทั้งสองไม่ตรงกัน!!').css('color', 'red');
+            }
+            
+        );
 </script>
 </html>
