@@ -2,6 +2,7 @@
     session_start();
     include('mysql_connection/my_connection.php');
     error_reporting(0);
+    include('api/setlink.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $link2;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header>    
@@ -37,9 +38,9 @@
                         <a class="alogin right" href="login">เข้าสู่ระบบ</a>
                     <?php } else { ?>
                         <div class="dropdown">
-                            <span class="dropbtn"><img src="http://103.91.207.202/projectdata/assets/img/avatar.png"> <?php echo $_SESSION['Uall_username']; ?></span>
+                            <span class="dropbtn"><img src="<?php echo $link2;?>assets/img/avatar.png"> <?php echo $_SESSION['Uall_username']; ?></span>
                             <div class="dropdown-content">
-                                <a href="http://103.91.207.202/projectdata/user/account/profile">บัญชีของฉัน</a>
+                                <a href="<?php echo $link2;?>user/account/profile">บัญชีของฉัน</a>
                                 <a href="#">การซื้อของฉัน</a>
                                 <a href="#" onclick="clickonme();">ออกจากระบบ</a>
                             </div>
@@ -48,7 +49,7 @@
                 </div>
             </div>
             <div class="navbar-warpperdown">
-                <img src="http://103.91.207.202/projectdata/assets/img/logo.png" onclick="gotoindex()">
+                <img src="<?php echo $link2;?>assets/img/logo.png" onclick="gotoindex()">
                 <input type="text" placeholder=" ค้นหาสินค้าและร้านค้า" name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
                 <i class="fas fa-shopping-cart cart"></i>
@@ -70,7 +71,7 @@
 <script>
 
 function gotoindex(){
-    window.location = "http://103.91.207.202/projectdata/";
+    window.location = "<?php echo $link2;?>";
 }
 
 function clickonme(){

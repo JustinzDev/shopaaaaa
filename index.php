@@ -2,6 +2,7 @@
     session_start();
     include('mysql_connection/my_connection.php');
     error_reporting(0);
+    include('api/setlink.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $link2;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
@@ -153,10 +154,10 @@ function clickonme(){
         showButtonCancel: true,
     }, function(isConfirm) {
             if(isConfirm){
-                window.location = "logout";
+                window.location = "<?php echo $link2;?>logout";
             }
             if(isCancel){
-                window.location = "logout";
+                window.location = "<?php echo $link2;?>logout";
             }
     });
 }

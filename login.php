@@ -3,6 +3,8 @@
     include('mysql_connection/my_connection.php');
     error_reporting(0);
 
+    include('api/setlink.php');
+
     if($_SESSION['Uall_id'] != ""){
 		echo "<script>window.location='index';</script>";
     }
@@ -169,10 +171,10 @@
                             showButtonCancel: true,
                         }, function(isConfirm) {
                                 if(isConfirm){
-                                    window.location = "index";
+                                    window.location = "<?php echo $link2;?>";
                                 }
                                 if(isCancel){
-                                    window.location = "index";
+                                    window.location = "<?php echo $link2;?>";
                                 }
                         });
                     }
@@ -185,10 +187,10 @@
                             showButtonCancel: true,
                         }, function(isConfirm) {
                                 if(isConfirm){
-                                    window.location = "login";
+                                    window.location = "<?php echo $link2;?>login";
                                 }
                                 if(isCancel){
-                                    window.location = "login";
+                                    window.location = "<?php echo $link2;?>login";
                                 }
                         });
                     }
