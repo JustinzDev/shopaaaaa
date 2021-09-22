@@ -18,7 +18,6 @@
     <link href="assets/css/login.css?v=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
@@ -69,7 +68,7 @@
                         <label for="telphone">เบอร์โทรศัพท์</label>
                         <input id="telphone" type="tel" name="telphone" placeholder="เบอร์โทรศัพท์มือถือ" pattern="(08|09|06)[0-9]{8}" minlength="1" maxlength="10" require><br>
                         <label for="telphone">วัน/เดือน/ปี ที่เกิด</label>
-                        <input type="date" id="birthday" name="birthday" value="<?php echo date('Y-m-d'); ?>" require onchange="handler(event);"><br>
+                        <input type="date" id="birthday" name="birthday" value="<?php echo date('Y-m-d'); ?>" require><br>
                         <button id="register2" type="submit">สมัครสมาชิก</button><br>
                         <a href="index" style="float: right; font-size: 12px; margin-top: 3px;">กลับหน้าหลัก</a><br>
                     </form>

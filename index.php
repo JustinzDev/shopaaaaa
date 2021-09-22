@@ -13,66 +13,12 @@
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
     <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 </head>
 <body>
-    <header>    
-        <div class="navbartop">
-            <div class="navbar-warpper">
-                <div class="navbar-warpperleft">
-                    <a class="anormal" href="#">Seller Centre</a>
-                    <a class="anormal" href="#">ขายสินค้ากับช้อปปี้</a>
-                    <a class="anormal"href="#">ดาวน์โหลด</a>
-                    <a class="aspec" href="#">ติดต่อเราบน</a>
-                    <a class="iconapp" href="#"><i class="fab fa-facebook"></i></a>
-                    <a class="iconapp" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="iconapp" href="#"><i class="fab fa-line"></i></a>
-                </div>
-
-                <div class="navbar-warpperright">
-                    <a class="iconapp" href="#"><i class="far fa-bell"></i></a>
-                    <a class="aspec right" href="#">การแจ้งเตือน</a>
-                    <a class="iconapp" href="#"><i class="far fa-question-circle"></i></a>
-                    <a class="aspec right" href="#">ช่วยเหลือ</a>
-                    <?php if($_SESSION['Uall_id'] == ""){ ?>
-                        <a class="aspec right" href="register">สมัครใหม่</a>
-                        <a class="alogin right" href="login">เข้าสู่ระบบ</a>
-                    <?php } else { ?>
-                        <div class="dropdown">
-                            <span class="dropbtn"><?php echo $_SESSION['Uall_username']; ?></span>
-                            <div class="dropdown-content">
-                                <a href="#">บัญชีของฉัน</a>
-                                <a href="#">การซื้อของฉัน</a>
-                                <a href="#" onclick="clickonme();">ออกจากระบบ</a>
-                            </div>
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="navbar-warpperdown">
-                <img src="assets/img/logo.png">
-                <input type="text" placeholder=" ค้นหาสินค้าและร้านค้า" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                <i class="fas fa-shopping-cart cart"></i>
-            </div>
-            
-            <div class="navbar-warpperdowntoo">
-                <a href="#">ผักอบกรอบ</a>
-                <a href="#">ชุดนอน</a>
-                <a href="#">รองเท้าแตะผู้หญิง</a>
-                <a href="#">แมส</a>
-                <a href="#">กางเกงขาสั้น</a>
-                <a href="#">เสื้อยืด</a>
-                <a href="#">เสื้อครอป</a>
-                <a href="#">ชั้นวางของ</a>
-            </div>
-        </div>
-    </header>
+    <?php include('navbar.php');?>
     <div id="main">
         <div clsss="contain">
             <div class="body1">
@@ -198,6 +144,7 @@
     </div>  
 </body>
 <script>
+
 function clickonme(){
     swal({
         title: "ออกจากระบบ",
