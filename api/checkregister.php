@@ -15,8 +15,7 @@
         echo json_encode(array('status'=> 0,'message'=> 'Fail'));
     }
     else{
-
-        $register = "INSERT INTO customers (cus_username, cus_password, cus_email, cus_contact, cus_birthday)
+        $register = "INSERT INTO customers (cus_username, cus_password, cus_email, cus_contact, cus_birthday) 
         VALUES ('".$username."', '".strtoupper(hash("whirlpool", $_POST['pw1']))."', '".$email."', '".$numberphone."', '".$date."')";
         $query = mysqli_query($conn, $register);
 

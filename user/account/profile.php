@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 <body style="background-color: #f1f1f1;">
     <?php include('../../navbar.php');?>
@@ -29,7 +33,7 @@
                 <div class="navbar-left">
                     แก้ไขโปรไฟล์
                 </div>
-                <form action="<?php echo $mylocalhost?>api/updateprofile" method="POST" enctype="multipart/form-data">
+                <form action="../../api/updateprofile" method="POST" id="update1" enctype="multipart/form-data">
                     <div class="navbar-right">
                         <div class="headinfo">
                             <h5 class="textmyprofile">ข้อมูลของฉัน</h5>
@@ -42,7 +46,11 @@
                             </div>
                             <div class="myname">
                                 <label>ชื่อ</label>
-                                <div class="nameinput"><input type="text"></div>
+                                <?php if($_SESSION['Uall_nameuser'] != ""){?>
+                                    <div class="nameinfo"><?php echo $_SESSION['Uall_nameuser'];?> <a href="#" style="font-size: 12px;">เปลี่ยน</a></div> 
+                                <?php }else{?>
+                                    <div class="nameinput"><input type="text" name="nameuser"></div>
+                                <?php }?>
                             </div>
                             <div class="myemail">
                                 <label>Email</label>
@@ -54,43 +62,39 @@
                             </div>
                             <div class="mygender">
                                 <label class="genderhead">เพศ</label>
-                                <div class="genderinput"><input type="radio" name="gender" id="male" value="male"> <label for="male">ชาย</label> <input type="radio" name="gender" id="female" value="female"> <label for="female">หญิง</label> <input type="radio" name="gender" id="other" value="other"> <label for="other">อื่นๆ</label></div>
+                                <div class="genderinput">
+                                    <?php if($_SESSION['Uall_genderuser'] == "male"){?>
+                                        <input type="radio" name="gender" id="male" value="male" checked> <label for="male">ชาย</label>
+                                    <?php } else{?>
+                                        <input type="radio" name="gender" id="male" value="male"> <label for="male">ชาย</label>
+                                    <?php }?>
+                                    <?php if($_SESSION['Uall_genderuser'] == "female"){?>
+                                        <input type="radio" name="gender" id="female" value="female" checked> <label for="female">หญิง</label>
+                                    <?php } else{?>
+                                        <input type="radio" name="gender" id="female" value="female"> <label for="female">หญิง</label>
+                                    <?php } ?>
+                                    <?php if($_SESSION['Uall_genderuser'] == "other"){?>
+                                        <input type="radio" name="gender" id="other" value="other" checked> <label for="other">อื่นๆ</label>
+                                    <?php } else{?>
+                                        <input type="radio" name="gender" id="other" value="other"> <label for="other">อื่นๆ</label>
+                                    <?php } ?>
+                                </div>
                             </div>
                             <div class="mybirthday">
                                 <label>วัน/เดือน/ปี เกิด</label>
                                 <div class="birthdayselect">
-                                    <select name="date" id="date-select">
-                                        <?php 
-                                            $start_date = 1;
-                                            $end_date   = 31;
-                                            for( $j=$start_date; $j<=$end_date; $j++ ) {
-                                                echo '<option value='.$j.'>'.$j.'</option>';
-                                            }
-                                        ?>
-                                    </select>
-                                    <select name="month" id="month-select">
-                                        <?php for( $m=1; $m<=12; ++$m ) { 
-                                            $month_label = date('F', mktime(0, 0, 0, $m, 1));
-                                            ?>
-                                            <option value="<?php echo $month_label; ?>"><?php echo $month_label; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <select name="year" id="year-select">
-                                        <?php 
-                                            $year = date('Y');
-                                            $min = $year - 60;
-                                            $max = $year;
-                                            for( $i=$max; $i>=$min; $i-- ) {
-                                                echo '<option value='.$i.'>'.$i.'</option>';
-                                            }
-                                        ?>
-                                    </select><br>
+                                    <!--<input name="birthday" type="date"/>-->
+                                    <?php if($_SESSION['Uall_birthday'] == ""){?>
+                                        <input id="inputdate" name="birthday" type="date" data-date="" data-date-format="DD MMMM YYYY" value="1990-01-01">
+                                    <?php } else{?>
+                                        <input id="inputdate" name="birthday" type="date" data-date="" data-date-format="DD MMMM YYYY" value="<?php echo $_SESSION['Uall_birthday'];?>">
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>
                         <div class="inline-right">
                             <div class="profileimg">
-                                <img id="output" class="myimgpic">
+                                <img id="output">
                             </div>
                             <div class="forminputimg">
                                     <div class="pbutton"><button type="button" class="buttonuploadimg">เลือกรูป</button></div>
@@ -102,7 +106,7 @@
                             </div>
                         </div>
                         <div class="buttonsaveprofile">
-                            <button class="buttonsubmit" type="submit" name="submit">บันทึก</button>
+                            <button id="update2" class="buttonsubmit" type="submit" name="submit">บันทึก</button>
                         </div>
                     </div>
                 </form>
@@ -112,40 +116,47 @@
 </body>
 <script>
 
+    var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+    var tester=new Image();
+    tester.onload=function() {
+        document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
+    };
+    tester.onerror=function() { 
+        document.getElementById("output").src = imgUrl + '.jpeg?t=' + new Date().getTime();      
+    };
+    tester.src=imgUrl + '.png';
 
-var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
-var tester=new Image();
-tester.onload=function() {
-  document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
-};
-tester.onerror=function() { 
-  document.getElementById("output").src = imgUrl + '.jpeg?t=' + new Date().getTime();      
-};
-tester.src=imgUrl + '.png';
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
 
-var loadFile = function(event) {
-	var image = document.getElementById('output');
-	image.src = URL.createObjectURL(event.target.files[0]);
-};
+    $("#inputdate").on("change", function() {
+        this.setAttribute(
+            "data-date",
+            moment(this.value, "YYYY-MM-DD")
+            .format( this.getAttribute("data-date-format") )
+        )
+    }).trigger("change")
 
-$('.buttonuploadimg').click(function() {
-  $('#myfilepic').click();
-});
-
-function clickonme(){
-    swal({
-        title: "ออกจากระบบ",
-        text: "คุณออกจากระบบสำเร็จ!",
-        type: "success",
-        showButtonCancel: true,
-    }, function(isConfirm) {
-            if(isConfirm){
-                window.location = "<?php echo $mylocalhost;?>logout";
-            }
-            if(isCancel){
-                window.location = "<?php echo $mylocalhost;?>logout";
-            }
+    $('.buttonuploadimg').click(function() {
+        $('#myfilepic').click();
     });
-}
+
+    function clickonme(){
+        swal({
+            title: "ออกจากระบบ",
+            text: "คุณออกจากระบบสำเร็จ!",
+            type: "success",
+            showButtonCancel: true,
+        }, function(isConfirm) {
+                if(isConfirm){
+                    window.location = "<?php echo $mylocalhost;?>logout";
+                }
+                if(isCancel){
+                    window.location = "<?php echo $mylocalhost;?>logout";
+                }
+        });
+    }
 </script>
 </html>
