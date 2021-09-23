@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $hosting;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
@@ -154,10 +154,10 @@ function clickonme(){
         showButtonCancel: true,
     }, function(isConfirm) {
             if(isConfirm){
-                window.location = "<?php echo $hosting;?>logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
             if(isCancel){
-                window.location = "<?php echo $hosting;?>logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
     });
 }

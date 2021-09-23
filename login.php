@@ -171,10 +171,10 @@
                             showButtonCancel: true,
                         }, function(isConfirm) {
                                 if(isConfirm){
-                                    window.location = "<?php echo $hosting;?>";
+                                    window.location = "<?php echo $mylocalhost;?>";
                                 }
                                 if(isCancel){
-                                    window.location = "<?php echo $hosting;?>";
+                                    window.location = "<?php echo $mylocalhost;?>";
                                 }
                         });
                     }
@@ -187,10 +187,10 @@
                             showButtonCancel: true,
                         }, function(isConfirm) {
                                 if(isConfirm){
-                                    window.location = "<?php echo $hosting;?>login";
+                                    window.location = "<?php echo $mylocalhost;?>login";
                                 }
                                 if(isCancel){
-                                    window.location = "<?php echo $hosting;?>login";
+                                    window.location = "<?php echo $mylocalhost;?>login";
                                 }
                         });
                     }

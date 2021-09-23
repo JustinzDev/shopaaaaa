@@ -11,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
-    <link href="<?php echo $hosting;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $hosting;?>assets/css/profile.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $hosting;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $mylocalhost;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/css/profile.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,7 +29,7 @@
                 <div class="navbar-left">
                     แก้ไขโปรไฟล์
                 </div>
-                <form action="<?php echo $hosting?>api/updateprofile" method="POST" enctype="multipart/form-data">
+                <form action="<?php echo $mylocalhost?>api/updateprofile" method="POST" enctype="multipart/form-data">
                     <div class="navbar-right">
                         <div class="headinfo">
                             <h5 class="textmyprofile">ข้อมูลของฉัน</h5>
@@ -113,7 +113,7 @@
 <script>
 
 
-var imgUrl = "<?php echo $hosting;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
 var tester=new Image();
 tester.onload=function() {
   document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -140,10 +140,10 @@ function clickonme(){
         showButtonCancel: true,
     }, function(isConfirm) {
             if(isConfirm){
-                window.location = "<?php echo $hosting;?>logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
             if(isCancel){
-                window.location = "<?php echo $hosting;?>logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
     });
 }

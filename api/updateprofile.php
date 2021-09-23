@@ -39,7 +39,7 @@
     } else {
         if (move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file)) {
             echo "". htmlspecialchars(basename($target_file)). " อัพโหลดไฟล์เสร็จสิ้น";
-            header("location:$hosting/user/account/profile");
+            header("location:$mylocalhost/user/account/profile");
         } else {
           echo "เกิดข้อผิดพลาด, ไม่สามารถอัพโหลดไฟล์ได้";
         }
