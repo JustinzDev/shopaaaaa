@@ -380,3 +380,57 @@ body, html {
 .show{
     display: block;
 }
+
+@media screen and (max-width: 1368px) {
+    .navbar-left{
+        height: 100%;
+    }
+
+    .navbar-left .ontop{
+        display: none;
+    }
+
+    .ondown{
+        margin-left: -100px;
+        display: list-item;
+        list-style: none;
+    }
+
+    .navbar-right{
+        display: block;
+        margin: auto;
+    }
+
+    .inline-left label{
+        margin-left: -50px;
+        width: 100%;
+    }
+
+    .nameinfo{
+        padding: 10px;
+        width: 100%;
+        margin-top: -8px;
+    }
+
+    .inline-left input{
+        width: 350%;
+        margin-left: -20px;
+        display: block;
+    }
+
+    .genderinput input{
+        display: block;
+        margin-left: 0px;
+        min-width: 18px;
+    }
+
+    .genderinput label{
+        margin-left: -30px;
+    }
+
+    .birthdayselect input{
+        width: 200%;
+        display: block;
+        margin-left: 10px;
+    }
+}
