@@ -19,6 +19,15 @@ body, html {
     text-align: center;
 }
 
+.profileimg{
+    height: 100px;
+    width: 100px;
+    margin: 1.25rem 0;
+    position: relative;
+    margin: auto;
+    margin-top: 40px;
+}
+
 .myimgpic{
     width: 100%;
     height: 100%;
@@ -256,15 +265,6 @@ body, html {
     max-width: 220px;
     border:none;
     margin-top: 30px;
-}
-
-.profileimg{
-    height: 6.25rem;
-    width: 6.25rem;
-    margin: 1.25rem 0;
-    position: relative;
-    margin: auto;
-    margin-top: 40px;
 }
 
 .forminputimg input{
