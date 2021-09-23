@@ -10,7 +10,6 @@
     }
 
     $target_file = "";
-
     $target_dir = "../assets/img/users/";
     //$target_file = $target_dir . basename($_FILES["myfilepic"]["name"]);
     $type = $_FILES["myfilepic"]["type"];
