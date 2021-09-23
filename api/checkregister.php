@@ -20,6 +20,8 @@
         VALUES ('".$username."', '".strtoupper(hash("whirlpool", $_POST['pw1']))."', '".$email."', '".$numberphone."', '".$date."')";
         $query = mysqli_query($conn, $register);
 
+        $img = copy('../assets/img/users/avatar.png', '../assets/img/users/'.$username.'.png');
+
         $message = "คุณได้สมัครสมาชิกด้วย ".$username." เรียบร้อยแล้ว";
         echo json_encode(array('status'=> 1,'message'=> ''.$message.''));
     }  

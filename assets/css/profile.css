@@ -14,16 +14,49 @@ body, html {
 }
 
 .navbar-left{
-    width: 10%;
+    width: 15%;
+    margin-left: 100px;
+    text-align: center;
+}
+
+.myimgpic{
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
 .navbar-right{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: white;
-    padding: 20px 30px;
-    width: 50%;
+    padding: 20px 30px 60px 30px;
+    width: 85%;
 }
 
-.navbar-right h6{
+.inline-right{
+    width: 17.5rem;
+    overflow: hidden;
+    border-left: .0625rem solid #efefef;
+    margin-top: 30px;
+}
+
+.inline-left{
+    width: 65%;
+    margin-left: 20px;
+}
+
+.headinfo{
+    width: 100%;
+    border-bottom: .0625rem solid #efefef;
+    padding-bottom: 15px;
+}
+
+.textmyprofile{
     margin: 0;
     font-size: 1.125rem;
     font-weight: 500;
@@ -32,15 +65,11 @@ body, html {
     color: #333;
 }
 
-.navbar-right .mycaption{
+.textinfomyprofile{
+    margin-top: .1875rem;
     font-size: .875rem;
     line-height: 1.0625rem;
     color: #555;
-}
-
-.headinfo{
-    border-bottom: .0625rem solid #efefef;
-    padding-bottom: 20px;
 }
 
 .nameinfo{
@@ -58,6 +87,7 @@ body, html {
 
 .myusername label{
     width: 20%;
+    padding: 0px 10px;
     text-align: right;
     color: rgba(85,85,85,.8);
     text-transform: capitalize;
@@ -72,6 +102,7 @@ body, html {
 
 .myname label{
     width: 20%;
+    padding: 0px 10px;
     text-align: right;
     color: rgba(85,85,85,.8);
     text-transform: capitalize;
@@ -104,6 +135,7 @@ body, html {
 .myemail label{
     width: 20%;
     text-align: right;
+    padding: 0px 10px;
     color: rgba(85,85,85,.8);
     text-transform: capitalize;
     overflow: hidden;
@@ -122,7 +154,9 @@ body, html {
 }
 
 .mytelphone label{
-    width: 20%;
+    width: 50%;
+    margin-left: -130px;
+    padding: 0px 10px 0px 0px;
     text-align: right;
     color: rgba(85,85,85,.8);
     text-transform: capitalize;
@@ -186,7 +220,8 @@ body, html {
 }
 
 .mybirthday label{
-    width: 20%;
+    width: 50%;
+    margin-left: -140px;
     text-align: right;
     color: rgba(85,85,85,.8);
     text-transform: capitalize;
@@ -200,10 +235,16 @@ body, html {
 
 .birthdayselect select{
     border: 1px solid rgba(0,0,0,.09);
-    width: 15%;
+    width: 30%;
     padding: 5px 10px;
     margin-top: -20px;
     margin-right: 10px;
+}
+
+.buttonsaveprofile{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .buttonsubmit{
@@ -215,4 +256,50 @@ body, html {
     max-width: 220px;
     border:none;
     margin-top: 30px;
+}
+
+.profileimg{
+    height: 6.25rem;
+    width: 6.25rem;
+    margin: 1.25rem 0;
+    position: relative;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.forminputimg input{
+    margin-left: 40px;
+}
+
+#myfilepic{
+    display: none;
+}
+
+.pbutton{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.buttonuploadimg{
+    background: #fff;
+    color: #555;
+    border: 1px solid rgba(0,0,0,.09);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+    padding: 8px 20px;
+}
+
+.infoimg{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.infoimg span{
+    color: #999;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    width: 100%;
 }

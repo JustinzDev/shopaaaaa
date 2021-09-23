@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $link2;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $hosting;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header>    
@@ -38,9 +38,12 @@
                         <a class="alogin right" href="login">เข้าสู่ระบบ</a>
                     <?php } else { ?>
                         <div class="dropdown">
-                            <span class="dropbtn"><img src="<?php echo $link2;?>assets/img/avatar.png"> <?php echo $_SESSION['Uall_username']; ?></span>
+                            <span class="dropbtn">
+                                <div class="divpicprofile"><img id="mypicprofile"></div>
+                                <?php echo $_SESSION['Uall_username']; ?>
+                            </span>
                             <div class="dropdown-content">
-                                <a href="<?php echo $link2;?>user/account/profile">บัญชีของฉัน</a>
+                                <a href="<?php echo $hosting;?>user/account/profile">บัญชีของฉัน</a>
                                 <a href="#">การซื้อของฉัน</a>
                                 <a href="#" onclick="clickonme();">ออกจากระบบ</a>
                             </div>
@@ -49,7 +52,7 @@
                 </div>
             </div>
             <div class="navbar-warpperdown">
-                <img src="<?php echo $link2;?>assets/img/logo.png" onclick="gotoindex()">
+                <img src="<?php echo $hosting;?>assets/img/logo.png" onclick="gotoindex()">
                 <input type="text" placeholder=" ค้นหาสินค้าและร้านค้า" name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
                 <i class="fas fa-shopping-cart cart"></i>
@@ -70,8 +73,18 @@
 </body>
 <script>
 
+var imgUrl = "<?php echo $hosting;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+var tester=new Image();
+tester.onload=function() {
+  document.getElementById("mypicprofile").src = imgUrl + '.png?t=' + new Date().getTime();
+};
+tester.onerror=function() { 
+  document.getElementById("mypicprofile").src = imgUrl + '.jpeg?t=' + new Date().getTime();      
+};
+tester.src=imgUrl + '.png';
+
 function gotoindex(){
-    window.location = "<?php echo $link2;?>";
+    window.location = "<?php echo $hosting;?>";
 }
 
 function clickonme(){
