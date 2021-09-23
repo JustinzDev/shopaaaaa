@@ -4,6 +4,12 @@
     include('./setlink.php');
     error_reporting(0);
     
+    echo '
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    ';
+
     if($_SESSION['Uall_id'] == ""){
 		echo "<script>window.location='index';</script>";
         return;
@@ -11,15 +17,31 @@
 
     $target_file = "";
     $target_dir = "../assets/img/users/";
-    //$target_file = $target_dir . basename($_FILES["myfilepic"]["name"]);
     $type = $_FILES["myfilepic"]["type"];
 
     if ($_FILES["myfilepic"]["size"] > 1000000) {
-        $uploadOk = 0;
-        $message = "ขนาดไฟล์รูปใหญ่เกิน 1 MB !!";
-        echo "<script>alert('$message')</script>";
+
         $newlink = $mylocalhost."user/account/profile";
-        echo "<script>window.location='$newlink';</script>";
+        echo '
+            <script>
+                setTimeout(function(){
+                    swal({
+                        title: "เกิดข้อผิดพลาด",
+                        text: "ขนาดไฟล์ภาพเกิน 1 MB!!",
+                        type: "error",
+                        showButtonCancel: true,
+                    }, function(isConfirm){
+                        if(isConfirm) window.location = "'.$newlink.'";
+                        if(isCancel) window.location = "'.$newlink.'";
+                    });
+                }, 300);
+            </script>
+            ';
+
+        //$message = "ขนาดไฟล์รูปใหญ่เกิน 1 MB !!";
+        //echo "<script>alert('$message')</script>";
+        //$newlink = $mylocalhost."user/account/profile";
+        //echo "<script>window.location='$newlink';</script>";
         exit();
     }
 
@@ -31,21 +53,6 @@
         unlink($target_dir . $_SESSION['Uall_username'].".png");
         $target_file = $target_dir . $_SESSION['Uall_username'].".jpeg";
     }
-    $uploadOk = 1;
-
-    if($target_file != ""){
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    }
-    
-    if($target_file != ""){
-        $check = getimagesize($_FILES["myfilepic"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
-            $uploadOk = 0;
-        }
-    }
-
     $checkimage = false;
     $checkupdatename = false;
     $checkupdategender = false;
@@ -84,16 +91,26 @@
     
     if($checkimage || $checkupdatename || $checkupdategender || $checkupdatebirthday){
 
-        if($uploadOk == 1){
-            move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file);
-        }
-
-        $_SESSION['GetSuccessEditProfile'] = true;
-
-        $message = "คุณได้อัพเดทโปรไฟล์เรียบร้อยแล้ว !!";
-        echo "<script>alert('$message')</script>";
+        if($target_file != "") move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file);
         $newlink = $mylocalhost."user/account/profile";
-        echo "<script>window.location='$newlink';</script>";
+        echo '
+            <script>
+                setTimeout(function(){
+                    swal({
+                        title: "สำเร็จ",
+                        text: "คุณได้อัพเดทโปรไฟล์สำเร็จแล้ว!!",
+                        type: "success",
+                        showButtonCancel: true,
+                    }, function(isConfirm){
+                        if(isConfirm) window.location = "'.$newlink.'";
+                        if(isCancel) window.location = "'.$newlink.'";
+                    });
+                }, 300);
+            </script>
+            ';
+
+        //echo "<script>alert('$message')</script>";
+        //echo "<script>window.location='$newlink';</script>";
         //header("location:$newlink");
     }
 

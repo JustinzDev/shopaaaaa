@@ -14,9 +14,46 @@ body, html {
 }
 
 .navbar-left{
-    width: 15%;
-    margin-left: 100px;
-    text-align: center;
+    width: 12%;
+    margin-left: 120px;
+}
+
+.navbar-left .ontop{
+    width: 65%;
+    height: 20%;
+    display: flex;
+    border-bottom: 1px solid #cecece;
+}
+
+.navbar-left .ondown{
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.navbar-left .ondown span{
+    cursor: pointer;
+    transition: color .1s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    padding: 5px 0px;
+}
+
+.navbar-left .ondown span:hover{
+    color: #ee4d2d;
+}
+
+.navbar-left h6{
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.myaccounts i, .mybuying i, .notify i, .codeseller i, .shopcoin i{
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.history, .bank_card, .address, .changepass{
+    margin-left: 35px;
 }
 
 .profileimg {
@@ -287,6 +324,14 @@ body, html {
     width: 15%;
 }
 
+.buttonsaveprofile button:hover{
+    background: #f87257;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
 .forminputimg input{
     margin-left: 40px;
 }
@@ -298,6 +343,10 @@ body, html {
 .pbutton{
     margin-top: 10px;
     text-align: center;
+}
+
+.pbutton button:hover{
+    background-color: #efefef;
 }
 
 .buttonuploadimg{
@@ -322,4 +371,12 @@ body, html {
     font-size: .875rem;
     line-height: 1.25rem;
     width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
 }

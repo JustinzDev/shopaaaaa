@@ -31,7 +31,23 @@
         <div clsss="contain">
             <div class="body1">
                 <div class="navbar-left">
-                    แก้ไขโปรไฟล์
+                    <div class="ontop">
+                        <div class="profileimg" style="width:60px; height:60px;">
+                            <img id="output2">
+                        </div>
+                        <h6><?php echo $_SESSION['Uall_username'];?> <br>ข้อมูลส่วนตัว</h6>
+                    </div>
+                    <div class="ondown">
+                        <span class="myaccounts"><i style="color:#008FFF;" class="fas fa-user-alt"></i> บัญชีของฉัน</span>
+                        <span class="history">ประวัติส่วนตัว</span>
+                        <span class="bank_card">บัญชีธนาคาร&บัตร</span>
+                        <span class="address">ที่อยู่</span>
+                        <span class="changepass">เปลี่ยนรหัสผ่าน</span>
+                        <span class="mybuying"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
+                        <span class="notify"><i style="color:#FF7800;" class="fas fa-bell"></i> การแจ้งเตือน</span>
+                        <span class="codeseller"><i style="color:#FF7800;" class="fas fa-archive"></i> โค้ดส่วนลดของฉัน</span>
+                        <span class="shopcoin"><i style="color:#FFBD00;" class="fas fa-coins"></i> Shopee Coins ของฉัน</span>
+                    </div>
                 </div>
                 <form action="../../api/updateprofile" method="POST" id="update1" enctype="multipart/form-data">
                     <div class="navbar-right">
@@ -47,18 +63,19 @@
                             <div class="myname">
                                 <label>ชื่อ</label>
                                 <?php if($_SESSION['Uall_nameuser'] != ""){?>
-                                    <div class="nameinfo"><?php echo $_SESSION['Uall_nameuser'];?> <a href="#" style="font-size: 12px;">เปลี่ยน</a></div> 
+                                    <div class="nameinput hide"><input type="text" name="nameuser" value="<?php echo $_SESSION['Uall_nameuser'];?>"></div>
+                                    <div class="nameinfo" id="nameuser"><?php echo $_SESSION['Uall_nameuser'];?> <a href="#" style="font-size: 12px;" onclick="changename()">เปลี่ยน</a></div> 
                                 <?php }else{?>
                                     <div class="nameinput"><input type="text" name="nameuser"></div>
                                 <?php }?>
                             </div>
                             <div class="myemail">
                                 <label>Email</label>
-                                <div class="emailinput"><?php echo $_SESSION['Uall_email'];?> <a href="#" style="font-size: 12px;">เปลี่ยน</a></div>
+                                <div class="emailinput"><?php echo $_SESSION['Uall_email'];?></div>
                             </div>
                             <div class="mytelphone">
                                 <label>หมายเลขโทรศัพท์</label>
-                                <div class="telphoneinput"><?php echo $_SESSION['Uall_contact'];?> <a href="#" style="font-size: 12px;">เปลี่ยน</a></div>
+                                <div class="telphoneinput"><?php echo $_SESSION['Uall_contact'];?></div>
                             </div>
                             <div class="mygender">
                                 <label class="genderhead">เพศ</label>
@@ -116,19 +133,28 @@
 </body>
 <script>
 
+    function changename(){
+        $(".nameinput").addClass("show");
+        $("#nameuser").addClass("hide");
+    }
+
     var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
     var tester=new Image();
     tester.onload=function() {
         document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
+        document.getElementById("output2").src = imgUrl + '.png?t=' + new Date().getTime();
     };
     tester.onerror=function() { 
-        document.getElementById("output").src = imgUrl + '.jpeg?t=' + new Date().getTime();      
+        document.getElementById("output").src = imgUrl + '.jpeg?t=' + new Date().getTime();    
+        document.getElementById("output2").src = imgUrl + '.jpeg?t=' + new Date().getTime();       
     };
     tester.src=imgUrl + '.png';
 
     var loadFile = function(event) {
         var image = document.getElementById('output');
+        var image2 = document.getElementById('output2');
         image.src = URL.createObjectURL(event.target.files[0]);
+        image2.src = URL.createObjectURL(event.target.files[0]);
     };
 
     $("#inputdate").on("change", function() {

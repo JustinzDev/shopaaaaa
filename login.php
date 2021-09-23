@@ -164,35 +164,39 @@
                 {
                     if(result.status == 1)
                     {
-                        swal({
-                            title: "สำเร็จ!",
-                            text: "คุณเข้าสู่ระบบสำเร็จ!",
-                            type: "success",
-                            showButtonCancel: true,
-                        }, function(isConfirm) {
-                                if(isConfirm){
-                                    window.location = "<?php echo $mylocalhost;?>";
-                                }
-                                if(isCancel){
-                                    window.location = "<?php echo $mylocalhost;?>";
-                                }
-                        });
+                        setTimeout(function(){
+                            swal({
+                                title: "สำเร็จ!",
+                                text: "คุณเข้าสู่ระบบสำเร็จ!",
+                                type: "success",
+                                showButtonCancel: true,
+                            }, function(isConfirm) {
+                                    if(isConfirm){
+                                        window.location = "<?php echo $mylocalhost;?>";
+                                    }
+                                    if(isCancel){
+                                        window.location = "<?php echo $mylocalhost;?>";
+                                    }
+                            });
+                        }, 100);
                     }
                     else if(result.status == 0)
                     {
-                        swal({
-                            title: "ผิดพลาด!",
-                            text: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!",
-                            type: "error",
-                            showButtonCancel: true,
-                        }, function(isConfirm) {
-                                if(isConfirm){
-                                    window.location = "<?php echo $mylocalhost;?>login";
-                                }
-                                if(isCancel){
-                                    window.location = "<?php echo $mylocalhost;?>login";
-                                }
-                        });
+                        setTimeout(function(){
+                            swal({
+                                title: "ผิดพลาด!",
+                                text: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!",
+                                type: "error",
+                                showButtonCancel: true,
+                            }, function(isConfirm) {
+                                    if(isConfirm){
+                                        window.location = "<?php echo $mylocalhost;?>login";
+                                    }
+                                    if(isCancel){
+                                        window.location = "<?php echo $mylocalhost;?>login";
+                                    }
+                            });
+                        }, 100);
                     }
                 }
             });
