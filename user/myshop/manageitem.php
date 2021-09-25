@@ -41,21 +41,19 @@
 			<button id="totalorder">จัดส่งแบบชุด</button>
 		</div>
 	</div>
-	<div class="card-orderitem">
-		<div class="card-itemhead">
-			<h5 class="mainh5">สินค้าทั้งหมด</h5>
-			<h5 class="totalprice-item">ยอดคำสั่งซื้อทั้งหมด</h5>
-			<h5 class="status-item">สถานะ</h5>
-			<h5 class="buy-byitem">สั่งซื้อโดย</h5>
-			<h5 class="typepayment-item">ช่องทางการชำระเงิน</h5>
-			<h5 class="action-item">ดำเนินการ</h5>
-		</div>
-	</div>
 	<div class="card-itemlist">
 		<table class="tableitemlist">
 			<tr>
+				<th>สินค้าทั้งหมด</th>
+				<th>ยอดคำสั่งซื้อทั้งหมด</th>
+				<th>สถานะ</th>
+				<th>สั่งซื้อโดย</th>
+				<th>ช่องทางการชำระเงิน</th>
+				<th>ดำเนินการ</th>
+			</tr>
+			<tr>
 				<td class="itemshow"><img src="<?php echo $mylocalhost;?>assets/img/shop/shop1.jpg"> <a href="#">ชื่อสินค้า</a></td>
-				<td>500</td>
+				<td class="itemprice">10,000</td>
 				<td>ยังไม่ได้ชำระเงิน</td>
 				<td>JustinzDev</td>
 				<td>เก็บปลายทาง</td>

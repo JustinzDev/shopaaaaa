@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 10:54 AM
+-- Generation Time: Sep 25, 2021 at 05:11 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -106,8 +106,10 @@ CREATE TABLE `products` (
   `product_id` int(12) NOT NULL,
   `acc_id` int(12) NOT NULL,
   `product_name` varchar(128) DEFAULT NULL,
+  `product_details` varchar(128) DEFAULT NULL,
   `product_price` double NOT NULL DEFAULT 0,
   `product_countsell` int(12) NOT NULL DEFAULT 0,
+  `product_count` int(12) NOT NULL DEFAULT 0,
   `product_img` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=tis620;
 
@@ -115,13 +117,16 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_price`, `product_countsell`, `product_img`) VALUES
-(1, 1, '[รับประกัน1ปี]เก้าอี้สำนักงาน เก้าอี้ เบาะกว้าง ปรับสูง-ต่ำได้ มี เก้าอี้คอม เก้าอี้เกม เก้าอี้ทำงาน พนักพิงสูงผ้าตาข่าย', 734, 25, 'assets/img/shop/shop1.jpg'),
-(2, 1, 'A150 โต๊ะทำงานไม้ โต๊ะคอมพิวเตอร์ โต๊ะทํางาน พร้อมชั้นวางของ โต๊ะสำนักงาน ขนาด 120*45', 1456, 67, 'assets/img/shop/shop2.jpg'),
-(3, 1, 'เก้าอี้ เก้าอี้ออฟฟิศ เก้าอี้ทำงาน เก้าอี้สำนักงาน ปรับระดับได้ หลังตาข่าย สูง 97 ซม. Office Chair GOC01 ( Black )', 485, 32, 'assets/img/shop/shop3.jpg'),
-(4, 1, 'Kiki. คีย์แคป PBT มีไฟแบ็คไลท์ สำหรับคีย์บอร์ด Mechanical', 199, 44, 'assets/img/shop/shop4.jpg'),
-(5, 1, 'Gaming Desk โต๊ะเกมมิ่ง120cm DJDโต๊ะเล่นเกม โต๊ะคอมพิวเตอร์เกมมิ่ง โต๊ะคอมพิวเตอร์ โต๊ะสำหรับอีสปอร์ต โต๊ะทำงาน table', 1657, 34, 'assets/img/shop/shop5.jpg'),
-(6, 1, 'Jeko โต๊ะเกมมิ่ง 120cm โต๊ะเล่นเกม DJD โต๊ะเล่นเกม โต๊ะคอมพิวเตอร์เกมมิ่ง Ergonomic Gaming Table ส่งจากกรุงเทพ', 1876, 54, 'assets/img/shop/shop6.jpg');
+INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_details`, `product_price`, `product_countsell`, `product_count`, `product_img`) VALUES
+(1, 1, 'เก้าอี้สำนักงาน', '[รับประกัน1ปี]เก้าอี้สำนักงาน เก้าอี้ เบาะกว้าง ปรับสูง-ต่ำได้ มี เก้าอี้คอม เก้าอี้เกม เก้าอี้ทำงาน พนักพิงสูงผ้าตาข่าย', 734, 25, 2, 'assets/img/shop/shop1.jpg'),
+(2, 1, 'โต๊ะไม้', 'A150 โต๊ะทำงานไม้ โต๊ะคอมพิวเตอร์ โต๊ะทํางาน พร้อมชั้นวางของ โต๊ะสำนักงาน ขนาด 120*45', 1456, 67, 4, 'assets/img/shop/shop2.jpg'),
+(3, 1, 'เก้าอี้ทำงาน', 'เก้าอี้ เก้าอี้ออฟฟิศ เก้าอี้ทำงาน เก้าอี้สำนักงาน ปรับระดับได้ หลังตาข่าย สูง 97 ซม. Office Chair GOC01 ( Black )', 485, 32, 6, 'assets/img/shop/shop3.jpg'),
+(4, 1, 'คีย์แคป', 'Kiki. คีย์แคป PBT มีไฟแบ็คไลท์ สำหรับคีย์บอร์ด Mechanical', 199, 44, 1300, 'assets/img/shop/shop4.jpg'),
+(5, 1, 'Gameing Desk', 'Gaming Desk โต๊ะเกมมิ่ง120cm DJDโต๊ะเล่นเกม โต๊ะคอมพิวเตอร์เกมมิ่ง โต๊ะคอมพิวเตอร์ โต๊ะสำหรับอีสปอร์ต โต๊ะทำงาน table', 1657, 34, 23, 'assets/img/shop/shop5.jpg'),
+(6, 1, 'สินค้า 1', 'สินค้า 1', 10000, 0, 34, 'assets/img/shop/shop6.jpg'),
+(7, 1, 'สินค้า 2', 'สินค้า 2', 0, 0, 454, 'assets/img/shop/shop7.png'),
+(8, 1, 'สินค้า 3', 'สินค้า 3', 0, 0, 123, 'assets/img/shop/shop8.png'),
+(9, 1, 'Test', 'Test', 2000, 0, 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -208,7 +213,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

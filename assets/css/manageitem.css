@@ -118,56 +118,6 @@
   width: 50%;
 }
 
-.card-orderitem{
-  padding: 20px;
-}
-
-.card-itemhead{
-    display: flex;
-    padding: 15px 12px;
-    background: #f6f6f6;
-    border-radius: 4px;
-    color: #757575;
-    width: 100%;
-    border: 1px solid #e8e8e8;
-}
-
-.card-itemhead .mainh5{
-  margin-top: 5px;
-  font-size: 15px;
-  margin-right: 25%;
-}
-
-.totalprice-item{
-  margin-top: 5px;
-  font-size: 15px;
-  margin-right: 40px;
-}
-
-.buy-byitem{
-  margin-top: 5px;
-  font-size: 15px;
-  margin-left: 95px;
-}
-
-.typepayment-item{
-  margin-top: 5px;
-  font-size: 15px;
-  margin-left: 55px;
-}
-
-.action-item{
-  margin-top: 5px;
-  font-size: 15px;
-  margin-left: 25px;
-}
-
-.status-item{
-  margin-top: 5px;
-  font-size: 15px;
-  margin-right: 20px;
-}
-
 .card-itemlist{
   padding: 0px 20px;
   margin-bottom: 20px;
@@ -182,6 +132,15 @@
   border: 1px solid #e8e8e8;
 }
 
+.tableitemlist th{
+  border: 1px solid #d8d8d8;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 10px 0px;
+  text-align: center;
+  background-color: rgba(189, 189, 189, 0.4);
+}
+
 .tableitemlist td{
   border: 1px solid #e8e8e8;
   padding: 0px 20px;
@@ -189,6 +148,10 @@
 
 .tableitemlist img{
   width: 70px;
+}
+
+.itemprice{
+  width: 135px;
 }
 
 .itemshow{
