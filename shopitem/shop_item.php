@@ -31,7 +31,7 @@
         <form action="<?php echo $mylocalhost ;?>api/orderlist?itemid=<?php echo $result['product_id']?>" method="POST">
             <div class="bodyproducts">
                 <div class="headlink">
-                    <h6><a href="<?php echo $mylocalhost;?>">Shopa</a> > <?php echo $result['product_name'];?></h6>
+                    <h6><a href="<?php echo $mylocalhost;?>">Shopa</a> > <?php echo $result['product_details'];?></h6>
                 </div>
                 <div class="product_box">
                     <div class="product-left">
