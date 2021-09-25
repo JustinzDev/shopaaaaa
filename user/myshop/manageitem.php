@@ -8,6 +8,17 @@
 		echo "<script>window.location='index';</script>";
         exit();
     }
+
+	$sql = "SELECT * FROM listproducts WHERE seller_id = '".$_SESSION['Uall_id']."'";
+	$query = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+	$loadproduct = "SELECT * FROM products WHERE acc_id = '".$_SESSION['Uall_id']."' AND product_id = '".$result['product_id']."'";
+	$queryproduct = mysqli_query($conn, $loadproduct);
+
+	$myname = "SELECT acc_username FROM accounts WHERE acc_id = '".$result['acc_id']."'";
+	$querynameuser = mysqli_query($conn, $myname);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,15 +61,18 @@
 				<th>สั่งซื้อโดย</th>
 				<th>ช่องทางการชำระเงิน</th>
 				<th>ดำเนินการ</th>
+				
 			</tr>
+			<?php while($rowdata = mysqli_fetch_array($queryproduct)){?>
 			<tr>
-				<td class="itemshow"><img src="<?php echo $mylocalhost;?>assets/img/shop/shop1.jpg"> <a href="#">ชื่อสินค้า</a></td>
+				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="#"><?php echo $rowdata['product_name'];?></a></td>
 				<td class="itemprice">10,000</td>
 				<td>ยังไม่ได้ชำระเงิน</td>
-				<td>JustinzDev</td>
+				<td><?php echo $rowdata['product_name'];?></td>
 				<td>เก็บปลายทาง</td>
 				<td class="itemaction"><a href="#"><button class="confirm">ยอมรับ</button></a> <a href="#"><button class="cancel">ปฏิเสธ</button></a></td>
 			</tr>
+			<?php }?>
 		</table>
 	</div>
 </body>

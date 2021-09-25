@@ -28,7 +28,7 @@
 <body style="background-color: rgba(156, 156, 156, 0.1);">
     <?php include('../navbar.php');?>
     <div clsss="contain">
-        <form action="#" method="POST">
+        <form action="<?php echo $mylocalhost ;?>api/orderlist?itemid=<?php echo $result['product_id']?>" method="POST">
             <div class="bodyproducts">
                 <div class="headlink">
                     <h6><a href="<?php echo $mylocalhost;?>">Shopa</a> > <?php echo $result['product_name'];?></h6>
@@ -50,7 +50,7 @@
                         <div class="select-count-product">
                             <div class="product-selectcount">
                                 <button type="button" id="remove">-</button>
-                                <input type="text" id="countitem" value="1">
+                                <input type="text" id="countitem" name="countitem" value="1">
                                 <button type="button" id="add">+</button>
                             </div>
                             <h6 class="product-countitem">มีสินค้าทั้งหมด <?php echo number_format($result['product_count']);?> ชิ้น</h6>

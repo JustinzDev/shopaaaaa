@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 05:11 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Generation Time: Sep 25, 2021 at 08:38 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,8 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`acc_id`, `acc_username`, `acc_password`, `acc_email`, `acc_address`, `acc_contact`, `acc_birthday`, `acc_name`, `acc_gender`) VALUES
 (1, 'JustinzDev', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'fullyz1532@gmail.com', NULL, '0616450118', '2000-12-01', 'คุณประหยัด ศรีประกันภัย', 'male'),
-(2, 'JustinzDev1532', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'asdasd@gmail.com', NULL, '0932423423', '2021-08-04', 'นสตร.', 'female');
+(2, 'JustinzDev1532', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'asdasd@gmail.com', NULL, '0932423423', '2021-08-04', 'นสตร.', 'female'),
+(3, 'tmagcon', 'C3BB0CE5152AF14C700704FF94EF2C23D1D5E1CCEC3463B2B968B53696DD0F3A8C78C6C4D55693534C18411CBCB326D81F0E5E7B618D05196594BD1D7DEF512A', 'tmagconpt@gmail.com', NULL, '0970405212', '2000-06-03', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,6 +100,27 @@ CREATE TABLE `invoices` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `listproducts`
+--
+
+CREATE TABLE `listproducts` (
+  `list_id` int(12) NOT NULL,
+  `product_id` int(12) NOT NULL,
+  `acc_id` int(12) NOT NULL,
+  `seller_id` int(12) NOT NULL,
+  `list_counto` int(12) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=tis620;
+
+--
+-- Dumping data for table `listproducts`
+--
+
+INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `list_counto`) VALUES
+(14, 4, 3, 1, 21);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -121,7 +143,7 @@ INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_details
 (1, 1, 'เก้าอี้สำนักงาน', '[รับประกัน1ปี]เก้าอี้สำนักงาน เก้าอี้ เบาะกว้าง ปรับสูง-ต่ำได้ มี เก้าอี้คอม เก้าอี้เกม เก้าอี้ทำงาน พนักพิงสูงผ้าตาข่าย', 734, 25, 2, 'assets/img/shop/shop1.jpg'),
 (2, 1, 'โต๊ะไม้', 'A150 โต๊ะทำงานไม้ โต๊ะคอมพิวเตอร์ โต๊ะทํางาน พร้อมชั้นวางของ โต๊ะสำนักงาน ขนาด 120*45', 1456, 67, 4, 'assets/img/shop/shop2.jpg'),
 (3, 1, 'เก้าอี้ทำงาน', 'เก้าอี้ เก้าอี้ออฟฟิศ เก้าอี้ทำงาน เก้าอี้สำนักงาน ปรับระดับได้ หลังตาข่าย สูง 97 ซม. Office Chair GOC01 ( Black )', 485, 32, 6, 'assets/img/shop/shop3.jpg'),
-(4, 1, 'คีย์แคป', 'Kiki. คีย์แคป PBT มีไฟแบ็คไลท์ สำหรับคีย์บอร์ด Mechanical', 199, 44, 1300, 'assets/img/shop/shop4.jpg'),
+(4, 1, 'คีย์แคป', 'Kiki. คีย์แคป PBT มีไฟแบ็คไลท์ สำหรับคีย์บอร์ด Mechanical', 199, 44, 13000, 'assets/img/shop/shop4.jpg'),
 (5, 1, 'Gameing Desk', 'Gaming Desk โต๊ะเกมมิ่ง120cm DJDโต๊ะเล่นเกม โต๊ะคอมพิวเตอร์เกมมิ่ง โต๊ะคอมพิวเตอร์ โต๊ะสำหรับอีสปอร์ต โต๊ะทำงาน table', 1657, 34, 23, 'assets/img/shop/shop5.jpg'),
 (6, 1, 'สินค้า 1', 'สินค้า 1', 10000, 0, 34, 'assets/img/shop/shop6.jpg'),
 (7, 1, 'สินค้า 2', 'สินค้า 2', 0, 0, 454, 'assets/img/shop/shop7.png'),
@@ -169,6 +191,12 @@ ALTER TABLE `invoices`
   ADD KEY `item_id` (`item_id`);
 
 --
+-- Indexes for table `listproducts`
+--
+ALTER TABLE `listproducts`
+  ADD PRIMARY KEY (`list_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -183,7 +211,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `acc_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `acc_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -208,6 +236,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `invoices`
   MODIFY `invoice_no` int(12) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `listproducts`
+--
+ALTER TABLE `listproducts`
+  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products`
