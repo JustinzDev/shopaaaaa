@@ -77,6 +77,9 @@
     $('#add').click(function(){
         var countitem = document.getElementById("countitem").value;
         document.getElementById("countitem").value++;
+        if(document.getElementById("countitem").value > <?php echo number_format($result['product_count']);?>){
+            document.getElementById("countitem").value = <?php echo number_format($result['product_count']);?>;
+        }
     })
 </script>
 </html>
