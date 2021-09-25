@@ -356,8 +356,8 @@ hr{
 
 .shopbodybox{
     width: 15%;
-    height: 100%;
     margin-right: 8px;
+    margin-top: 20px;
     background-color: white;
     transition: transform .2s;
     cursor: pointer;
@@ -378,6 +378,7 @@ hr{
 .shopbodybox .caption{
     font-size: .875rem;
     padding: 10px;
+    height: 110px;
 }
 
 .shopbodybox .topdown{
@@ -400,6 +401,182 @@ hr{
 .shopbodybox:hover{
     border: 1px solid rgb(238, 77, 45);
     transform: scale(1.02);
+}
+
+/* ShopItem */
+
+.bodyproducts{
+    margin-top: 27px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.headlink{
+    width: 100%;
+    margin-left: 22%;
+}
+
+.headlink a:hover{
+    text-decoration: none;
+}
+
+.headlink h6{
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.product_box{
+    padding: 0;
+    margin-top: 1.25rem;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    width: 56%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-left{
+    width: 40%;
+    padding: 15px;
+}
+
+.product-left img{
+    width: 100%;
+}
+
+.product-right{
+    width: 60%;
+    padding: 15px;
+}
+
+.product-right .shopad{
+    background-color: rgb(238, 77, 45);
+    width: 10%;
+    font-size: 12px;
+    text-align: center;
+    padding: 2px;
+    color: white;
+}
+
+.product-right .product-name{
+    font-size: 15px;
+}
+
+.product-details{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-score{
+    color: #767676;
+    font-size: 15px;
+    border-right: 1px solid #767676;
+    padding-right: 10px;
+}
+
+.product-details .countsell{
+    margin-left: 10px;
+    color: #767676;
+    font-size: 15px;
+}
+
+.product-price{
+    margin-top: 10px;
+    background-color: rgba(189, 189, 189, 0.1);
+    padding: 15px;
+}
+
+.product-price h3{
+    color: rgb(238, 77, 45);
+    font-size: 25px;
+}
+
+.select-count-product{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.product-countitem{
+    color: #767676;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.product-selectcount{
+    margin-right: 10px;
+}
+
+.product-selectcount input{
+    width: 60px;
+    margin-left: -4.5px;
+    margin-right: -5px;
+    background-color: white;
+    padding: 2px;
+    border: 1px solid rgba(189, 189, 189, 0.5);
+    text-align: center;
+}
+
+.product-selectcount #remove{
+    background-color: white;
+    width: 30px;
+    padding: 2px;
+
+    border-top: 1px solid rgba(189, 189, 189, 0.5);
+    border-left: 1px solid rgba(189, 189, 189, 0.5);
+    border-bottom: 1px solid rgba(189, 189, 189, 0.5);
+    border-right: none;
+}
+
+.product-selectcount #add{
+    background-color: white;
+    width: 30px;
+    padding: 2px;
+
+    border-top: 1px solid rgba(189, 189, 189, 0.5);
+    border-right: 1px solid rgba(189, 189, 189, 0.5);
+    border-bottom: 1px solid rgba(189, 189, 189, 0.5);
+    border-left: none;
+}
+
+.product-buttonaction{
+    margin-top: 20px;
+}
+
+.product-buttonaction #addcart{
+    background-color: rgb(255, 235, 231);
+    color: rgb(238, 77, 45);
+    border: 1px solid rgb(238, 77, 45);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+    padding: 10px 35px;
+    cursor: pointer;
+}
+
+.product-buttonaction #addcart:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.product-buttonaction #buying{
+    background-color: rgb(238, 77, 45);
+    color: white;
+    padding: 10px 35px;
+    border: 1px solid rgb(238, 77, 45);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.product-buttonaction #buying:hover{
+    background-color: rgb(250, 116, 89);
+}
+
+*:focus {
+    outline: 0 !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -441,6 +618,7 @@ hr{
     .shopbodybox{
         display:block;
         width: 40%;
+        margin-top: 10px;
     }
 
     .slide-show{

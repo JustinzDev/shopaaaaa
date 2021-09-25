@@ -5,8 +5,9 @@
 
     include('../../api/setlink.php');
 
-    if($_SESSION['Uall_id'] != ""){
+    if($_SESSION['Uall_id'] == ""){
 		echo "<script>window.location='index';</script>";
+        exit();
     }
 ?>
 <!DOCTYPE html>
@@ -28,23 +29,11 @@
     <header>    
         <div class="navbartop">
             <div class="logo">
-                <img src="<?php echo $mylocalhost;?>assets/img/logologin.png" alt="">
+                <img src="<?php echo $mylocalhost;?>assets/img/logologin.png">
             </div>
-            <h5>Seller Centre</h5>
-            <div class="help">
-                <ul>
-                    <a href="#">หน้าหลัก</a>
-                    <a href="#">ติดต่อเรา</a>
-                    
-                </ul>
-                
-            </div>
-            
-            
-            
-
+            <h4>Seller Centre</h4>
         </div>
-        
+        <a href="<?php echo $mylocalhost;?>" class="help">หน้าหลัก</a>
     </header>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

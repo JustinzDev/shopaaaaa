@@ -155,11 +155,11 @@
                     while($row = mysqli_fetch_array($result)){
                     ?>
                         <div class="shopbodybox">
-                            <a href="#">   
+                            <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $row['product_id'];?>">   
                                 <img src="<?php echo $row['product_img'];?>">
                                 <h6 class="caption"><?php echo $row['product_name'];?></h6>
                                 <div class="topdown">
-                                    <h6 class="price">฿<?php echo $row['product_price'];?></h6>
+                                    <h6 class="price">฿<?php echo number_format($row['product_price']);?></h6>
                                     <h6 class="countsell">ขายแล้ว <?php echo $row['product_countsell'];?> ชิ้น</h6>
                                 </div>
                             </a>

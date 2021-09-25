@@ -1,10 +1,20 @@
-#nav {
-    border:3px solid #3e4547;
 
-    box-shadow:2px 2px 8px #000000;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
+body, html {
+    font-family: Tahoma,sans-serif;
+    overflow-x: hidden;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(156, 156, 156, 0.1);
+}
+
+
+#nav {
+    position: fixed;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    left: 0;
+    top: 79px;
+    height: 100%;
+    background-color: white;
 }
 #nav, #nav ul {
     list-style:none;
@@ -20,7 +30,7 @@
     z-index:100;
 }
 #nav ul li {
-    margin-top:-23px;
+    margin-top:-25px;
 
     -moz-transition:  0.10s linear 0.10s;
     -ms-transition: 0.10s linear 0.10s;
@@ -29,15 +39,15 @@
     transition: 0.10s linear 0.10s;
 }
 #nav li a {
-    background-color:#d4d5d8;
+    background-color: white;
     color:#000;
     display:block;
-    font-size:16px;
-    font-weight:bold;
+    font-size:14px;
     line-height:80px;
     outline:0;
     padding-left:15px;
     text-decoration:none;
+    color: #999;
 }
 
 #nav li a + img {
@@ -57,39 +67,24 @@
     vertical-align:middle;
     width:24px;
 }
-#nav li a:hover {
-    background-color:orangered;
-}
+
 #nav ul li a {
-    background-color:#eee;
-    border-bottom:1px solid #ccc;
     color:#000;
     font-size:13px;
-    line-height:22px;
+    line-height:20px;
+    margin-left: 20px;
 }
 #nav ul li a:hover {
-    background-color:#ddd;
     color: orangered;
 }
 
-#nav a.sub:focus {
-    background:#bcbdc1;
-    outline:0;
-}
 #nav a:focus ~ ul li {
     margin-top:0;
-
-    -moz-transition:  0.4s linear;
-    -ms-transition: 0.4s linear;
-    -o-transition: 0.4s linear;
-    -webkit-transition: 0.4s linear;
-    transition: 0.4s linear;
 }
 #nav a:focus + img, #nav a:active + img {
     display:block;
 }
 #nav a.sub:active {
-    background:#bcbdc1;
     outline:0;
 }
 #nav a:active ~ ul li {

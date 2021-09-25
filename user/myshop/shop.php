@@ -14,12 +14,16 @@
     <title>Shopa</title>
     <link href="<?php echo $mylocalhost;?>assets/css/shop.css?v=<?=time();?>" rel="stylesheet">
     <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="htpps://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="htpps://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+<?php include('./navbarshop.php');?>
 <div class="container">
-
 <ul id="nav">
     <li><a href="#" class="sub" tabindex="1"><img src="<?php echo $mylocalhost;?>/assets/img/side.png" />การจัดส่ง</a><img alt="" />
         <ul>
@@ -93,7 +97,6 @@
         </ul>
     </li>
 </ul>
-
 </div>
 </body>
 </html>
