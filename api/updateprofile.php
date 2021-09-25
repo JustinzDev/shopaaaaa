@@ -38,10 +38,6 @@
             </script>
             ';
 
-        //$message = "ขนาดไฟล์รูปใหญ่เกิน 1 MB !!";
-        //echo "<script>alert('$message')</script>";
-        //$newlink = $mylocalhost."user/account/profile";
-        //echo "<script>window.location='$newlink';</script>";
         exit();
     }
 
@@ -53,7 +49,7 @@
         unlink($target_dir . $_SESSION['Uall_username'].".png");
         $target_file = $target_dir . $_SESSION['Uall_username'].".jpeg";
     }
-    $checkimage = false;
+
     $checkupdatename = false;
     $checkupdategender = false;
     $checkupdatebirthday = false;
@@ -61,8 +57,6 @@
     $nameuser = $_POST['nameuser'];
     $genderuser = $_POST['gender'];
     $birthday = $_POST['birthday'];
-
-    $_SESSION['GetSuccessEditProfile'] = false;
 
     if($nameuser != ""){
         $update = "UPDATE accounts SET acc_name = '".trim($nameuser)."' WHERE acc_id = '".$_SESSION['Uall_id']."'";
@@ -89,7 +83,7 @@
         $_SESSION['Uall_birthday'] = $birthday;
     }
     
-    if($checkimage || $checkupdatename || $checkupdategender || $checkupdatebirthday){
+    if($checkupdatename || $checkupdategender || $checkupdatebirthday){
 
         if($target_file != "") move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file);
         $newlink = $mylocalhost."user/account/profile";

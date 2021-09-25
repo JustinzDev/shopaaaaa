@@ -4,7 +4,7 @@
     error_reporting(0);
     include('api/setlink.php');
 
-    $loaditemshop = "SELECT * FROM products";
+    $loaditemshop = "SELECT * FROM products ORDER BY product_id DESC";
     $result = mysqli_query($conn, $loaditemshop);
 ?>
 <!DOCTYPE html>

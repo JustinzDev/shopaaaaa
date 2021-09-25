@@ -28,7 +28,7 @@
 <body style="background-color: rgba(156, 156, 156, 0.1);">
     <?php include('../navbar.php');?>
     <div clsss="contain">
-        <form action="<?php echo $mylocalhost ;?>api/orderlist?itemid=<?php echo $result['product_id']?>" method="POST">
+        <form action="<?php echo $mylocalhost;?>api/orderlist?itemid=<?php echo $result['product_id'];?>" method="POST">
             <div class="bodyproducts">
                 <div class="headlink">
                     <h6><a href="<?php echo $mylocalhost;?>">Shopa</a> > <?php echo $result['product_details'];?></h6>
@@ -78,6 +78,16 @@
         var countitem = document.getElementById("countitem").value;
         document.getElementById("countitem").value++;
         if(document.getElementById("countitem").value > <?php echo number_format($result['product_count']);?>){
+            document.getElementById("countitem").value = <?php echo number_format($result['product_count']);?>;
+        }
+    })
+
+    $("#countitem").on("change", function() {
+        var countitem = document.getElementById("countitem").value;
+        if(document.getElementById("countitem").value < 0){
+            document.getElementById("countitem").value = 0;
+        }
+        else if(document.getElementById("countitem").value > <?php echo number_format($result['product_count']);?>){
             document.getElementById("countitem").value = <?php echo number_format($result['product_count']);?>;
         }
     })

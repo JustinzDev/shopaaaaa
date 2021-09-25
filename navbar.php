@@ -96,10 +96,10 @@ function clickonme(){
         showButtonCancel: true,
     }, function(isConfirm) {
             if(isConfirm){
-                window.location = "logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
             if(isCancel){
-                window.location = "logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
     });
 }

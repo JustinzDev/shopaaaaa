@@ -9,16 +9,9 @@
         exit();
     }
 
-	$sql = "SELECT * FROM listproducts WHERE seller_id = '".$_SESSION['Uall_id']."'";
+	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id) ORDER BY listproducts.product_id DESC";
 	$query = mysqli_query($conn, $sql);
-    $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
-
-	$loadproduct = "SELECT * FROM products WHERE acc_id = '".$_SESSION['Uall_id']."' AND product_id = '".$result['product_id']."'";
-	$queryproduct = mysqli_query($conn, $loadproduct);
-
-	$myname = "SELECT acc_username FROM accounts WHERE acc_id = '".$result['acc_id']."'";
-	$querynameuser = mysqli_query($conn, $myname);
-
+	$countorder = mysqli_num_rows($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +39,7 @@
 	</div>
 	<div class="headcountitem">
 		<div class="headcountorder">
-			<h5>0 คำสั่งซื้อ</h5>
+			<h5><?php echo $countorder;?> คำสั่งซื้อ</h5>
 		</div>
 		<div class="headbuttonright">
 			<button id="totalorder">จัดส่งแบบชุด</button>
@@ -63,12 +56,12 @@
 				<th>ดำเนินการ</th>
 				
 			</tr>
-			<?php while($rowdata = mysqli_fetch_array($queryproduct)){?>
+			<?php while($rowdata = mysqli_fetch_array($query)){?>
 			<tr>
-				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="#"><?php echo $rowdata['product_name'];?></a></td>
-				<td class="itemprice">10,000</td>
+				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> x<?php echo $rowdata['list_counto'];?></td>
+				<td class="itemprice">฿<?php echo number_format($rowdata['list_totalprice']);?></td>
 				<td>ยังไม่ได้ชำระเงิน</td>
-				<td><?php echo $rowdata['product_name'];?></td>
+				<td><?php echo $rowdata['acc_username'];?></td>
 				<td>เก็บปลายทาง</td>
 				<td class="itemaction"><a href="#"><button class="confirm">ยอมรับ</button></a> <a href="#"><button class="cancel">ปฏิเสธ</button></a></td>
 			</tr>
