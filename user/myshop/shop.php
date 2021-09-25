@@ -34,7 +34,7 @@
     <div class="container">
         <div id="nav-left"></div>
         <div class="bodymain" id="contentdata">
-            <?php include('./manageitem.php');?>
+            รอคำสั่งการทำงาน
         </div>
     </div>
 </body>

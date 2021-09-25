@@ -36,7 +36,7 @@
     <ul id="nav">
         <li><a href="#" class="sub" tabindex="1"><img src="<?php echo $mylocalhost;?>/assets/img/side.png" />การจัดส่ง</a><img alt="" />
             <ul>
-                <li><a href="#" data-target="delivery">การจัดส่งของฉัน</a></li>
+                <li><a href="#" data-target="manageitem">การจัดส่งของฉัน</a></li>
                 <li><a href="#">การจัดส่งแบบชุด</a></li>
                 <li><a href="#">ตั้งค่าการจัดส่ง</a></li>
             </ul>
