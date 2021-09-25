@@ -139,7 +139,7 @@
     }
 
     var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
-    var tester=new Image();
+    var tester = new Image();
     tester.onload=function() {
         document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
         document.getElementById("output2").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -148,6 +148,7 @@
         document.getElementById("output").src = imgUrl + '.jpeg?t=' + new Date().getTime();    
         document.getElementById("output2").src = imgUrl + '.jpeg?t=' + new Date().getTime();       
     };
+
     tester.src=imgUrl + '.png';
 
     var loadFile = function(event) {

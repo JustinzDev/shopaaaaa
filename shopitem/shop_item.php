@@ -49,9 +49,9 @@
                         </div>
                         <div class="select-count-product">
                             <div class="product-selectcount">
-                                <button id="remove">-</button>
+                                <button type="button" id="remove">-</button>
                                 <input type="text" id="countitem" value="1">
-                                <button id="add">+</button>
+                                <button type="button" id="add">+</button>
                             </div>
                             <h6 class="product-countitem">มีสินค้าทั้งหมด <?php echo number_format($result['product_count']);?> ชิ้น</h6>
                         </div>
