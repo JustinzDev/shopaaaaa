@@ -40,6 +40,7 @@
                     <div class="product-right">
                         <h5 class="shopad">ร้านแนะนำ</h5>
                         <h5 class="product-name"><?php echo $result['product_name'];?></h5>
+                        <h5 class="product-name"><?php echo $result['product_details'];?></h5>
                         <div class="product-details">
                             <h5 class="product-score">ยังไม่มีคะแนน</h5> <h5 class="countsell"><?php echo $result['product_countsell'];?> ขายแล้ว</h5>
                         </div>
