@@ -3,6 +3,9 @@
     include('mysql_connection/my_connection.php');
     error_reporting(0);
     include('api/setlink.php');
+
+    $loaditemshop = "SELECT * FROM products";
+    $result = mysqli_query($conn, $loaditemshop);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,6 +145,26 @@
                             <a href="#"><img style="width:100px;" src="assets/img/categorys/20.png"> สัตว์เลี้ยง</a>
                         </div>
                     </div>
+                </div>
+                <div class="header_shopbox">
+                    <span class="checkedbox">สินค้าทั้งหมด</span>
+                    <span>สินค้าส่งฟรี</span>
+                </div>
+                <div class="shop_box">
+                    <?php
+                    while($row = mysqli_fetch_array($result)){
+                    ?>
+                        <div class="shopbodybox">
+                            <a href="#">   
+                                <img src="<?php echo $row['product_img'];?>">
+                                <h6 class="caption"><?php echo $row['product_name'];?></h6>
+                                <div class="topdown">
+                                    <h6 class="price">฿<?php echo $row['product_price'];?></h6>
+                                    <h6 class="countsell">ขายแล้ว <?php echo $row['product_countsell'];?> ชิ้น</h6>
+                                </div>
+                            </a>
+                        </div>
+                    <?php }?>
                 </div>
             </div>
         </div>

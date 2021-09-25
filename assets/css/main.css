@@ -164,8 +164,9 @@ body, html {
 
 .slide-show{
     margin-right: 6px;
-    margin-top: 5px;
+    margin-top: 5.5px;
     width: 41.5%;
+    height: 100%;
 }
 
 .eventshow img{
@@ -321,6 +322,86 @@ hr{
 
 .dropdown:hover .dropdown-content {display: block;}
 
+.header_shopbox{
+    width: 63%;
+    margin: auto;
+    margin-bottom: 20px;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    height: 100%;
+    padding: 20px;
+}
+
+.header_shopbox span{
+    color: rgb(238, 77, 45);
+    font-size: 16px;
+    padding: 20px 0px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.checkedbox{
+    border-bottom: 3px solid rgb(238, 77, 45);
+}
+
+.shop_box{
+    width: 66.2%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.shopbodybox{
+    width: 15%;
+    height: 100%;
+    margin-right: 8px;
+    background-color: white;
+    transition: transform .2s;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.shopbodybox a{
+    text-decoration: none;
+    color: black;
+}
+
+.shopbodybox img{
+    width: 100%;
+    display: inline-block;
+    padding: 2px;
+}
+
+.shopbodybox .caption{
+    font-size: .875rem;
+    padding: 10px;
+}
+
+.shopbodybox .topdown{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.shopbodybox .price{
+    color:rgb(238, 77, 45);
+}
+
+.shopbodybox .countsell{
+    color: grey;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-left: 38px;
+}
+
+.shopbodybox:hover{
+    border: 1px solid rgb(238, 77, 45);
+    transform: scale(1.02);
+}
+
 @media screen and (max-width: 1000px) {
     .navbar-warpper .navbar-warpperleft{
         visibility: hidden;
@@ -346,5 +427,24 @@ hr{
 
     .img-carditem{
         width: 100%;
+    }
+
+    .header_shopbox{
+        width: 90%;
+    }
+
+    .shop_box{
+        width: 90%;
+        height: 100%;
+    }
+
+    .shopbodybox{
+        display:block;
+        width: 40%;
+    }
+
+    .slide-show{
+        width: 550px;
+        margin: auto;
     }
 }

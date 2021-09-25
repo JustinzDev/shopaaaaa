@@ -7,7 +7,7 @@
     $numberphone = $_POST['telphone'];
     $date = $_POST['birthday'];
     
-    $sql = "SELECT cus_username, cus_email, cus_contact FROM customers WHERE cus_username = '".$username."' OR cus_email = '".$email."' OR cus_contact = '".$numberphone."'";
+    $sql = "SELECT acc_username, acc_email, acc_contact FROM accounts WHERE acc_username = '".$username."' OR acc_email = '".$email."' OR acc_contact = '".$numberphone."'";
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
@@ -15,7 +15,7 @@
         echo json_encode(array('status'=> 0,'message'=> 'Fail'));
     }
     else{
-        $register = "INSERT INTO customers (cus_username, cus_password, cus_email, cus_contact, cus_birthday) 
+        $register = "INSERT INTO accounts (acc_username, acc_password, acc_email, acc_contact, acc_birthday) 
         VALUES ('".$username."', '".strtoupper(hash("whirlpool", $_POST['pw1']))."', '".$email."', '".$numberphone."', '".$date."')";
         $query = mysqli_query($conn, $register);
 

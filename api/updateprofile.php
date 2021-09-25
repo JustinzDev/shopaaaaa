@@ -65,24 +65,24 @@
     $_SESSION['GetSuccessEditProfile'] = false;
 
     if($nameuser != ""){
-        $update = "UPDATE customers SET cus_name = '".trim($nameuser)."' WHERE cus_id = '".$_SESSION['Uall_id']."'";
+        $update = "UPDATE accounts SET acc_name = '".trim($nameuser)."' WHERE acc_id = '".$_SESSION['Uall_id']."'";
         $queryupdate = mysqli_query($conn, $update);
         $checkupdatename = true;
         $_SESSION['Uall_nameuser'] = $nameuser;
     }
 
     if($genderuser != ""){
-        $update = "UPDATE customers SET cus_gender = '".trim($genderuser)."' WHERE cus_id = '".$_SESSION['Uall_id']."'";
+        $update = "UPDATE accounts SET acc_gender = '".trim($genderuser)."' WHERE acc_id = '".$_SESSION['Uall_id']."'";
         $queryupdate = mysqli_query($conn, $update);
         $checkupdategender = true;
         $_SESSION['Uall_genderuser'] = $genderuser;
     }
 
     if($birthday != ""){
-        $update = "UPDATE customers SET cus_birthday = '".trim($birthday)."' WHERE cus_id = '".$_SESSION['Uall_id']."'";
+        $update = "UPDATE accounts SET acc_birthday = '".trim($birthday)."' WHERE acc_id = '".$_SESSION['Uall_id']."'";
         $queryupdate = mysqli_query($conn, $update);
 
-        /*$selectdate = "SELECT DATE_FORMAT(`cus_birthday`, '%d-%m-%Y') AS `cus_birthday` FROM customers WHERE cus_id = '".$_SESSION['Uall_id']."'";
+        /*$selectdate = "SELECT DATE_FORMAT(`acc_birthday`, '%d-%m-%Y') AS `acc_birthday` FROM accounts WHERE acc_id = '".$_SESSION['Uall_id']."'";
         $querydate = mysqli_query($conn, $selectdate);
         $resultdate = mysqli_fetch_array($querydate, MYSQLI_ASSOC);*/
         $checkupdatebirthday = true;
