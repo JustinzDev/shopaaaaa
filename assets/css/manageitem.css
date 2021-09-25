@@ -1,0 +1,237 @@
+
+  .display-serach{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search{
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 50%;
+      margin-left: 20px;
+  }
+  .search input{
+    border: 1px solid rgba(189, 189, 189, 0.5);
+    padding: 5px 10px;
+    width: 50%;
+    font-size: 14px;
+  }
+  .dateDeli {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: right;
+     width: 48.17%;
+  }
+
+  .dateDeli label{
+    margin-top: 24px;
+    margin-right: 20px;
+  }
+
+  .dateDeli button{
+    border: 1px solid rgba(189, 189, 189, 0.5);
+    background-color: white;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  .dateDeli button:hover{
+    background-color: rgba(189, 189, 189, 0.5);
+  }
+
+  .dateDeli input {
+    border: 1px solid rgba(189, 189, 189, 0.5);
+    position: relative;
+    color: white;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 40%;
+  }
+
+  .dateDeli input:before {
+      position: absolute;
+      top: 3px; left: 3px;
+      padding: 2px 10px;
+      content: attr(data-date);
+      display: inline-block;
+      color: black;
+  }
+
+  .dateDeli input::-webkit-datetime-edit, input::-webkit-inner-spin-button, input::-webkit-clear-button {
+      display: none;
+  }
+
+  .dateDeli input::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: black;
+      opacity: 1;
+  }
+
+
+.headmenu{
+  padding: 13px 20px;
+  border-bottom: 1px solid rgba(189, 189, 189, 0.4);
+}
+
+.marker{
+  color: rgb(238, 77, 45);
+  padding: 13px;
+  border-bottom: 2px solid rgb(238, 77, 45);
+}
+
+.headcountitem{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.headbuttonright {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  width: 46.4%;
+  margin-bottom: 10px;
+}
+
+.headbuttonright button{
+    background-color: rgb(238, 77, 45);
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.headbuttonright button:hover{
+  background-color: rgb(218, 47, 13);
+}
+
+.headcountorder{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.card-orderitem{
+  padding: 20px;
+}
+
+.card-itemhead{
+    display: flex;
+    padding: 15px 12px;
+    background: #f6f6f6;
+    border-radius: 4px;
+    color: #757575;
+    width: 100%;
+    border: 1px solid #e8e8e8;
+}
+
+.card-itemhead .mainh5{
+  margin-top: 5px;
+  font-size: 15px;
+  margin-right: 25%;
+}
+
+.totalprice-item{
+  margin-top: 5px;
+  font-size: 15px;
+  margin-right: 40px;
+}
+
+.buy-byitem{
+  margin-top: 5px;
+  font-size: 15px;
+  margin-left: 95px;
+}
+
+.typepayment-item{
+  margin-top: 5px;
+  font-size: 15px;
+  margin-left: 55px;
+}
+
+.action-item{
+  margin-top: 5px;
+  font-size: 15px;
+  margin-left: 25px;
+}
+
+.status-item{
+  margin-top: 5px;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+.card-itemlist{
+  padding: 0px 20px;
+  margin-bottom: 20px;
+}
+
+.tableitemlist{
+  border: 1px solid #e8e8e8;
+  width: 100%;
+}
+
+.tableitemlist tr{
+  border: 1px solid #e8e8e8;
+}
+
+.tableitemlist td{
+  border: 1px solid #e8e8e8;
+  padding: 0px 20px;
+}
+
+.tableitemlist img{
+  width: 70px;
+}
+
+.itemshow{
+  width: 350px;
+}
+
+.itemaction{
+  width: 130px;
+}
+
+.itemaction a{
+  padding: 5px;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+
+.itemaction .confirm{
+  border-radius: 6px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: none;
+  width: 60px;
+  background-color: rgb(74, 252, 74);
+}
+
+.itemaction .cancel{
+  border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: none;
+  width: 60px;
+  background-color: rgb(255, 113, 113);
+}
+
+.tableitemlist a{
+  color: black;
+  margin-left: 10px;
+}
+
+.tableitemlist a:hover{
+  text-decoration: none;
+}

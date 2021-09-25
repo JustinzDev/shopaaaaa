@@ -3,14 +3,11 @@ body, html {
     font-family: Tahoma,sans-serif;
     overflow-x: hidden;
     color: rgba(0, 0, 0, 0.8);
-    background-color: rgba(156, 156, 156, 0.1);
 }
 
 
 #nav {
     position: fixed;
-    overflow-y: hidden;
-    overflow-x: hidden;
     left: 0;
     top: 79px;
     height: 100%;
@@ -38,6 +35,7 @@ body, html {
     -webkit-transition: 0.10s linear 0.10s;
     transition: 0.10s linear 0.10s;
 }
+
 #nav li a {
     background-color: white;
     color:#000;
@@ -79,7 +77,7 @@ body, html {
 }
 
 #nav a:focus ~ ul li {
-    margin-top:0;
+    margin-top:10px;
 }
 #nav a:focus + img, #nav a:active + img {
     display:block;
@@ -92,4 +90,13 @@ body, html {
 }
 #nav ul:hover li {
     margin-top:0;
+}
+
+.bodymain{
+    margin: auto;
+    width: 100%;
+    margin-top: 120px;
+    background-color: white;
+    height: 100%;
+    padding: 5px;
 }
