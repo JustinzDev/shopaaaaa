@@ -31,5 +31,40 @@
         exit();
     }
 
+    $sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id) WHERE listproducts.list_id = '".$_GET['list_productid']."' AND listproducts.list_state = 'wait'";
+	$query = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+    if($result){
+        $update = "UPDATE listproducts SET list_state = 'payment'  WHERE list_id = '".$result['list_id']."'";
+        $query = mysqli_query($conn, $update);
+
+        $newcountsell = $result['product_countsell']+$result['list_counto'];
+        $newcountproduct = $result['product_count']-$result['list_counto'];
+        $updatesell_count = "UPDATE products SET product_countsell = $newcountsell,product_count = $newcountproduct WHERE product_id = '".$result['product_id']."'";
+        $query = mysqli_query($conn, $updatesell_count);
+
+
+        $newlink = $mylocalhost."user/myshop/shop";
+        echo '
+            <script>
+
+                setTimeout(function(){
+                    swal({
+                        title: "การยืนยันการสั่งซื้อสำเร็จ",
+                        text: "คุณได้ทำการยืนยันการสั่งซื้อ Order Id: '.$result['list_id'].' เรียบร้อยแล้ว",
+                        type: "success",
+                        showButtonCancel: true,
+                        confirmButtonColor: "#2DEE4D",
+                        confirmButtonText: "ตกลง",
+                    }, function(isConfirm){
+                        if(isConfirm) window.location = "'.$newlink.'";
+                        if(isCancel) window.location = "'.$newlink.'";
+                    });
+                }, 300);
+            </script>
+        ';
+    }
+    
     
 ?>

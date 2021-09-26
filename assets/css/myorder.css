@@ -1,0 +1,456 @@
+body, html {
+    font-family: Tahoma,sans-serif;
+    overflow-x: hidden;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.body1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-top: 17px;
+    background-color: #f1f1f1;
+}
+
+.navbar-left{
+    width: 12%;
+    margin-left: 120px;
+}
+
+.navbar-left .ontop{
+    width: 65%;
+    height: 20%;
+    display: flex;
+    border-bottom: 1px solid #cecece;
+}
+
+.navbar-left .ondown{
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.navbar-left .ondown span{
+    cursor: pointer;
+    transition: color .1s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    padding: 5px 0px;
+}
+
+.navbar-left .ondown span:hover{
+    color: #ee4d2d;
+}
+
+.navbar-left h6{
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.myaccounts i, .mybuying i, .notify i, .codeseller i, .shopcoin i{
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.history, .bank_card, .address, .changepass{
+    margin-left: 35px;
+}
+
+.profileimg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.profileimg img{
+    width:100%;
+}
+
+.navbar-right{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 30px 20px 30px;
+    width: 85%;
+}
+
+.navbar-right .top{
+    background-color: white;
+    width: 1000px;
+    padding: 15px;
+}
+
+.navbar-right span{
+    margin-right: 50px;
+    padding: 15px 0px;
+    cursor: pointer;
+}
+
+.navbar-right span:hover{
+    color: #ee4d2d;
+}
+
+.spanchecked{
+    color: #ee4d2d;
+    border-bottom: 2px solid #ee4d2d;
+}
+
+.inline-right{
+    width: 17.5rem;
+    overflow: hidden;
+    border-left: .0625rem solid #efefef;
+    margin-top: 30px;
+}
+
+.inline-left{
+    width: 65%;
+    margin-left: 20px;
+}
+
+.headinfo{
+    width: 100%;
+    border-bottom: .0625rem solid #efefef;
+    padding-bottom: 15px;
+}
+
+.textmyprofile{
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+    color: #333;
+}
+
+.textinfomyprofile{
+    margin-top: .1875rem;
+    font-size: .875rem;
+    line-height: 1.0625rem;
+    color: #555;
+}
+
+.nameinfo{
+    font-size: .875rem;
+    color: #333;
+    padding-left: 20px;
+}
+
+.myusername{
+    padding: 30px 10px;
+    width: 80%;
+    padding-left: 1.25rem;
+    display: flex;
+}
+
+.myusername label{
+    width: 20%;
+    padding: 0px 10px;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.myname{
+    width: 80%;
+    padding-left: 1.25rem;
+    display: flex;
+}
+
+.myname label{
+    width: 20%;
+    padding: 0px 10px;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.nameinput{
+    padding-left: 1.25rem;
+    width: 80%;
+}
+
+.nameinput input{
+    flex: 1;
+    font-size: 14px;
+    width: 70%;
+    padding: 5px 10px;
+    margin-top: -10px;
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 2px;
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
+}
+
+.myemail{
+    padding: 35px 10px;
+    width: 97%;
+    padding-left: 1.25rem;
+    display: flex;
+}
+
+.myemail label{
+    width: 20%;
+    text-align: right;
+    padding: 0px 10px;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.emailinput{
+    padding-left: 1.25rem;
+    width: 100%;
+}
+
+.mytelphone{
+    padding: 0px 10px;
+    width: 97%;
+    padding-left: 1.25rem;
+    display: flex;
+}
+
+.mytelphone label{
+    width: 50%;
+    margin-left: -130px;
+    padding: 0px 10px 0px 0px;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.telphoneinput{
+    padding-left: 1.25rem;
+    width: 100%;
+}
+
+.mygender{
+    padding: 35px 10px;
+    width: 97%;
+    padding-left: 1.25rem;
+    display: flex;
+}
+
+.mygender .genderhead{
+    width: 20%;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.genderinput{
+    padding-left: 1.25rem;
+    width: 100%;
+    display: flex;
+}
+
+.genderinput input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    margin-right: 40px;
+    margin-top: 3px;
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #999;
+    transition: 0.1s all linear;
+}
+
+.genderinput input:checked {
+    border-color: #ee4d2d;
+}
+
+.genderinput label{
+    padding-right: 30px;
+    margin-left: -30px;
+}
+
+.mybirthday{
+    padding: 0px 10px;
+    width: 97%;
+    padding-left: 1.25rem;
+    display: flex;
+}
+
+.mybirthday label{
+    width: 50%;
+    margin-left: -140px;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    text-transform: capitalize;
+    overflow: hidden;
+}
+
+.birthdayselect{
+    padding-left: 1.25rem;
+    width: 100%;
+}
+
+.birthdayselect input{
+    border: 1px solid rgba(0,0,0,.09);
+    width: 60%;
+    height: 100%;
+    margin-top: -5px;
+    margin-right: 10px;
+    position: relative;
+    color: white;
+}
+
+.birthdayselect input:before {
+    position: absolute;
+    top: 3px; left: 3px;
+    padding: 0px 10px;
+    content: attr(data-date);
+    display: inline-block;
+    color: black;
+}
+
+.birthdayselect input::-webkit-datetime-edit, input::-webkit-inner-spin-button, input::-webkit-clear-button {
+    display: none;
+}
+
+.birthdayselect input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: black;
+    opacity: 1;
+}
+
+.buttonsaveprofile{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buttonsubmit{
+    color: #fff;
+    background: #ee4d2d;
+    height: 40px;
+    padding: 0 20px;
+    min-width: 70px;
+    max-width: 220px;
+    border:none;
+    margin-top: 30px;
+    border-radius: 20px;
+    width: 15%;
+}
+
+.buttonsaveprofile button:hover{
+    background: #f87257;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+.forminputimg input{
+    margin-left: 40px;
+}
+
+#myfilepic{
+    display: none;
+}
+
+.pbutton{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pbutton button:hover{
+    background-color: #efefef;
+}
+
+.buttonuploadimg{
+    background: #fff;
+    color: #555;
+    border: 1px solid rgba(0,0,0,.09);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+    padding: 8px 20px;
+}
+
+.infoimg{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.infoimg span{
+    color: #999;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+@media screen and (max-width: 1368px) {
+    .navbar-left{
+        height: 100%;
+    }
+
+    .navbar-left .ontop{
+        display: none;
+    }
+
+    .ondown{
+        margin-left: -100px;
+        display: list-item;
+        list-style: none;
+    }
+
+    .navbar-right{
+        display: block;
+        margin: auto;
+    }
+
+    .inline-left label{
+        margin-left: -50px;
+        width: 100%;
+    }
+
+    .nameinfo{
+        padding: 10px;
+        width: 100%;
+        margin-top: -8px;
+    }
+
+    .inline-left input{
+        width: 350%;
+        margin-left: -20px;
+        display: block;
+    }
+
+    .genderinput input{
+        display: block;
+        margin-left: 0px;
+        min-width: 18px;
+    }
+
+    .genderinput label{
+        margin-left: -30px;
+    }
+
+    .birthdayselect input{
+        width: 200%;
+        display: block;
+        margin-left: 10px;
+    }
+}

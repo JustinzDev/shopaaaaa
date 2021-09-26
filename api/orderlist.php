@@ -36,8 +36,8 @@
 
     if($result){
         $totalprice = $_POST['countitem'] * $result['product_price'];
-        $sql = "INSERT INTO `listproducts`(`product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`) VALUES ('".$_GET['itemid']."', 
-        '".$_SESSION['Uall_id']."','".$result['acc_id']."', '".$_POST['countitem']."', '".$totalprice."')";
+        $sql = "INSERT INTO `listproducts`(`product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES ('".$_GET['itemid']."', 
+        '".$_SESSION['Uall_id']."','".$result['acc_id']."', '".$_POST['countitem']."', '".$totalprice."' , 'wait')";
         $query = mysqli_query($conn, $sql);
         
 

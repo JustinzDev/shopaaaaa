@@ -44,7 +44,7 @@
                             </span>
                             <div class="dropdown-content">
                                 <a href="<?php echo $mylocalhost;?>user/account/profile">บัญชีของฉัน</a>
-                                <a href="#">การซื้อของฉัน</a>
+                                <a href="<?php echo $mylocalhost;?>user/account/myorder">การซื้อของฉัน</a>
                                 <a href="<?php echo $mylocalhost;?>user/myshop/shop">ร้านค้าของฉัน</a>
                                 <a href="#" onclick="clickonme();">ออกจากระบบ</a>
                             </div>

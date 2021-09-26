@@ -9,7 +9,7 @@
         exit();
     }
 
-	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id) ORDER BY listproducts.list_id DESC";
+	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id AND listproducts.list_state = 'wait' AND listproducts.seller_id = '".$_SESSION['Uall_id']."') ORDER BY listproducts.list_id DESC";
 	$query = mysqli_query($conn, $sql);
 	$countorder = mysqli_num_rows($query);
 ?>
