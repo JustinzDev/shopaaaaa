@@ -10,6 +10,26 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     ';
 
+    if($_SESSION['Uall_id'] == ""){
+        $newlink = $mylocalhost."login";
+        echo '
+            <script>
+                setTimeout(function(){
+                    swal({
+                        title: "เกิดข้อผิดพลาด",
+                        text: "คุณจำเป็นต้องเข้าสู่ระบบก่อนสั่งซื้อสินค้า!!",
+                        type: "error",
+                        showButtonCancel: true,
+                    }, function(isConfirm){
+                        if(isConfirm) window.location = "'.$newlink.'";
+                        if(isCancel) window.location = "'.$newlink.'";
+                    });
+                }, 300);
+            </script>
+            ';
+        exit();
+    }
+
     $sql = "SELECT * FROM products WHERE product_id = '".$_GET['itemid']."'";
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);

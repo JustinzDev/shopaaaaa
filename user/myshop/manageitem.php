@@ -9,7 +9,7 @@
         exit();
     }
 
-	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id) ORDER BY listproducts.product_id DESC";
+	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id) ORDER BY listproducts.list_id DESC";
 	$query = mysqli_query($conn, $sql);
 	$countorder = mysqli_num_rows($query);
 ?>
@@ -21,6 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?php echo $mylocalhost;?>assets/css/manageitem.css?v=<?=time();?>" rel="stylesheet">
     <title>Seller Center</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	
 </head>
 <body>
@@ -45,7 +47,7 @@
 			<button id="totalorder">จัดส่งแบบชุด</button>
 		</div>
 	</div>
-	<div class="card-itemlist">
+	<div class="card-itemlist" style="overflow-x:auto; overflow-y:auto;">
 		<table class="tableitemlist">
 			<tr>
 				<th>สินค้าทั้งหมด</th>
@@ -58,15 +60,24 @@
 			</tr>
 			<?php while($rowdata = mysqli_fetch_array($query)){?>
 			<tr>
-				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> x<?php echo $rowdata['list_counto'];?></td>
+				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> <font color="red">x<?php echo $rowdata['list_counto'];?></font></td>
 				<td class="itemprice">฿<?php echo number_format($rowdata['list_totalprice']);?></td>
 				<td>ยังไม่ได้ชำระเงิน</td>
 				<td><?php echo $rowdata['acc_username'];?></td>
 				<td>เก็บปลายทาง</td>
-				<td class="itemaction"><a href="#"><button class="confirm">ยอมรับ</button></a> <a href="#"><button class="cancel">ปฏิเสธ</button></a></td>
+				<td class="itemaction"><a href="<?php echo $mylocalhost;?>api/acceptorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="confirm">ยอมรับ</button></a> <a href="<?php echo $mylocalhost;?>api/refuseorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ปฏิเสธ</button></a></td>
 			</tr>
 			<?php }?>
 		</table>
 	</div>
 </body>
+<script>
+	$("#dateitem").on("change", function() {
+		this.setAttribute(
+			"data-date",
+			moment(this.value, "YYYY-MM-DD")
+			.format( this.getAttribute("data-date-format") )
+		)
+	}).trigger("change")
+</script>
 </html>

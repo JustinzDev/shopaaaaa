@@ -95,8 +95,48 @@ body, html {
 .bodymain{
     margin: auto;
     width: 100%;
-    margin-top: 120px;
+    margin-top: 100px;
     background-color: white;
     height: 100%;
     padding: 5px;
+}
+
+.navbarshow-hide{
+    margin-top: 125px;
+    margin-bottom: -100px;
+    text-align: center;
+    display: none;
+}
+
+.navbarshow-hide button{
+    background-color: rgba(238, 77, 45, 0.8);
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+}
+
+@media screen and (max-width: 1000px) {
+    #nav{
+        margin-top: 33px;
+        transition: 2s;
+    }
+
+    .navbarslidein{
+        margin-left: 0px;
+    }
+    
+    .navbarslideout{
+        margin-left: -200px;
+    }
+    
+
+    .bodymain{
+        margin-top: 120px;
+    }
+
+    .navbarshow-hide{
+        display: block;
+    }
 }

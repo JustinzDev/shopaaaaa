@@ -39,6 +39,7 @@
     </div>
 </body>
 <script>
+
     $("#dateitem").on("change", function() {
         this.setAttribute(
             "data-date",

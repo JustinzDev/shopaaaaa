@@ -69,6 +69,7 @@ body, html {
     font-weight: 300;
     text-decoration: none;
     padding: 0 .4375rem;
+    margin-top: -2px;
 }
 
 .navbar-warpperdown{
@@ -369,6 +370,10 @@ hr{
     color: black;
 }
 
+.boximg{
+    height: 55%;
+}
+
 .shopbodybox img{
     width: 100%;
     display: inline-block;
@@ -385,6 +390,7 @@ hr{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    bottom: 0;
 }
 
 .shopbodybox .price{
@@ -624,5 +630,30 @@ hr{
     .slide-show{
         width: 550px;
         margin: auto;
+    }
+
+    /* ShopItem */
+
+    .bodyproducts{
+        margin: auto;
+        width: 100%;
+    }
+
+    .product_box{
+        width: 90%;
+    }
+
+    #addcart{
+        margin-bottom: 20px;
+    }
+
+    .headlink{
+        margin: auto;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+
+    .product-right .shopad{
+        width: 50%;
     }
 }

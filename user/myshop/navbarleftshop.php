@@ -33,11 +33,12 @@
     <script src="htpps://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+    <div class="navbarshow-hide"><button type="button" onclick="clicknavbar()">Show/Hide Navbar</button></div>
     <ul id="nav">
         <li><a href="#" class="sub" tabindex="1"><img src="<?php echo $mylocalhost;?>/assets/img/side.png" />การจัดส่ง</a><img alt="" />
             <ul>
                 <li><a href="#" data-target="manageitem">การจัดส่งของฉัน</a></li>
-                <li><a href="#" data-target="additemshop">เพิ่มสินค้าลงร้านค้า</a></li>
+                <li><a href="#">จัดส่งแบบชุด</a></li>
                 <li><a href="#">ตั้งค่าการจัดส่ง</a></li>
             </ul>
         </li>
@@ -50,8 +51,8 @@
         </li>
         <li><a href="#" class="sub" tabindex="1"><img src="<?php echo $mylocalhost;?>/assets/img/side3.png" />สินค้า</a><img  alt="" />
             <ul>
-                <li><a href="#">สินค้าของฉัน</a></li>
-                <li><a href="#">เพิ่มสินค้าใหม่</a></li>
+                <li><a href="#" data-target="myitemshop">สินค้าของฉัน</a></li>
+                <li><a href="#" data-target="additemshop">เพิ่มสินค้าใหม่</a></li>
                 <li><a href="#">สินค้าที่ถูกระงับ</a></li>
             </ul>
         </li>
@@ -107,4 +108,20 @@
         </li>
     </ul>
 </body>
+<script>
+    var state = false;
+
+    function clicknavbar(){
+        if(!state) {
+            state = true;
+            $("#nav").addClass("navbarslideout");
+            $("#nav").removeClass("navbarslidein");
+        }
+        else if(state) {
+            state = false;
+            $("#nav").removeClass("navbarslideout");
+            $("#nav").addClass("navbarslidein");
+        }
+    }
+</script>
 </html>

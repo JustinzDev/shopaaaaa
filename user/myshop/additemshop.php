@@ -26,14 +26,14 @@
         <h5>เพิ่มสินค้าลงร้านค้า</h5>
     </div>
     <div class="bodyadditem">
-        <form action="<?php echo $mylocalhost;?>api/additemtoshop.php" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo $mylocalhost;?>api/additemtoshop" method="POST" enctype="multipart/form-data">
             <label>ชื่อสินค้า</label><br>
             <input type="text" id="itemname" name="itemname" require><br>
             <label>จำนวนที่ลงขาย</label><br>
             <input type="text" id="itemcount" name="itemcount" require><br>
             <label>ราคาขาย/ชิ้น</label><br>
             <input type="text" id="itemprice" name="itemprice" require><br>
-            <label>รายละเอียดสินค้า</label><br>
+            <label>รายละเอียดสินค้า <font color="red">( ความยาวไม่เกิน 128 ตัวอักษร )</font></label><br>
             <textarea id="itemdetails" name="itemdetails" rows="10" cols="43" require></textarea><br>
             <label>รูปภาพสินค้า (หลายรูป รอการอัพเดท)</label><br>
             <div class="profileimg">
@@ -45,7 +45,7 @@
                 <span>ขนาดไฟล์: สูงสุด 5 MB</span>
                 <span>ไฟล์ที่รองรับ: .JPEG, .PNG</span>
             </div>
-            <div class="buttonsubmit"><button id="submitbutton" type="submit">อัพลงร้านค้า</button></div>
+            <div class="buttonsubmit"><button id="submitbutton" type="submit">เพิ่มสินค้า</button></div>
         </form>
     </div>
 </body>

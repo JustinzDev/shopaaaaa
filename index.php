@@ -156,7 +156,9 @@
                     ?>
                         <div class="shopbodybox">
                             <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $row['product_id'];?>">   
-                                <img src="<?php echo $row['product_img'];?>">
+                                <div class="boximg">
+                                    <img src="<?php echo $row['product_img'];?>">
+                                </div>
                                 <h6 class="caption"><?php echo $row['product_details'];?></h6>
                                 <div class="topdown">
                                     <h6 class="price">฿<?php echo number_format($row['product_price']);?></h6>

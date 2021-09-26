@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 08:38 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Generation Time: Sep 26, 2021 at 04:38 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -108,15 +108,16 @@ CREATE TABLE `listproducts` (
   `product_id` int(12) NOT NULL,
   `acc_id` int(12) NOT NULL,
   `seller_id` int(12) NOT NULL,
-  `list_counto` int(12) NOT NULL DEFAULT 0
+  `list_counto` int(12) NOT NULL DEFAULT 0,
+  `list_totalprice` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=tis620;
 
 --
 -- Dumping data for table `listproducts`
 --
 
-INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `list_counto`) VALUES
-(14, 4, 3, 1, 21);
+INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`) VALUES
+(2, 1, 1, 1, 5, 1500);
 
 -- --------------------------------------------------------
 
@@ -140,15 +141,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_details`, `product_price`, `product_countsell`, `product_count`, `product_img`) VALUES
-(1, 1, 'เก้าอี้สำนักงาน', '[รับประกัน1ปี]เก้าอี้สำนักงาน เก้าอี้ เบาะกว้าง ปรับสูง-ต่ำได้ มี เก้าอี้คอม เก้าอี้เกม เก้าอี้ทำงาน พนักพิงสูงผ้าตาข่าย', 734, 25, 2, 'assets/img/shop/shop1.jpg'),
-(2, 1, 'โต๊ะไม้', 'A150 โต๊ะทำงานไม้ โต๊ะคอมพิวเตอร์ โต๊ะทํางาน พร้อมชั้นวางของ โต๊ะสำนักงาน ขนาด 120*45', 1456, 67, 4, 'assets/img/shop/shop2.jpg'),
-(3, 1, 'เก้าอี้ทำงาน', 'เก้าอี้ เก้าอี้ออฟฟิศ เก้าอี้ทำงาน เก้าอี้สำนักงาน ปรับระดับได้ หลังตาข่าย สูง 97 ซม. Office Chair GOC01 ( Black )', 485, 32, 6, 'assets/img/shop/shop3.jpg'),
-(4, 1, 'คีย์แคป', 'Kiki. คีย์แคป PBT มีไฟแบ็คไลท์ สำหรับคีย์บอร์ด Mechanical', 199, 44, 13000, 'assets/img/shop/shop4.jpg'),
-(5, 1, 'Gameing Desk', 'Gaming Desk โต๊ะเกมมิ่ง120cm DJDโต๊ะเล่นเกม โต๊ะคอมพิวเตอร์เกมมิ่ง โต๊ะคอมพิวเตอร์ โต๊ะสำหรับอีสปอร์ต โต๊ะทำงาน table', 1657, 34, 23, 'assets/img/shop/shop5.jpg'),
-(6, 1, 'สินค้า 1', 'สินค้า 1', 10000, 0, 34, 'assets/img/shop/shop6.jpg'),
-(7, 1, 'สินค้า 2', 'สินค้า 2', 0, 0, 454, 'assets/img/shop/shop7.png'),
-(8, 1, 'สินค้า 3', 'สินค้า 3', 0, 0, 123, 'assets/img/shop/shop8.png'),
-(9, 1, 'Test', 'Test', 2000, 0, 0, NULL);
+(1, 1, 'กางเกงใน', 'กางเกงในขายได้ขายดีเล่เข้ามาทางนี้ ตัวละ 300 ใส่แล้วบินได้กันไปเลยทีเดียว ซื้อ 1 แถม 1 ให้ฟรี ของหมดอดนะจ๊ะ', 300, 0, 50, 'assets/img/products/กางเกงใน_1.jpeg'),
+(3, 1, 'นาฬิกาคู่ใจ', 'นาฬินาเท่ใส่แล้วดูรวย มีชิ้นเดียว ช้าหมดอดนะครับ', 10000, 0, 5, 'assets/img/products/นาฬิการุ่น Limited No1_1.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -241,13 +235,13 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `listproducts`
 --
 ALTER TABLE `listproducts`
-  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `product_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
