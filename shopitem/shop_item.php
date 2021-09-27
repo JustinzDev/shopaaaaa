@@ -4,7 +4,7 @@
     error_reporting(0);
     include('../api/setlink.php');
 
-    $sql = "SELECT *  FROM products WHERE product_id = '".$_GET['itemid']."'";
+    $sql = "SELECT *  FROM (products INNER JOIN accounts ON products.acc_id = accounts.acc_id) WHERE product_id = '".$_GET['itemid']."'";
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 ?>
@@ -63,6 +63,16 @@
                 </div>
             </div>
         </form>
+        <div class="namestore">
+            <div class="storeleft">
+                <span><?php echo $result['acc_username'];?><br>
+                <div class="chat-view-buttonaction">
+                    <button id="chat" type="button"><i class="far fa-comment-dots"></i> แชทเลย</button>
+                    <button id="viewstore" type="button"><i class="fas fa-store-alt"></i> ดูร้านค้า</button>
+                </div> 
+                </span>
+            </div> 
+        </div>
     </div>
 </body>
 <script>

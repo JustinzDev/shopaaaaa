@@ -581,8 +581,43 @@ hr{
     background-color: rgb(250, 116, 89);
 }
 
+
+
 *:focus {
     outline: 0 !important;
+}
+
+.namestore{
+    background-color: white;
+    margin-top: 27px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.namestore .storeleft{
+    margin-top: 30px;
+    width: 50%;
+}
+
+.chat-view-buttonaction #chat{
+    background-color: rgb(255, 235, 231);
+    color: rgb(238, 77, 45);
+    border: 1px solid rgb(238, 77, 45);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.chat-view-buttonaction #viewstore{
+    background-color: rgb(255, 235, 231);
+    border: 1px solid white;
+    color: #555;
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -656,4 +691,6 @@ hr{
     .product-right .shopad{
         width: 50%;
     }
+
+    
 }

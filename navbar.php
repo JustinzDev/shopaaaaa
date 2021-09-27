@@ -34,8 +34,8 @@
                     <a class="iconapp" href="#"><i class="far fa-question-circle"></i></a>
                     <a class="aspec right" href="#">ช่วยเหลือ</a>
                     <?php if($_SESSION['Uall_id'] == ""){ ?>
-                        <a class="aspec right" href="register">สมัครใหม่</a>
-                        <a class="alogin right" href="login">เข้าสู่ระบบ</a>
+                        <a class="aspec right" href="<?php echo $mylocalhost;?>register">สมัครใหม่</a>
+                        <a class="alogin right" href="<?php echo $mylocalhost;?>login">เข้าสู่ระบบ</a>
                     <?php } else { ?>
                         <div class="dropdown">
                             <span class="dropbtn">
