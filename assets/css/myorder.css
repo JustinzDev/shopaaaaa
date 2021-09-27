@@ -82,6 +82,7 @@ body, html {
     width: 100%;
     padding: 15px;
     margin-left: -40px;
+    border-radius: 3px;
 }
 
 .navbar-right .top span{
@@ -108,6 +109,7 @@ body, html {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
+    border-radius: 3px;
 }
 
 .card-boxorder .text-header{
@@ -518,5 +520,27 @@ body, html {
         width: 200%;
         display: block;
         margin-left: 10px;
+    }
+
+    .navbar-right{
+        width: 100%;
+    }
+
+    .navbar-right .top{
+        margin: auto;
+        margin-top: -50px;
+    }
+
+    .navbar-right .top span{
+        display: block;
+        width: 100%;
+    }
+
+    .navbar-right .down{
+        margin: auto;
+    }
+
+    .body-boxitem img{
+        width: 90%;
     }
 }
