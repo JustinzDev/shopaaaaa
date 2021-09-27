@@ -39,11 +39,11 @@
                     </div>
                     <div class="ondown">
                         <span class="myaccounts"><i style="color:#008FFF;" class="fas fa-user-alt"></i> บัญชีของฉัน</span>
-                        <span class="history">ประวัติส่วนตัว</span>
+                        <span class="history" style="color:#ee4d2d;">ประวัติส่วนตัว</span>
                         <span class="bank_card">บัญชีธนาคาร&บัตร</span>
                         <span class="address">ที่อยู่</span>
                         <span class="changepass">เปลี่ยนรหัสผ่าน</span>
-                        <span class="mybuying"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
+                        <span class="mybuying" id="mybuyorder"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
                         <span class="notify"><i style="color:#FF7800;" class="fas fa-bell"></i> การแจ้งเตือน</span>
                         <span class="codeseller"><i style="color:#FF7800;" class="fas fa-archive"></i> โค้ดส่วนลดของฉัน</span>
                         <span class="shopcoin"><i style="color:#FFBD00;" class="fas fa-coins"></i> Shopee Coins ของฉัน</span>
@@ -137,6 +137,10 @@
         $(".nameinput").addClass("show");
         $("#nameuser").addClass("hide");
     }
+    
+    $('#mybuyorder').click(function(){
+        window.location = "<?php echo $mylocalhost;?>user/account/myorder";
+    })
 
     var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
     var tester = new Image();

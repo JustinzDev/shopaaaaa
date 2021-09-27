@@ -3,6 +3,16 @@
     include('../../mysql_connection/my_connection.php');
     error_reporting(0);
     include('../../api/setlink.php');
+
+    if($_SESSION['Uall_id'] == ""){
+		echo "<script>window.location='index';</script>";
+        exit();
+    }
+
+    $sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) 
+    INNER JOIN accounts ON listproducts.seller_id = accounts.acc_id) 
+    WHERE listproducts.acc_id = '".$_SESSION['Uall_id']."' ORDER BY list_id DESC";
+	$query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,28 +49,50 @@
                     </div>
                     <div class="ondown">
                         <span class="myaccounts"><i style="color:#008FFF;" class="fas fa-user-alt"></i> บัญชีของฉัน</span>
-                        <span class="history">ประวัติส่วนตัว</span>
+                        <span class="history" id="profile">ประวัติส่วนตัว</span>
                         <span class="bank_card">บัญชีธนาคาร&บัตร</span>
                         <span class="address">ที่อยู่</span>
                         <span class="changepass">เปลี่ยนรหัสผ่าน</span>
-                        <span class="mybuying"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
+                        <span class="mybuying" style="color:#ee4d2d;"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
                         <span class="notify"><i style="color:#FF7800;" class="fas fa-bell"></i> การแจ้งเตือน</span>
                         <span class="codeseller"><i style="color:#FF7800;" class="fas fa-archive"></i> โค้ดส่วนลดของฉัน</span>
                         <span class="shopcoin"><i style="color:#FFBD00;" class="fas fa-coins"></i> Shopee Coins ของฉัน</span>
                     </div>
                 </div>
-                <form action="../../api/updateprofile" method="POST" id="update1" enctype="multipart/form-data">
-                    <div class="navbar-right">
-                        <div class="top">
-                            <span class="spanchecked">ทั้งหมด</span>
-                            <span>ที่ต้องชำระ</span>
-                            <span>ที่ต้องจัดส่ง</span>
-                            <span>ที่ต้องได้รับ</span>
-                            <span>สำเร็จแล้ว</span>
-                            <span>ยกเลิกแล้ว</span>
-                        </div>
+                <div class="navbar-right">
+                    <div class="top">
+                        <span class="spanchecked">ทั้งหมด</span>
+                        <span>ที่ต้องชำระ</span>
+                        <span>ที่ต้องจัดส่ง</span>
+                        <span>ที่ต้องได้รับ</span>
+                        <span>สำเร็จแล้ว</span>
+                        <span>ยกเลิกแล้ว</span>
                     </div>
-                </form>
+                    <div class="down">
+                        <?php while($rowdata = mysqli_fetch_array($query)){?>
+                            <div class="card-boxorder">
+                                <div class="text-header">
+                                    ซื้อจาก: <?php echo $rowdata['acc_username'];?>
+                                    <div class="text-right">
+                                        <?php if($rowdata['list_state'] == 'wait'){?> รอดำเนินการ <?php }?>
+                                        <?php if($rowdata['list_state'] == 'payment') {?> ที่ต้องจัดส่ง <?php }?>
+                                        <?php if($rowdata['list_state'] == 'finish') {?> สำเร็จแล้ว <?php }?>
+                                    </div>
+                                </div>
+                                <a href="<?php echo $mylocalhost;?>api/viewmyitem?itemid=<?php echo $rowdata['list_id'];?>">
+                                    <div class="body-boxitem">
+                                        <img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>">
+                                        <div class="infomessage-item">
+                                            <span><?php echo $rowdata['product_details'];?></span><br>
+                                            <span>x<?php echo $rowdata['list_counto'];?></span>
+                                            <div class="item-price">฿<?php echo number_format($rowdata['list_totalprice']);?></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div> 
@@ -99,6 +131,10 @@
     $('.buttonuploadimg').click(function() {
         $('#myfilepic').click();
     });
+
+    $('#profile').click(function(){
+        window.location = "<?php echo $mylocalhost;?>user/account/profile";
+    })
 
     function clickonme(){
         swal({

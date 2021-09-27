@@ -11,6 +11,7 @@ body, html {
     margin: auto;
     margin-top: 17px;
     background-color: #f1f1f1;
+    width: 100%;
 }
 
 .navbar-left{
@@ -20,13 +21,14 @@ body, html {
 
 .navbar-left .ontop{
     width: 65%;
-    height: 20%;
+    height: 23.5%;
     display: flex;
     border-bottom: 1px solid #cecece;
 }
 
 .navbar-left .ondown{
     margin-top: 10px;
+    height: 400px;
     font-size: 15px;
 }
 
@@ -71,27 +73,91 @@ body, html {
 }
 
 .navbar-right{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding: 20px 30px 20px 30px;
-    width: 85%;
+    width: 57%;
 }
 
 .navbar-right .top{
     background-color: white;
-    width: 1000px;
+    width: 100%;
     padding: 15px;
+    margin-left: -40px;
 }
 
-.navbar-right span{
+.navbar-right .top span{
     margin-right: 50px;
     padding: 15px 0px;
     cursor: pointer;
 }
 
-.navbar-right span:hover{
+.navbar-right .top span:hover{
     color: #ee4d2d;
+}
+
+.navbar-right .down{
+    margin-top: 20px;
+    margin-left: -40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-boxorder{
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.card-boxorder .text-header{
+    font-size: 16px;
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(207, 207, 207, 0.5);
+}
+
+.card-boxorder .text-right{
+    float:right;
+    color: #ee4d2d;
+}
+
+.card-boxorder a{
+    text-decoration: none;
+    color: black;
+}
+
+.card-boxorder a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.card-boxorder .body-boxitem{
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.body-boxitem img{
+    width: 9%;
+}
+
+.body-boxitem .infomessage-item{
+    margin-left: 10px;
+    width: 88%;
+}
+
+.body-boxitem .infomessage-item span{
+    font-size: 16px;
+}
+
+.infomessage-item .item-price{
+    margin-top: 45px;
+    float: right;
+    font-size: 16px;
 }
 
 .spanchecked{
