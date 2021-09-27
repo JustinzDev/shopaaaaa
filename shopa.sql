@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 07:19 PM
+-- Generation Time: Sep 27, 2021 at 06:02 PM
 -- Server version: 10.4.20-MariaDB
--- PHP Version: 7.4.21
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,8 +46,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`acc_id`, `acc_username`, `acc_password`, `acc_email`, `acc_address`, `acc_contact`, `acc_birthday`, `acc_name`, `acc_gender`) VALUES
 (1, 'JustinzDev', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'fullyz1532@gmail.com', NULL, '0616450118', '2000-12-01', 'คุณประหยัด ศรีประกันภัย', 'male'),
 (2, 'JustinzDev1532', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'asdasd@gmail.com', NULL, '0932423423', '2021-08-04', 'นสตร.', 'female'),
-(3, 'tmagcon', 'C3BB0CE5152AF14C700704FF94EF2C23D1D5E1CCEC3463B2B968B53696DD0F3A8C78C6C4D55693534C18411CBCB326D81F0E5E7B618D05196594BD1D7DEF512A', 'tmagconpt@gmail.com', NULL, '0970405212', '2000-06-03', NULL, NULL),
-(4, 'sittiT', 'A5451952093F961F35C0718284798FA1E730783BB70FF312E6F5776B8D6382224E540D229BAD87DB83B16E99A63A427E488FAF2F8519B81BA68E4F5EC2AB625F', 'sittichoke0000@gmail.com', NULL, '0897973840', '2021-03-21', NULL, NULL);
+(3, 'tmagcon', 'C3BB0CE5152AF14C700704FF94EF2C23D1D5E1CCEC3463B2B968B53696DD0F3A8C78C6C4D55693534C18411CBCB326D81F0E5E7B618D05196594BD1D7DEF512A', 'tmagconpt@gmail.com', NULL, '0970405212', '2000-06-03', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -119,11 +118,9 @@ CREATE TABLE `listproducts` (
 --
 
 INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES
-(2, 1, 1, 1, 5, 1500, 'wait'),
-(3, 3, 4, 1, 1, 10000, 'payment'),
-(5, 5, 4, 4, 3, 300, 'payment'),
-(6, 5, 4, 4, 4, 400, 'payment'),
-(7, 5, 4, 4, 1, 100, 'payment');
+(2, 1, 1, 1, 5, 1500, 'finish'),
+(3, 3, 1, 1, 3, 30000, 'wait'),
+(4, 1, 1, 1, 5, 1500, 'payment');
 
 -- --------------------------------------------------------
 
@@ -147,9 +144,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_details`, `product_price`, `product_countsell`, `product_count`, `product_img`) VALUES
-(1, 1, 'กางเกงใน', 'กางเกงในขายได้ขายดีเล่เข้ามาทางนี้ ตัวละ 300 ใส่แล้วบินได้กันไปเลยทีเดียว ซื้อ 1 แถม 1 ให้ฟรี ของหมดอดนะจ๊ะ', 300, 0, 50, 'assets/img/products/กางเกงใน_1.jpeg'),
-(3, 1, 'นาฬิกาคู่ใจ', 'นาฬินาเท่ใส่แล้วดูรวย มีชิ้นเดียว ช้าหมดอดนะครับ', 10000, 0, 5, 'assets/img/products/นาฬิการุ่น Limited No1_1.jpeg'),
-(5, 4, 'apple', 'อร่อยนะ', 100, 1, 4, 'assets/img/products/apple_4.png');
+(1, 1, 'กางเกงใน', 'กางเกงในขายได้ขายดีเล่เข้ามาทางนี้ ตัวละ 300 ใส่แล้วบินได้กันไปเลยทีเดียว ซื้อ 1 แถม 1 ให้ฟรี ของหมดอดนะจ๊ะ', 300, 10, 40, 'assets/img/products/กางเกงใน_1.jpeg'),
+(3, 1, 'นาฬิกาคู่ใจ', 'นาฬินาเท่ใส่แล้วดูรวย มีชิ้นเดียว ช้าหมดอดนะครับ', 10000, 0, 5, 'assets/img/products/นาฬิการุ่น Limited No1_1.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +208,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `acc_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `acc_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -242,13 +238,13 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `listproducts`
 --
 ALTER TABLE `listproducts`
-  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `product_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

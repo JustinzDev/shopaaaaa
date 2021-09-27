@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo $mylocalhost;?>assets/css/myitemshop.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $vps;?>assets/css/myitemshop.css?v=<?=time();?>" rel="stylesheet">
     <title>Seller Center</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 	
@@ -70,7 +70,7 @@
 			</tr>
 			<?php while($rowdata = mysqli_fetch_array($query)){?>
 			<tr>
-				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> <font color="red">x<?php echo $rowdata['product_count'];?></font></td>
+				<td class="itemshow"><img src="<?php echo $vps;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $vps;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> <font color="red">x<?php echo $rowdata['product_count'];?></font></td>
 				<td class="itemprice">฿<?php echo number_format($rowdata['product_price']);?></td>
 				<td><?php echo $rowdata['product_details'];?></td>
 				<td><?php echo $rowdata['product_countsell'];?></td>
@@ -78,7 +78,7 @@
 				<a href="#" id="<?php echo $rowdata['product_id'];?>" class="view_data" role="button" data-bs-toggle="modal" data-bs-target="#editmyitem">
 					<button class="edit">แก้ไข</button>
 				</a> 
-				<a href="<?php echo $mylocalhost;?>api/removemyitem?myproduct_id=<?php echo $rowdata['product_id'];?>"><button class="cancel">ลบ</button></a></td>
+				<a href="<?php echo $vps;?>api/removemyitem?myproduct_id=<?php echo $rowdata['product_id'];?>"><button class="cancel">ลบ</button></a></td>
 			</tr>
 			<?php }?>
 		</table>
@@ -92,7 +92,7 @@
 		$('.view_data').click(function(){  
 			var itemid = $(this).attr("id");  
 			$.ajax({  
-					url:"<?php echo $mylocalhost;?>api/editmyitem",  
+					url:"<?php echo $vps;?>api/editmyitem",  
 					method:"post",  
 					data:{itemid:itemid},  
 					success:function(data){  
