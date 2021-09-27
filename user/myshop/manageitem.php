@@ -9,7 +9,7 @@
         exit();
     }
 
-	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id AND listproducts.list_state = 'wait' AND listproducts.seller_id = '".$_SESSION['Uall_id']."') ORDER BY listproducts.list_id DESC";
+	$sql = "SELECT * FROM ((products INNER JOIN listproducts ON products.product_id = listproducts.product_id) INNER JOIN accounts ON listproducts.acc_id = accounts.acc_id AND listproducts.seller_id = '".$_SESSION['Uall_id']."') ORDER BY listproducts.list_id DESC";
 	$query = mysqli_query($conn, $sql);
 	$countorder = mysqli_num_rows($query);
 ?>
@@ -62,10 +62,26 @@
 			<tr>
 				<td class="itemshow"><img src="<?php echo $vps;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $vps;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> <font color="red">x<?php echo $rowdata['list_counto'];?></font></td>
 				<td class="itemprice">฿<?php echo number_format($rowdata['list_totalprice']);?></td>
-				<td>ยังไม่ได้ชำระเงิน</td>
+				<td><?php if($rowdata['list_state'] == "wait"){?>
+						รอดำเนินการ
+					<?php }?>
+					<?php if($rowdata['list_state'] == "payment"){?>
+						กำลังจัดส่ง
+					<?php }?>
+					<?php if($rowdata['list_state'] == "finish"){?>
+						สำเร็จแล้ว
+					<?php }?>
+				</td>
 				<td><?php echo $rowdata['acc_username'];?></td>
 				<td>เก็บปลายทาง</td>
-				<td class="itemaction"><a href="<?php echo $vps;?>api/acceptorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="confirm">ยอมรับ</button></a> <a href="<?php echo $vps;?>api/refuseorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ปฏิเสธ</button></a></td>
+				<td class="itemaction">
+					<?php if($rowdata['list_state'] == "payment"){?>
+						<a href="<?php echo $vps;?>api/cancelorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ยกเลิก</button></a>
+					<?php }?>
+					<?php if($rowdata['list_state'] == "wait"){?>
+						<a href="<?php echo $vps;?>api/acceptorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="confirm">ยอมรับ</button></a> <a href="<?php echo $vps;?>api/refuseorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ปฏิเสธ</button></a>
+					<?php }?>
+				</td>
 			</tr>
 			<?php }?>
 		</table>
