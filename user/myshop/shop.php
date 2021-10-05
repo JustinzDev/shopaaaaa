@@ -17,8 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
-    <link href="<?php echo $vps;?>assets/css/shop.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $mylocalhost;?>assets/css/shop.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -48,7 +48,7 @@
         )
     }).trigger("change")
 
-    $.get("<?php echo $vps;?>user/myshop/navbarleftshop", function(data){
+    $.get("<?php echo $mylocalhost;?>user/myshop/navbarleftshop", function(data){
         $("#nav-left").replaceWith(data);
     });
 </script>

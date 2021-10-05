@@ -16,7 +16,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $vps."login";
+        $newlink = $mylocalhost."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -36,7 +36,7 @@
     }
 
     if($_GET['itemid'] == ""){
-        $newlink = $vps."user/myshop/shop";
+        $newlink = $mylocalhost."user/myshop/shop";
         echo '
             <script>
                 setTimeout(function(){
@@ -59,7 +59,7 @@
     , product_price = '".trim($_POST['productprice'])."', product_count = '".trim($_POST['productcount'])."' WHERE product_id = '".$_GET['itemid']."'";
     $queryupdate = mysqli_query($conn, $update);
 
-    $newlink = $vps."user/myshop/shop";
+    $newlink = $mylocalhost."user/myshop/shop";
     echo '
         <script>
             setTimeout(function(){
