@@ -9,9 +9,8 @@
         exit();
     }
 
-    $sql = "SELECT *  FROM (products INNER JOIN accounts ON products.acc_id = accounts.acc_id) WHERE product_id = '".$_GET['itemid']."'";
+    $sql = "SELECT * FROM (carts INNER JOIN products ON carts.product_id = products.product_id AND carts.acc_id = '".$_SESSION['Uall_id']."') ORDER BY carts.product_id DESC;";
     $query = mysqli_query($conn, $sql);
-    $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +32,27 @@
 <body style="background-color: rgba(156, 156, 156, 0.1);">
     <?php include('navbar.php');?>
     <div clsss="contain">
-        
+        <div class="topiccart"><h2>ตะกร้า | Cart</h2></div>
+        <div class="headercart">
+            <table class="tablecart">
+                <tr>
+                    <th>สินค้า</th>
+                    <th>ราคาต่อชิ้น</th>
+                    <th>จำนวน</th>
+                    <th>ราคารวม</th>
+                    <th>แอคชั่น</th>
+                <tr>
+                <?php while($rowdata = mysqli_fetch_array($query)){?>
+                    <tr>
+                        <td style="width:450px;"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"/><?php echo $rowdata['product_name'];?></td>
+                        <td style="width:150px;"><?php echo number_format($rowdata['product_price'], 2);?></td>
+                        <td style="width:150px;"><?php echo $rowdata['item_quantity'];?></td>
+                        <td style="width:150px;"><?php echo number_format($rowdata['item_cost'], 2);?></td>
+                        <td style="width:150px;">ลบ</td>
+                    </tr>
+                <?php }?>
+            </table>
+        </div>
     </div>
 </body>
 </html>

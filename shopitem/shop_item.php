@@ -57,7 +57,7 @@
                         </div>
                         <div class="product-buttonaction">
                             <?php if($result['product_count'] >= 1){?>
-                                <button id="addcart" type="button">เพิ่มไปยังรถเข็น</button>
+                                <a href="javascript:;" onclick="this.href='<?php echo $mylocalhost;?>api/addcartitem?itemid=<?php echo $result['product_id'];?>&quantity='+document.getElementById('countitem').value"><button id="addcart" type="button">เพิ่มไปยังรถเข็น</button></a>
                                 <button id="buying" type="submit">ซื้อสินค้า</button>
                             <?php }else{?>
                                 <button id="outstrock" type="button" disabled>สินค้าหมด</button>
