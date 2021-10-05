@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -38,11 +38,11 @@
 
         $totalprice = $_GET['quantity'] * $result['product_price'];
 
-        $register = "INSERT INTO carts (acc_id, product_id, item_cost, item_quantity) 
+        $insertcart = "INSERT INTO carts (acc_id, product_id, item_cost, item_quantity) 
         VALUES ('".$_SESSION['Uall_id']."', '".$_GET['itemid']."', '".$totalprice."', '".$_GET['quantity']."')";
-        $query = mysqli_query($conn, $register);
+        $query = mysqli_query($conn, $insertcart);
 
-        $newlink = $mylocalhost."cart";
+        $newlink = $vps."cart";
         echo '
             <script>
 
