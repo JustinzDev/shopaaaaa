@@ -21,9 +21,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
-    <link href="<?php echo $vps;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $vps;?>assets/css/myorder.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $mylocalhost;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/css/myorder.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -51,7 +51,7 @@
                         <span class="myaccounts"><i style="color:#008FFF;" class="fas fa-user-alt"></i> บัญชีของฉัน</span>
                         <span class="history" id="profile">ประวัติส่วนตัว</span>
                         <span class="bank_card">บัญชีธนาคาร&บัตร</span>
-                        <span class="address">ที่อยู่</span>
+                        <span class="address" id="myaddress">ที่อยู่</span>
                         <span class="changepass">เปลี่ยนรหัสผ่าน</span>
                         <span class="mybuying" style="color:#ee4d2d;"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
                         <span class="notify"><i style="color:#FF7800;" class="fas fa-bell"></i> การแจ้งเตือน</span>
@@ -79,9 +79,9 @@
                                         <?php if($rowdata['list_state'] == 'finish') {?> สำเร็จแล้ว <?php }?>
                                     </div>
                                 </div>
-                                <a href="<?php echo $vps;?>user/account/invoiceitem?itemid=<?php echo $rowdata['product_id'];?>">
+                                <a href="<?php echo $mylocalhost;?>user/account/invoiceitem?itemid=<?php echo $rowdata['product_id'];?>">
                                     <div class="body-boxitem">
-                                        <img src="<?php echo $vps;?><?php echo $rowdata['product_img'];?>">
+                                        <img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>">
                                         <div class="infomessage-item">
                                             <span><?php echo $rowdata['product_details'];?></span><br>
                                             <span>x<?php echo $rowdata['list_counto'];?></span>
@@ -104,7 +104,7 @@
         $("#nameuser").addClass("hide");
     }
 
-    var imgUrl = "<?php echo $vps;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+    var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
     var tester = new Image();
     tester.onload=function() {
         document.getElementById("output2").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -133,7 +133,11 @@
     });
 
     $('#profile').click(function(){
-        window.location = "<?php echo $vps;?>user/account/profile";
+        window.location = "<?php echo $mylocalhost;?>user/account/profile";
+    })
+
+    $('#myaddress').click(function(){
+        window.location = "<?php echo $mylocalhost;?>user/account/myaddress";
     })
 
     function clickonme(){
@@ -144,10 +148,10 @@
             showButtonCancel: true,
         }, function(isConfirm) {
                 if(isConfirm){
-                    window.location = "<?php echo $vps;?>logout";
+                    window.location = "<?php echo $mylocalhost;?>logout";
                 }
                 if(isCancel){
-                    window.location = "<?php echo $vps;?>logout";
+                    window.location = "<?php echo $mylocalhost;?>logout";
                 }
         });
     }

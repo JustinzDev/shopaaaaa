@@ -172,10 +172,10 @@
                                 showButtonCancel: true,
                             }, function(isConfirm) {
                                     if(isConfirm){
-                                        window.location = "<?php echo $vps;?>";
+                                        window.location = "<?php echo $mylocalhost;?>";
                                     }
                                     if(isCancel){
-                                        window.location = "<?php echo $vps;?>";
+                                        window.location = "<?php echo $mylocalhost;?>";
                                     }
                             });
                         }, 100);
@@ -190,10 +190,10 @@
                                 showButtonCancel: true,
                             }, function(isConfirm) {
                                     if(isConfirm){
-                                        window.location = "<?php echo $vps;?>login";
+                                        window.location = "<?php echo $mylocalhost;?>login";
                                     }
                                     if(isCancel){
-                                        window.location = "<?php echo $vps;?>login";
+                                        window.location = "<?php echo $mylocalhost;?>login";
                                     }
                             });
                         }, 100);

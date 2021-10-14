@@ -11,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
-    <link href="<?php echo $vps;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $vps;?>assets/css/profile.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $mylocalhost;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/css/profile.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,7 +41,7 @@
                         <span class="myaccounts"><i style="color:#008FFF;" class="fas fa-user-alt"></i> บัญชีของฉัน</span>
                         <span class="history" style="color:#ee4d2d;">ประวัติส่วนตัว</span>
                         <span class="bank_card">บัญชีธนาคาร&บัตร</span>
-                        <span class="address">ที่อยู่</span>
+                        <span class="address" id="myaddress">ที่อยู่</span>
                         <span class="changepass">เปลี่ยนรหัสผ่าน</span>
                         <span class="mybuying" id="mybuyorder"><i style="color:#008FFF;" class="fas fa-clipboard"></i> การซื้อของฉัน</span>
                         <span class="notify"><i style="color:#FF7800;" class="fas fa-bell"></i> การแจ้งเตือน</span>
@@ -139,10 +139,14 @@
     }
     
     $('#mybuyorder').click(function(){
-        window.location = "<?php echo $vps;?>user/account/myorder";
+        window.location = "<?php echo $mylocalhost;?>user/account/myorder";
     })
 
-    var imgUrl = "<?php echo $vps;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+    $('#myaddress').click(function(){
+        window.location = "<?php echo $mylocalhost;?>user/account/myaddress";
+    })
+
+    var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
     var tester = new Image();
     tester.onload=function() {
         document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -182,10 +186,10 @@
             showButtonCancel: true,
         }, function(isConfirm) {
                 if(isConfirm){
-                    window.location = "<?php echo $vps;?>logout";
+                    window.location = "<?php echo $mylocalhost;?>logout";
                 }
                 if(isCancel){
-                    window.location = "<?php echo $vps;?>logout";
+                    window.location = "<?php echo $mylocalhost;?>logout";
                 }
         });
     }

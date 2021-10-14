@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $vps."login";
+        $newlink = $mylocalhost."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -33,7 +33,7 @@
     $removecart = "DELETE FROM carts WHERE item_id = '".$_GET['itemid']."'";
     $query = mysqli_query($conn, $removecart);
 
-    $newlink = $vps."cart";
+    $newlink = $mylocalhost."cart";
 
     echo '
     <script>

@@ -744,6 +744,38 @@ hr{
     border-radius: 3px;
 }
 
+.buttonaddress{
+    background-color: #ee4d2d;
+    border: none;
+    padding: 5px 20px;
+    color: white;
+    margin-top: -5.5px;
+    float:right;
+}
+
+.box-address{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.box-address label{
+    margin-left: 20px;
+}
+
+.box-address input{
+    padding: 2px 10px;
+    margin-left: 15px;
+    margin-top: -7px;
+}
+
+#addressdetail{
+    resize: none;
+}
+
 @media screen and (max-width: 1000px) {
 
     .headercart{
