@@ -5,7 +5,7 @@
     include('api/setlink.php');
 
     if($_SESSION['Uall_id'] == ""){
-		echo "<script>window.location='".$mylocalhost."';</script>";
+		echo "<script>window.location='".$vps."';</script>";
         exit();
     }
 
@@ -22,8 +22,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
-    <link href="<?php echo $mylocalhost;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $vps;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -47,11 +47,11 @@
                 <tr>
                 <?php while($rowdata = mysqli_fetch_array($query)){?>
                     <tr>
-                        <td><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"/><?php echo $rowdata['product_name'];?></td>
+                        <td><img src="<?php echo $vps;?><?php echo $rowdata['product_img'];?>"/><?php echo $rowdata['product_name'];?></td>
                         <td>฿<?php echo number_format($rowdata['product_price'], 2);?></td>
                         <td><?php echo $rowdata['item_quantity'];?></td>
                         <td>฿<?php echo number_format($rowdata['item_cost'], 2);?></td>
-                        <td><a href="<?php echo $mylocalhost;?>api/removecartitem?itemid=<?php echo $rowdata['item_id'];?>">ลบ</a></td>
+                        <td><a href="<?php echo $vps;?>api/removecartitem?itemid=<?php echo $rowdata['item_id'];?>">ลบ</a></td>
                     </tr>
                 <?php 
                     $totalprice += $rowdata['item_cost'];
@@ -60,7 +60,7 @@
         </div>
         <div class="down-div">
             <h4>รวม (<?php echo $countitem;?> สินค้า): <font color="#ee4d2d">฿<?php echo number_format($totalprice, 2);?></font></h4>
-            <a href="<?php echo $mylocalhost;?>api/confirmcart"><button id="submitbutton">สั่งซื้อสินค้า</button></a>
+            <a href="<?php echo $vps;?>api/confirmcart"><button id="submitbutton">สั่งซื้อสินค้า</button></a>
         </div>
     </div>
 </body>

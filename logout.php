@@ -2,5 +2,5 @@
     session_start();
     session_destroy();
     include('api/setlink.php');
-    header("location:$mylocalhost");
+    header("location:$vps");
 ?>
