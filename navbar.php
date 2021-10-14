@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header>    
@@ -34,8 +34,8 @@
                     <a class="iconapp" href="#"><i class="far fa-question-circle"></i></a>
                     <a class="aspec right" href="#">ช่วยเหลือ</a>
                     <?php if($_SESSION['Uall_id'] == ""){ ?>
-                        <a class="aspec right" href="<?php echo $vps;?>register">สมัครใหม่</a>
-                        <a class="alogin right" href="<?php echo $vps;?>login">เข้าสู่ระบบ</a>
+                        <a class="aspec right" href="<?php echo $mylocalhost;?>register">สมัครใหม่</a>
+                        <a class="alogin right" href="<?php echo $mylocalhost;?>login">เข้าสู่ระบบ</a>
                     <?php } else { ?>
                         <div class="dropdown">
                             <span class="dropbtn">
@@ -43,9 +43,9 @@
                                 <?php echo $_SESSION['Uall_username']; ?>
                             </span>
                             <div class="dropdown-content">
-                                <a href="<?php echo $vps;?>user/account/profile">บัญชีของฉัน</a>
-                                <a href="<?php echo $vps;?>user/account/myorder">การซื้อของฉัน</a>
-                                <a href="<?php echo $vps;?>user/myshop/shop">ร้านค้าของฉัน</a>
+                                <a href="<?php echo $mylocalhost;?>user/account/profile">บัญชีของฉัน</a>
+                                <a href="<?php echo $mylocalhost;?>user/account/myorder">การซื้อของฉัน</a>
+                                <a href="<?php echo $mylocalhost;?>user/myshop/shop">ร้านค้าของฉัน</a>
                                 <a href="#" onclick="clickonme();">ออกจากระบบ</a>
                             </div>
                         </div>
@@ -53,10 +53,10 @@
                 </div>
             </div>
             <div class="navbar-warpperdown">
-                <img src="<?php echo $vps;?>assets/img/logo.png" onclick="gotoindex()">
+                <img src="<?php echo $mylocalhost;?>assets/img/logo.png" onclick="gotoindex()">
                 <input type="text" placeholder=" ค้นหาสินค้าและร้านค้า" name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
-                <a href="cart"><i class="fas fa-shopping-cart cart"></i></a>
+                <a href="<?php echo $mylocalhost;?>cart"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
             
             <div class="navbar-warpperdowntoo">
@@ -74,7 +74,7 @@
 </body>
 <script>
 
-var imgUrl = "<?php echo $vps;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
 var tester=new Image();
 tester.onload=function() {
   document.getElementById("mypicprofile").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -85,7 +85,7 @@ tester.onerror=function() {
 tester.src=imgUrl + '.png';
 
 function gotoindex(){
-    window.location = "<?php echo $vps;?>";
+    window.location = "<?php echo $mylocalhost;?>";
 }
 
 function clickonme(){
@@ -96,10 +96,10 @@ function clickonme(){
         showButtonCancel: true,
     }, function(isConfirm) {
             if(isConfirm){
-                window.location = "<?php echo $vps;?>logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
             if(isCancel){
-                window.location = "<?php echo $vps;?>logout";
+                window.location = "<?php echo $mylocalhost;?>logout";
             }
     });
 }

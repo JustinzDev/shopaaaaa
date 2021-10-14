@@ -26,7 +26,7 @@
     $type = $_FILES["myfilepic"]["type"];
 
     if($type != "image/png" && $type != "image/jpeg"){
-        $newlink = $vps."user/myshop/shop";
+        $newlink = $mylocalhost."user/myshop/shop";
         echo '
             <script>
                 setTimeout(function(){
@@ -47,7 +47,7 @@
 
     if ($_FILES["myfilepic"]["size"] > 5000000) {
 
-        $newlink = $vps."user/myshop/shop";
+        $newlink = $mylocalhost."user/myshop/shop";
         echo '
             <script>
                 setTimeout(function(){
@@ -87,7 +87,7 @@
     $queryupdate = mysqli_query($conn, $update);
 
     if($target_file != "") move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file);
-    $newlink = $vps."user/myshop/shop";
+    $newlink = $mylocalhost."user/myshop/shop";
     echo '
         <script>
             setTimeout(function(){

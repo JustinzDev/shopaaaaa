@@ -643,6 +643,38 @@ hr{
     margin-top: 30px;
 }
 
+.topiccart h2{
+    color: rgb(238, 77, 45);
+}
+
+.down-div{
+    display: flex;
+    justify-content: right;
+    margin: auto;
+    width: 60%;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+}
+
+.down-div button{
+    background: #ee4d2d;
+    color: white;
+    border: none;
+    padding: 13px 36px;
+    margin: 0 22px 0 15px;
+    font-weight: 300;
+    font-size: .875rem;
+    border-radius: 2px;
+    width: 13.125rem;
+    cursor: pointer;
+}
+
+.down-div h4{
+    margin-top: 10px;
+    text-align: center;
+}
+
 .headercart{
     background-color: white;
     width: 60%;

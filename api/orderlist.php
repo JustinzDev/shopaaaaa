@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $vps."login";
+        $newlink = $mylocalhost."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -46,12 +46,12 @@
             setTimeout(function(){
                 swal({
                     title: "สำเร็จ",
-                    text: "คุณได้สั่งซื้อสิน [ '.$result['product_name'].' ] \n จำนวน [ '.$_POST['countitem'].' ] ชิ้น \n ในราคา [ ฿'.number_format($totalprice).' ] เรียบร้อยแล้ว",
+                    text: "คุณได้สั่งซื้อสิน [ '.$result['product_name'].' ] \n จำนวน [ '.$_POST['countitem'].' ] ชิ้น \n ในราคา [ ฿'.number_format($totalprice, 2).' ] เรียบร้อยแล้ว",
                     type: "success",
                     showButtonCancel: true,
                 }, function(isConfirm){
-                    if(isConfirm) window.location = "'.$vps.'";
-                    if(isCancel) window.location = "'.$vps.'";
+                    if(isConfirm) window.location = "'.$mylocalhost.'";
+                    if(isCancel) window.location = "'.$mylocalhost.'";
                 });
             }, 300);
         </script>
