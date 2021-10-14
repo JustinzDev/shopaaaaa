@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Centre</title>
-    <link href="<?php echo $mylocalhost;?>assets/css/navbarshop.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $vps;?>assets/css/navbarshop.css?v=<?=time();?>" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,7 +24,7 @@
     <header>    
         <div class="navbartop">
             <div class="logo">
-                <img src="<?php echo $mylocalhost;?>assets/img/logologin.png">
+                <img src="<?php echo $vps;?>assets/img/logologin.png">
             </div>
             <h4>Seller Centre</h4>
             <div class="menuright">  
@@ -34,11 +34,11 @@
                         <?php echo $_SESSION['Uall_username']; ?>
                     </span>
                     <div class="dropdown-content">
-                        <a href="<?php echo $mylocalhost;?>user/myshop/shop">ร้านค้าของฉัน</a>
+                        <a href="<?php echo $vps;?>user/myshop/shop">ร้านค้าของฉัน</a>
                         <a href="#" onclick="clickonme();">ออกจากระบบ</a>
                     </div>
                 </div>
-                <a href="<?php echo $mylocalhost;?>">กลับหน้าหลัก</a>
+                <a href="<?php echo $vps;?>">กลับหน้าหลัก</a>
             </div>
         </div>
     </header>
@@ -47,7 +47,7 @@
 </body>
 <script>
 
-    var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+    var imgUrl = "<?php echo $vps;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
     var tester=new Image();
     tester.onload=function() {
     document.getElementById("mypicprofile").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -65,10 +65,10 @@
             showButtonCancel: true,
         }, function(isConfirm) {
                 if(isConfirm){
-                    window.location = "<?php echo $mylocalhost;?>logout";
+                    window.location = "<?php echo $vps;?>logout";
                 }
                 if(isCancel){
-                    window.location = "<?php echo $mylocalhost;?>logout";
+                    window.location = "<?php echo $vps;?>logout";
                 }
         });
     }
@@ -92,10 +92,10 @@
                             showButtonCancel: true,
                         }, function(isConfirm) {
                                 if(isConfirm){
-                                    window.location = "<?php echo $mylocalhost;?>";
+                                    window.location = "<?php echo $vps;?>";
                                 }
                                 if(isCancel){
-                                    window.location = "<?php echo $mylocalhost;?>";
+                                    window.location = "<?php echo $vps;?>";
                                 }
                         });
                     }
@@ -108,10 +108,10 @@
                             showButtonCancel: true,
                         }, function(isConfirm) {
                                 if(isConfirm){
-                                    window.location = "<?php echo $mylocalhost;?>login";
+                                    window.location = "<?php echo $vps;?>login";
                                 }
                                 if(isCancel){
-                                    window.location = "<?php echo $mylocalhost;?>login";
+                                    window.location = "<?php echo $vps;?>login";
                                 }
                         });
                     }

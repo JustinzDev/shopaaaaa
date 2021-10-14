@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2021 at 08:27 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.30
+-- Generation Time: Oct 14, 2021 at 01:23 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -75,16 +75,6 @@ CREATE TABLE `carts` (
   `item_quantity` int(12) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `carts`
---
-
-INSERT INTO `carts` (`item_id`, `acc_id`, `product_id`, `item_cost`, `item_quantity`) VALUES
-(1, 1, 26, 796, 4),
-(9, 3, 18, 499, 1),
-(10, 3, 33, 3200, 1),
-(11, 3, 12, 699, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -109,6 +99,16 @@ CREATE TABLE `invoices` (
   `invoice_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `invoices`
+--
+
+INSERT INTO `invoices` (`invoice_no`, `item_id`, `invoice_total`, `invoice_date`) VALUES
+(2, 33, 3200, '2021-10-14'),
+(3, 22, 4999995, '2021-10-14'),
+(4, 23, 5000, '2021-10-14'),
+(5, 26, 796, '2021-10-14');
+
 -- --------------------------------------------------------
 
 --
@@ -130,10 +130,10 @@ CREATE TABLE `listproducts` (
 --
 
 INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES
-(1, 22, 1, 3, 1, 999999, 'payment'),
-(3, 9, 4, 3, 3, 272250, 'payment'),
-(5, 38, 3, 3, 1, 30000.75, 'wait'),
-(6, 38, 3, 3, 1, 30000.75, 'wait');
+(1, 33, 1, 3, 1, 3200, 'wait'),
+(2, 22, 1, 3, 5, 4999995, 'wait'),
+(4, 23, 1, 4, 1, 5000, 'wait'),
+(5, 26, 1, 1, 4, 796, 'payment');
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_details
 (23, 4, 'Mind Stone', 'Mind Stone 1 ใน collection infinity stone\r\n#collection สำหรับนักสะสม', 5000, 0, 100, 'assets/img/products/Mind Stone_23.png'),
 (24, 4, 'Time Stone', 'Time Stone 1 ใน collection infinity stone\r\n#collections สำหรับนักสะสม', 5000, 0, 100, 'assets/img/products/Time Stone_24.png'),
 (25, 4, 'Power Stone', 'Power Stone 1 ใน collection infinity stone\r\n#collection สำหรับนักสะสม', 5000, 0, 100, 'assets/img/products/Power Stone_25.png'),
-(26, 1, 'เสื้อครอปท็อปคอกลมแขนกุดพิมพ์ลายกะโหลกเซ็กซี่', 'Pink - Women เสื้อครอปท็อปคอกลมแขนกุดพิมพ์ลายกะโหลกเซ็กซี่!!!', 199, 0, 4, 'assets/img/products/เสื้อครอปท็อปคอกลมแขนกุดพิมพ์ลายกะโหลกเซ็กซี่_26.jpeg'),
+(26, 1, 'เสื้อครอปท็อปคอกลมแขนกุดพิมพ์ลายกะโหลกเซ็กซี่', 'Pink - Women เสื้อครอปท็อปคอกลมแขนกุดพิมพ์ลายกะโหลกเซ็กซี่!!!', 199, 4, 0, 'assets/img/products/เสื้อครอปท็อปคอกลมแขนกุดพิมพ์ลายกะโหลกเซ็กซี่_26.jpeg'),
 (27, 4, 'Reality Stone', 'Reality Stone 1 ใน collection infinity stone\r\n#collection สำหรับนักสะสม', 5000, 0, 100, 'assets/img/products/Reality Stone_27.png'),
 (28, 1, 'เสื้อ Oversize สีขาวสำหรับผู้หญิง', 'เสื้อ Oversize สีขาวสำหรับผู้หญิง !!!!!!!!!!@@@@@@', 199, 0, 45, 'assets/img/products/asd_28.jpeg'),
 (30, 4, 'Space Stone', 'Space Stone 1 ใน collection infinity stone\r\n#collection สำหรับนักสะสม', 5000, 0, 100, 'assets/img/products/Space Stone_30.jpeg'),
@@ -227,8 +227,7 @@ ALTER TABLE `categories`
 -- Indexes for table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD PRIMARY KEY (`invoice_no`),
-  ADD KEY `item_id` (`item_id`);
+  ADD PRIMARY KEY (`invoice_no`);
 
 --
 -- Indexes for table `listproducts`
@@ -263,7 +262,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `item_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `item_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -275,13 +274,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `invoice_no` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `invoice_no` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `listproducts`
 --
 ALTER TABLE `listproducts`
-  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -299,12 +298,6 @@ ALTER TABLE `products`
 ALTER TABLE `carts`
   ADD CONSTRAINT `foreign key cus_id` FOREIGN KEY (`acc_id`) REFERENCES `accounts` (`acc_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `foreign key product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `invoices`
---
-ALTER TABLE `invoices`
-  ADD CONSTRAINT `foreign key item_id` FOREIGN KEY (`item_id`) REFERENCES `carts` (`item_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `products`

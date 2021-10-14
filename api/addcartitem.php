@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -42,7 +42,7 @@
         VALUES ('".$_SESSION['Uall_id']."', '".$_GET['itemid']."', '".$totalprice."', '".$_GET['quantity']."')";
         $query = mysqli_query($conn, $insertcart);
 
-        $newlink = $mylocalhost."cart";
+        $newlink = $vps."cart";
         echo '
             <script>
 

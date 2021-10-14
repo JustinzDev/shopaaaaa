@@ -95,6 +95,10 @@ body, html {
     color: #ee4d2d;
 }
 
+.topstatus{
+    text-align: right;
+}
+
 .navbar-right .down{
     margin-top: 20px;
     margin-left: -40px;

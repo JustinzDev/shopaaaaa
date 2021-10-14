@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -41,6 +41,9 @@
         $query = mysqli_query($conn, $sql);
         
 
+        $sql3 = "INSERT INTO `invoices`(`item_id`, `invoice_total`, `invoice_date`) VALUES ('".$_GET['itemid']."', '".$totalprice."', '".date("Y-m-d")."')";
+        $query3 = mysqli_query($conn, $sql3);
+
         echo '
         <script>
             setTimeout(function(){
@@ -50,8 +53,8 @@
                     type: "success",
                     showButtonCancel: true,
                 }, function(isConfirm){
-                    if(isConfirm) window.location = "'.$mylocalhost.'";
-                    if(isCancel) window.location = "'.$mylocalhost.'";
+                    if(isConfirm) window.location = "'.$vps.'";
+                    if(isCancel) window.location = "'.$vps.'";
                 });
             }, 300);
         </script>

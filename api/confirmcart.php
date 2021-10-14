@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -39,6 +39,9 @@
         $sql2 = "INSERT INTO `listproducts`(`product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES ('".$rowdata['product_id']."', 
         '".$_SESSION['Uall_id']."','".$rowdata['acc_id']."', '".$rowdata['item_quantity']."', '".$totalprice."' , 'wait')";
         $query2 = mysqli_query($conn, $sql2);
+
+        $sql3 = "INSERT INTO `invoices`(`item_id`, `invoice_total`, `invoice_date`) VALUES ('".$rowdata['product_id']."', '".$totalprice."', '".date("Y-m-d")."')";
+        $query3 = mysqli_query($conn, $sql3);
     }
     
     $removecart = "DELETE FROM carts WHERE acc_id = '".$_SESSION['Uall_id']."'";
@@ -53,8 +56,8 @@
                 type: "success",
                 showButtonCancel: true,
             }, function(isConfirm){
-                if(isConfirm) window.location = "'.$mylocalhost.'";
-                if(isCancel) window.location = "'.$mylocalhost.'";
+                if(isConfirm) window.location = "'.$vps.'";
+                if(isCancel) window.location = "'.$vps.'";
             });
         }, 300);
     </script>
