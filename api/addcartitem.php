@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $vps."login";
+        $newlink = $mylocalhost."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -34,6 +34,14 @@
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
+    $checkhave = "SELECT * FROM carts WHERE acc_id = '".$_SESSION['Uall_id']."' AND product_id = '".$_GET['itemid']."'";
+    $queryhave = mysqli_query($conn, $checkhave);
+    $resulthave = mysqli_fetch_array($queryhave);
+    if($resulthave){
+        header("location:$mylocalhost");
+        exit();
+    }
+
     if($result){
 
         $totalprice = $_GET['quantity'] * $result['product_price'];
@@ -42,7 +50,7 @@
         VALUES ('".$_SESSION['Uall_id']."', '".$_GET['itemid']."', '".$totalprice."', '".$_GET['quantity']."')";
         $query = mysqli_query($conn, $insertcart);
 
-        $newlink = $vps."cart";
+        $newlink = $mylocalhost."cart";
         echo '
             <script>
 
