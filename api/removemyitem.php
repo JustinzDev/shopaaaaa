@@ -12,7 +12,7 @@
 
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -35,7 +35,7 @@
     $queryorder = mysqli_query($conn, $refuseorder);
     $resultorder = mysqli_fetch_array($queryorder, MYSQLI_ASSOC);
 
-    $newlink = $mylocalhost."user/myshop/shop";
+    $newlink = $vps."user/myshop/shop";
         echo '
             <script>
 

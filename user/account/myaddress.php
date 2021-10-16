@@ -11,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
-    <link href="<?php echo $mylocalhost;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $mylocalhost;?>assets/css/profile.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $vps;?>assets/css/main.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $vps;?>assets/css/profile.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -65,7 +65,7 @@
                                 <div class="telphoneinput"><?php echo $_SESSION['Uall_contact'];?></div>
                             </div><br>
                             <div class="myname">
-                                <label>ที่อยู่</label><textarea id="addressdetail" name="addressdetail"  rows="10" cols="50" require><?php echo $_SESSION['Uall_address'];?></textarea><br>
+                                <label>ที่อยู่</label><textarea id="addressdetail" name="addressdetail"  cols="50" require><?php echo $_SESSION['Uall_address'];?></textarea><br>
                             </div>
                         </div>
                         <div class="inline-right">
@@ -82,25 +82,34 @@
 </body>
 <script>
 
+    $("textarea").keydown(function(e){
+        // Enter pressed
+        if (e.keyCode == 13)
+        {
+            //method to prevent from default behaviour
+            e.preventDefault();
+        }
+    });
+
     function changename(){
         $(".nameinput").addClass("show");
         $("#nameuser").addClass("hide");
     }
     
     $('#mybuyorder').click(function(){
-        window.location = "<?php echo $mylocalhost;?>user/account/myorder";
+        window.location = "<?php echo $vps;?>user/account/myorder";
     })
 
     $('#myaddress').click(function(){
-        window.location = "<?php echo $mylocalhost;?>user/account/myaddress";
+        window.location = "<?php echo $vps;?>user/account/myaddress";
     })
 
     $('#myprofile').click(function(){
-        window.location = "<?php echo $mylocalhost;?>user/account/profile";
+        window.location = "<?php echo $vps;?>user/account/profile";
     })
 
 
-    var imgUrl = "<?php echo $mylocalhost;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
+    var imgUrl = "<?php echo $vps;?>assets/img/users/<?php echo $_SESSION['Uall_username']?>";
     var tester = new Image();
     tester.onload=function() {
         document.getElementById("output").src = imgUrl + '.png?t=' + new Date().getTime();
@@ -138,10 +147,10 @@
             showButtonCancel: true,
         }, function(isConfirm) {
                 if(isConfirm){
-                    window.location = "<?php echo $mylocalhost;?>logout";
+                    window.location = "<?php echo $vps;?>logout";
                 }
                 if(isCancel){
-                    window.location = "<?php echo $mylocalhost;?>logout";
+                    window.location = "<?php echo $vps;?>logout";
                 }
         });
     }

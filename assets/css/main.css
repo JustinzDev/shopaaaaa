@@ -773,6 +773,16 @@ hr{
 }
 
 #addressdetail{
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    flex: 1;
+    outline: none;
+    font-size: 14px;
+    min-width: 0;
+    color: #222;
+    border: 1px solid rgba(37, 37, 37, 0.5);
     resize: none;
 }
 
