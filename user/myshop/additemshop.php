@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo $vps;?>assets/css/additemshop.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $mylocalhost;?>assets/css/additemshop.css?v=<?=time();?>" rel="stylesheet">
     <title>Seller Center</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -26,7 +26,7 @@
         <h5>เพิ่มสินค้าลงร้านค้า</h5>
     </div>
     <div class="bodyadditem">
-        <form action="<?php echo $vps;?>api/additemtoshop" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo $mylocalhost;?>api/additemtoshop" method="POST" enctype="multipart/form-data">
             <label>ชื่อสินค้า</label><br>
             <input type="text" id="itemname" name="itemname" require><br>
             <label>จำนวนที่ลงขาย</label><br>

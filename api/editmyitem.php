@@ -12,13 +12,13 @@
         $query = "SELECT * FROM products WHERE product_id = '".$_POST["itemid"]."'";  
         $result = mysqli_query($conn, $query);  
         $output .= ' 
-        <form action="'.$vps.'api/confirmeditmyitem.php?itemid='.$_POST["itemid"].'" method="POST"> 
+        <form action="'.$mylocalhost.'api/confirmeditmyitem.php?itemid='.$_POST["itemid"].'" method="POST"> 
             <div class="table-responsive">  
                 <table class="table table-bordered table-hover">';  
         while($row = mysqli_fetch_array($result))  
         {  
             $output .= '  
-                    <center><img width="50%" src="'.$vps.$row["product_img"].'"/></div></center>
+                    <center><img width="50%" src="'.$mylocalhost.$row["product_img"].'"/></div></center>
                     <tr>  
                         <td width="20%"><label>ชื่อสินค้า</label></td>  
                         <td width="80%"><input style="padding: 5px 10px; width:60%; border: 1px solid rgba(189, 189, 189, 0.5);" name="productname" value="'.$row["product_name"].'" require></td>
