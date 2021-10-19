@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $vps."login";
+        $newlink = $mylocalhost."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -35,7 +35,7 @@
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
     if(!$result){
-        header("location:$vps");
+        header("location:$mylocalhost");
         exit();
     }
 
@@ -43,7 +43,7 @@
     $queryhave = mysqli_query($conn, $checkhave);
     $resulthave = mysqli_fetch_array($queryhave);
     if($resulthave){
-        header("location:$vps");
+        header("location:$mylocalhost");
         exit();
     }
 
@@ -55,7 +55,7 @@
         VALUES ('".$_SESSION['Uall_id']."', '".$_GET['itemid']."', '".$totalprice."', '".$_GET['quantity']."')";
         $query = mysqli_query($conn, $insertcart);
 
-        $newlink = $vps."cart";
+        $newlink = $mylocalhost."cart";
         echo '
             <script>
 

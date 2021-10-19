@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 01:23 PM
+-- Generation Time: Oct 19, 2021 at 09:23 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -32,23 +32,25 @@ CREATE TABLE `accounts` (
   `acc_username` varchar(20) DEFAULT NULL,
   `acc_password` varchar(128) DEFAULT NULL,
   `acc_email` varchar(64) DEFAULT NULL,
-  `acc_address` varchar(64) DEFAULT NULL,
   `acc_contact` varchar(10) DEFAULT NULL,
   `acc_birthday` date DEFAULT NULL,
   `acc_name` varchar(128) DEFAULT NULL,
-  `acc_gender` enum('male','female','other') DEFAULT NULL
+  `acc_gender` enum('male','female','other') DEFAULT NULL,
+  `acc_address` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`acc_id`, `acc_username`, `acc_password`, `acc_email`, `acc_address`, `acc_contact`, `acc_birthday`, `acc_name`, `acc_gender`) VALUES
-(1, 'JustinzDev', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'fullyz1532@gmail.com', NULL, '0616450118', '2000-12-01', 'Jesus อันดับ 1', 'male'),
-(2, 'JustinzDev1532', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'asdasd@gmail.com', NULL, '0932423423', '2021-08-04', 'นสตร.', 'female'),
-(3, 'tmagcon', 'C3BB0CE5152AF14C700704FF94EF2C23D1D5E1CCEC3463B2B968B53696DD0F3A8C78C6C4D55693534C18411CBCB326D81F0E5E7B618D05196594BD1D7DEF512A', 'tmagconpt@gmail.com', NULL, '0970405212', '2000-06-03', NULL, NULL),
-(4, 'sitti', 'A5451952093F961F35C0718284798FA1E730783BB70FF312E6F5776B8D6382224E540D229BAD87DB83B16E99A63A427E488FAF2F8519B81BA68E4F5EC2AB625F', 'sittichoke0000@gmail.com', NULL, '0897973840', '2000-03-21', NULL, NULL),
-(5, 'jesus', 'AC780E6A38CB490B040CD0A21611755E16E4D02F566E1B6D8D82AEA7D7AD6C1C7480B1B0CDC66418CE932388BB1940970F14DAA73560EBDD4C07C0187406F04F', 'jesus007@gmail.com', NULL, '0812345678', '2021-09-30', NULL, NULL);
+INSERT INTO `accounts` (`acc_id`, `acc_username`, `acc_password`, `acc_email`, `acc_contact`, `acc_birthday`, `acc_name`, `acc_gender`, `acc_address`) VALUES
+(1, 'JustinzDev', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'fullyz1532@gmail.com', '0616450118', '2000-12-01', 'JustinzDevEiei', 'male', 'Test'),
+(2, 'JustinzDev1532', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'asdasd@gmail.com', '0932423423', '2021-08-04', 'นสตร.', 'female', NULL),
+(3, 'tmagcon', 'C3BB0CE5152AF14C700704FF94EF2C23D1D5E1CCEC3463B2B968B53696DD0F3A8C78C6C4D55693534C18411CBCB326D81F0E5E7B618D05196594BD1D7DEF512A', 'tmagconpt@gmail.com', '0970405212', '2000-06-03', NULL, NULL, NULL),
+(4, 'sitti', 'A5451952093F961F35C0718284798FA1E730783BB70FF312E6F5776B8D6382224E540D229BAD87DB83B16E99A63A427E488FAF2F8519B81BA68E4F5EC2AB625F', 'sittichoke0000@gmail.com', '0897973840', '2000-03-21', NULL, NULL, NULL),
+(5, 'jesus', 'AC780E6A38CB490B040CD0A21611755E16E4D02F566E1B6D8D82AEA7D7AD6C1C7480B1B0CDC66418CE932388BB1940970F14DAA73560EBDD4C07C0187406F04F', 'jesus007@gmail.com', '0812345678', '2021-09-30', NULL, NULL, NULL),
+(6, '', '19FA61D75522A4669B44E39C1D2E1726C530232130D407F89AFEE0964997F7A73E83BE698B288FEBCF88E3E03C4F0757EA8964E59B63D93708B138CC42A66EB3', '', '', '0000-00-00', NULL, NULL, NULL),
+(7, 'Test112233', '304AAB12BE478019FC00F95D52EC82E8E5D0EA16A59A0588460A9C152CEDE403572303BEEFC926082B6F1DBFEC6F9EC79044ABCB9C9D39B02536F6D2D3720053', 'Test112233@gmail.com', '0943354354', '2021-10-01', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -104,10 +106,10 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`invoice_no`, `item_id`, `invoice_total`, `invoice_date`) VALUES
-(2, 33, 3200, '2021-10-14'),
-(3, 22, 4999995, '2021-10-14'),
-(4, 23, 5000, '2021-10-14'),
-(5, 26, 796, '2021-10-14');
+(1, 10, 399, '2021-10-18'),
+(2, 31, 5000, '2021-10-19'),
+(3, 32, 38600, '2021-10-19'),
+(4, 32, 38600, '2021-10-19');
 
 -- --------------------------------------------------------
 
@@ -130,10 +132,10 @@ CREATE TABLE `listproducts` (
 --
 
 INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES
-(1, 33, 1, 3, 1, 3200, 'wait'),
-(2, 22, 1, 3, 5, 4999995, 'wait'),
-(4, 23, 1, 4, 1, 5000, 'wait'),
-(5, 26, 1, 1, 4, 796, 'payment');
+(1, 10, 1, 1, 1, 399, 'wait'),
+(2, 31, 1, 4, 1, 5000, 'wait'),
+(3, 32, 1, 3, 1, 38600, 'wait'),
+(4, 32, 1, 3, 1, 38600, 'wait');
 
 -- --------------------------------------------------------
 
@@ -143,7 +145,7 @@ INSERT INTO `listproducts` (`list_id`, `product_id`, `acc_id`, `seller_id`, `lis
 
 CREATE TABLE `products` (
   `product_id` int(12) NOT NULL,
-  `acc_id` int(12) NOT NULL,
+  `seller_id` int(12) NOT NULL,
   `product_name` varchar(128) DEFAULT NULL,
   `product_details` varchar(128) DEFAULT NULL,
   `product_price` double NOT NULL DEFAULT 0,
@@ -156,7 +158,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `acc_id`, `product_name`, `product_details`, `product_price`, `product_countsell`, `product_count`, `product_img`) VALUES
+INSERT INTO `products` (`product_id`, `seller_id`, `product_name`, `product_details`, `product_price`, `product_countsell`, `product_count`, `product_img`) VALUES
 (1, 3, 'Glorious model o wireless', 'Glorious model o wireless White RGB\r\nถูกมากกกกกมายย แล้วก็อยากขายด้วยย', 3000, 0, 555, 'assets/img/products/Glorious model o wireless_1.jpeg'),
 (2, 3, 'Glorious model o wireless', 'Glorious model o wireless ฺBlack RGB\r\nขายทุนน ไม่ขายละ', 3000, 0, 555, 'assets/img/products/Glorious model o wireless_2.jpeg'),
 (3, 1, 'กางเกงใน 5 บาท', 'กางเกงใน 5 บาท 125 มิลลิลิตร ปริมาณคับตูดเต็มที่', 300, 0, 0, 'assets/img/products/กางเกงใน 5 บาท_3.jpeg'),
@@ -240,7 +242,7 @@ ALTER TABLE `listproducts`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD KEY `acc_id` (`acc_id`) USING BTREE;
+  ADD KEY `acc_id` (`seller_id`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -250,7 +252,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `acc_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `acc_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -262,7 +264,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `item_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `item_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -274,13 +276,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `invoice_no` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `invoice_no` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `listproducts`
 --
 ALTER TABLE `listproducts`
-  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `list_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -303,7 +305,7 @@ ALTER TABLE `carts`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `foreign key accid` FOREIGN KEY (`acc_id`) REFERENCES `accounts` (`acc_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `foreign key accid` FOREIGN KEY (`seller_id`) REFERENCES `accounts` (`acc_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

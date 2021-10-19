@@ -21,7 +21,7 @@
 
     if ($_FILES["myfilepic"]["size"] > 1000000) {
 
-        $newlink = $vps."user/account/profile";
+        $newlink = $mylocalhost."user/account/profile";
         echo '
             <script>
                 setTimeout(function(){
@@ -91,7 +91,7 @@
     if($checkupdatename || $checkupdategender || $checkupdatebirthday){
 
         if($target_file != "") move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file);
-        $newlink = $vps."user/account/profile";
+        $newlink = $mylocalhost."user/account/profile";
         echo '
             <script>
                 setTimeout(function(){

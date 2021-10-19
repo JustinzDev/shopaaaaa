@@ -27,7 +27,7 @@
 
     $_SESSION['Uall_address'] = mysqli_real_escape_string($conn, $addressdetail);
 
-    $newlink = $vps."user/account/myaddress";
+    $newlink = $mylocalhost."user/account/myaddress";
         echo '
             <script>
                 setTimeout(function(){

@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $vps."login";
+        $newlink = $mylocalhost."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -35,7 +35,7 @@
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
     if(!$result){
-        echo "<script>window.location='".$vps."';</script>";
+        echo "<script>window.location='".$mylocalhost."';</script>";
         exit();
     }
 
@@ -57,8 +57,8 @@
                 type: "success",
                 showButtonCancel: true,
             }, function(isConfirm){
-                if(isConfirm) window.location = "'.$vps.'";
-                if(isCancel) window.location = "'.$vps.'";
+                if(isConfirm) window.location = "'.$mylocalhost.'";
+                if(isCancel) window.location = "'.$mylocalhost.'";
             });
         }, 300);
     </script>
