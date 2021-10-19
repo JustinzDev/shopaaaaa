@@ -12,7 +12,7 @@
 
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -45,7 +45,7 @@
         $query = mysqli_query($conn, $updatesell_count);
 
 
-        $newlink = $mylocalhost."user/myshop/shop";
+        $newlink = $vps."user/myshop/shop";
         echo '
             <script>
 

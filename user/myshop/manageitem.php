@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo $mylocalhost;?>assets/css/manageitem.css?v=<?=time();?>" rel="stylesheet">
+    <link href="<?php echo $vps;?>assets/css/manageitem.css?v=<?=time();?>" rel="stylesheet">
     <title>Seller Center</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -61,7 +61,7 @@
 			</tr>
 			<?php while($rowdata = mysqli_fetch_array($query)){?>
 			<tr>
-				<td class="itemshow"><img src="<?php echo $mylocalhost;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> <font color="red">x<?php echo $rowdata['list_counto'];?></font></td>
+				<td class="itemshow"><img src="<?php echo $vps;?><?php echo $rowdata['product_img'];?>"> <a href="<?php echo $vps;?>shopitem/shop_item?itemid=<?php echo $rowdata['product_id'];?>"><?php echo $rowdata['product_name'];?></a> <font color="red">x<?php echo $rowdata['list_counto'];?></font></td>
 				<td class="itemprice">฿<?php echo number_format($rowdata['list_totalprice'], 2);?></td>
 				<td><?php if($rowdata['list_state'] == "wait"){?>
 						รอดำเนินการ
@@ -83,10 +83,10 @@
 				</td>
 				<td class="itemaction">
 					<?php if($rowdata['list_state'] == "payment"){?>
-						<a href="<?php echo $mylocalhost;?>api/cancelorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ยกเลิก</button></a>
+						<a href="<?php echo $vps;?>api/cancelorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ยกเลิก</button></a>
 					<?php }?>
 					<?php if($rowdata['list_state'] == "wait"){?>
-						<a href="<?php echo $mylocalhost;?>api/acceptorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="confirm">ยอมรับ</button></a> <a href="<?php echo $mylocalhost;?>api/refuseorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ปฏิเสธ</button></a>
+						<a href="<?php echo $vps;?>api/acceptorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="confirm">ยอมรับ</button></a> <a href="<?php echo $vps;?>api/refuseorder?list_productid=<?php echo $rowdata['list_id'];?>"><button class="cancel">ปฏิเสธ</button></a>
 					<?php }?>
 				</td>
 			</tr>

@@ -4,7 +4,12 @@
     error_reporting(0);
     include('api/setlink.php');
 
-    $loaditemshop = "SELECT * FROM products WHERE product_name LIKE '%".$_POST['search']."%'";
+    if($_POST['search'] == ""){
+        echo "<script>window.location='".$vps."';</script>";
+        exit();
+    }
+
+    $loaditemshop = "SELECT * FROM products WHERE product_name LIKE '%".$_POST['search']."%' OR product_details LIKE '%".$_POST['search']."%'";
     $query = mysqli_query($conn, $loaditemshop);
 ?>
 <!DOCTYPE html>
@@ -15,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopa</title>
     <link href="assets/css/main.css?v=<?=time();?>" rel="stylesheet">
-    <link href="<?php echo $mylocalhost;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $vps;?>assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -77,14 +82,14 @@
             <br><hr>
             <div class="body3">
                 <div class="header_shopbox" style="margin-top: 25px;">
-                    <span class="checkedbox">สินค้าทั้งหมด</span>
+                    <span class="checkedbox"><?php echo $_POST['search'];?></span>
                 </div>
                 <div class="shop_box">
                     <?php
                         while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
                     ?>
                         <div class="shopbodybox">
-                            <a href="<?php echo $mylocalhost;?>shopitem/shop_item?itemid=<?php echo $row['product_id'];?>">   
+                            <a href="<?php echo $vps;?>shopitem/shop_item?itemid=<?php echo $row['product_id'];?>">   
                                 <div class="boximg">
                                     <img src="<?php echo $row['product_img'];?>">
                                 </div>
@@ -113,10 +118,10 @@ function clickonme(){
         showButtonCancel: true,
     }, function(isConfirm) {
             if(isConfirm){
-                window.location = "<?php echo $mylocalhost;?>logout";
+                window.location = "<?php echo $vps;?>logout";
             }
             if(isCancel){
-                window.location = "<?php echo $mylocalhost;?>logout";
+                window.location = "<?php echo $vps;?>logout";
             }
     });
 }

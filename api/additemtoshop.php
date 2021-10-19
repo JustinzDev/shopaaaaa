@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-		echo "<script>window.location='index';</script>";
+		echo "<script>window.location='".$vps."';</script>";
         exit();
     }
 
@@ -26,7 +26,7 @@
     $type = $_FILES["myfilepic"]["type"];
 
     if($type != "image/png" && $type != "image/jpeg"){
-        $newlink = $mylocalhost."user/myshop/shop";
+        $newlink = $vps."user/myshop/shop";
         echo '
             <script>
                 setTimeout(function(){
@@ -47,7 +47,7 @@
 
     if ($_FILES["myfilepic"]["size"] > 5000000) {
 
-        $newlink = $mylocalhost."user/myshop/shop";
+        $newlink = $vps."user/myshop/shop";
         echo '
             <script>
                 setTimeout(function(){
@@ -67,7 +67,7 @@
         exit();
     }
     
-    $sql = "INSERT INTO `products`(`acc_id`, `product_name`, `product_details`, `product_price`, `product_count`, `product_img`) 
+    $sql = "INSERT INTO `products`(`seller_id`, `product_name`, `product_details`, `product_price`, `product_count`, `product_img`) 
     VALUES ('".$_SESSION['Uall_id']."', '".trim($itemname)."','".mysqli_real_escape_string($conn, $itemdetails)."', '".$itemprice."', '".$itemcount."', '".$newlinkimg."')";
     $query = mysqli_query($conn, $sql);
     $getid = mysqli_insert_id($conn);
@@ -87,7 +87,7 @@
     $queryupdate = mysqli_query($conn, $update);
 
     if($target_file != "") move_uploaded_file($_FILES["myfilepic"]["tmp_name"], $target_file);
-    $newlink = $mylocalhost."user/myshop/shop";
+    $newlink = $vps."user/myshop/shop";
     echo '
         <script>
             setTimeout(function(){

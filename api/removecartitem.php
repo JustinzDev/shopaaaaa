@@ -11,7 +11,7 @@
     ';
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -35,14 +35,14 @@
     $resulthave = mysqli_fetch_array($query);
 
     if(!$resulthave){
-        echo "<script>window.location='".$mylocalhost."cart';</script>";
+        echo "<script>window.location='".$vps."cart';</script>";
         exit();
     }
 
     $removecart = "DELETE FROM carts WHERE item_id = '".$_GET['itemid']."'";
     $query = mysqli_query($conn, $removecart);
 
-    $newlink = $mylocalhost."cart";
+    $newlink = $vps."cart";
 
     echo '
     <script>

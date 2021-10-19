@@ -12,7 +12,7 @@
 
 
     if($_SESSION['Uall_id'] == ""){
-        $newlink = $mylocalhost."login";
+        $newlink = $vps."login";
         echo '
             <script>
                 setTimeout(function(){
@@ -31,11 +31,11 @@
         exit();
     }
 
-    $refuseorder = "DELETE FROM products WHERE product_id = '".$_GET['myproduct_id']."' AND acc_id = '".$_SESSION['Uall_id']."'";
+    $refuseorder = "DELETE FROM products WHERE product_id = '".$_GET['myproduct_id']."' AND seller_id = '".$_SESSION['Uall_id']."'";
     $queryorder = mysqli_query($conn, $refuseorder);
     $resultorder = mysqli_fetch_array($queryorder, MYSQLI_ASSOC);
 
-    $newlink = $mylocalhost."user/myshop/shop";
+    $newlink = $vps."user/myshop/shop";
         echo '
             <script>
 

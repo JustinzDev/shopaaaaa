@@ -406,8 +406,8 @@ hr{
 }
 
 .shopbodybox:hover{
-    border: 1px solid rgb(238, 77, 45);
-    transform: scale(1.02);
+    /*border: 1px solid rgb(238, 77, 45);*/
+    transform: scale(1.09);
 }
 
 /* ShopItem */
