@@ -53,10 +53,13 @@
                 </div>
             </div>
             <div class="navbar-warpperdown">
-                <img src="<?php echo $mylocalhost;?>assets/img/logo.png" onclick="gotoindex()">
-                <input type="text" placeholder=" ค้นหาสินค้าและร้านค้า" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                <a href="<?php echo $mylocalhost;?>cart"><i class="fas fa-shopping-cart cart"></i></a>
+                <form action="<?php echo $mylocalhost;?>search-product" method="POST">
+                    <img src="<?php echo $mylocalhost;?>assets/img/logo.png" onclick="gotoindex()">
+                    <input type="text" placeholder=" ค้นหาสินค้าและร้านค้า" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <a href="<?php echo $mylocalhost;?>cart"><i class="fas fa-shopping-cart cart"></i></a>
+                </form>
+                
             </div>
             
             <div class="navbar-warpperdowntoo">

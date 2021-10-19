@@ -12,7 +12,7 @@
 
     if($_SESSION['Uall_id'] == ""){
 		echo "<script>window.location='index';</script>";
-        return;
+        exit();
     }
 
     $itemname = $_POST['itemname'];

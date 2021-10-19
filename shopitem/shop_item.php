@@ -27,6 +27,11 @@
 </head>
 <body style="background-color: rgba(156, 156, 156, 0.1);">
     <?php include('../navbar.php');?>
+    <?php if(!$result){
+        echo "<script>window.location='".$mylocalhost."';</script>";
+        exit();
+    }
+    ?>
     <div clsss="contain">
         <form action="<?php echo $mylocalhost;?>api/orderlist?itemid=<?php echo $result['product_id'];?>" method="POST">
             <div class="bodyproducts">

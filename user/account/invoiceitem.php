@@ -37,6 +37,12 @@
 </head>
 <body style="background-color: #f1f1f1;">
     <?php include('../../navbar.php');?>
+    <?php 
+        if(!$result){
+            echo "<script>window.location='".$mylocalhost."user/account/myorder';</script>";
+            exit();
+        }
+    ?>
     <div id="main">
         <div clsss="contain">
             <div class="body1">

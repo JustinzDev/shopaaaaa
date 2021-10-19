@@ -1,11 +1,17 @@
 <?php
     include('../mysql_connection/my_connection.php');
-    header("Content-Type: application/json");
-
+    error_reporting(0);
     $username = $_POST['uname'];
     $email = $_POST['uemail'];
     $numberphone = $_POST['telphone'];
     $date = $_POST['birthday'];
+
+    if($username == "" || $email == "" || $numberphone == "" || $date == ""){
+        echo "<script>window.location='../register';</script>";
+        exit();
+    }
+
+    header("Content-Type: application/json");
     
     $sql = "SELECT acc_username, acc_email, acc_contact FROM accounts WHERE acc_username = '".$username."' OR acc_email = '".$email."' OR acc_contact = '".$numberphone."'";
     $query = mysqli_query($conn, $sql);

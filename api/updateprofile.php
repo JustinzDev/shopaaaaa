@@ -12,7 +12,7 @@
 
     if($_SESSION['Uall_id'] == ""){
 		echo "<script>window.location='index';</script>";
-        return;
+        exit();
     }
 
     $target_file = "";
@@ -57,6 +57,11 @@
     $nameuser = $_POST['nameuser'];
     $genderuser = $_POST['gender'];
     $birthday = $_POST['birthday'];
+
+    if($nameuser == "" || $genderuser == "" || $birthday == ""){
+        echo "<script>window.location='../user/account/profile';</script>";
+        exit();
+    }
 
     if($nameuser != ""){
         $update = "UPDATE accounts SET acc_name = '".trim($nameuser)."' WHERE acc_id = '".$_SESSION['Uall_id']."'";

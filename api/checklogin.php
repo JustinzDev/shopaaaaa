@@ -1,10 +1,17 @@
 <?php
     session_start();
     include('../mysql_connection/my_connection.php');
-    header("Content-Type: application/json");
+    error_reporting(0);
 
     $username = $_POST['Uname'];
     $password = $_POST['pw1'];
+
+    if($username == "" || $password == ""){
+        echo "<script>window.location='../login';</script>";
+        exit();
+    }
+
+    header("Content-Type: application/json");
 
     $sql = "SELECT *  FROM accounts WHERE (acc_username = '".$username."' OR acc_email = '".$username."' OR acc_contact = '".$username."')
     AND acc_password = '".mysqli_real_escape_string($conn, strtoupper(hash("whirlpool", $password)))."'";

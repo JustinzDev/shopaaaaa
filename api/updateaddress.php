@@ -12,10 +12,15 @@
 
     if($_SESSION['Uall_id'] == ""){
 		echo "<script>window.location='index';</script>";
-        return;
+        exit();
     }
 
     $addressdetail = $_POST['addressdetail'];
+
+    if($addressdetail == ""){
+        echo "<script>window.location='../user/account/myaddress';</script>";
+        exit();
+    }
 
     $updateaddress = "UPDATE accounts SET acc_address = '".mysqli_real_escape_string($conn, $addressdetail)."' WHERE acc_id = '".$_SESSION['Uall_id']."'";
     $queryupdate = mysqli_query($conn, $updateaddress);

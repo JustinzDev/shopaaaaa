@@ -34,6 +34,11 @@
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
+    if(!$result){
+        header("location:$mylocalhost");
+        exit();
+    }
+
     $checkhave = "SELECT * FROM carts WHERE acc_id = '".$_SESSION['Uall_id']."' AND product_id = '".$_GET['itemid']."'";
     $queryhave = mysqli_query($conn, $checkhave);
     $resulthave = mysqli_fetch_array($queryhave);

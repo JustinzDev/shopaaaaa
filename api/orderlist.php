@@ -34,31 +34,33 @@
     $query = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
-    if($result){
-        $totalprice = $_POST['countitem'] * $result['product_price'];
-        $sql = "INSERT INTO `listproducts`(`product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES ('".$_GET['itemid']."', 
-        '".$_SESSION['Uall_id']."','".$result['acc_id']."', '".$_POST['countitem']."', '".$totalprice."' , 'wait')";
-        $query = mysqli_query($conn, $sql);
-        
-
-        $sql3 = "INSERT INTO `invoices`(`item_id`, `invoice_total`, `invoice_date`) VALUES ('".$_GET['itemid']."', '".$totalprice."', '".date("Y-m-d")."')";
-        $query3 = mysqli_query($conn, $sql3);
-
-        echo '
-        <script>
-            setTimeout(function(){
-                swal({
-                    title: "สำเร็จ",
-                    text: "คุณได้สั่งซื้อสิน [ '.$result['product_name'].' ] \n จำนวน [ '.$_POST['countitem'].' ] ชิ้น \n ในราคา [ ฿'.number_format($totalprice, 2).' ] เรียบร้อยแล้ว",
-                    type: "success",
-                    showButtonCancel: true,
-                }, function(isConfirm){
-                    if(isConfirm) window.location = "'.$mylocalhost.'";
-                    if(isCancel) window.location = "'.$mylocalhost.'";
-                });
-            }, 300);
-        </script>
-        ';
-
+    if(!$result){
+        echo "<script>window.location='".$mylocalhost."';</script>";
+        exit();
     }
+
+    $totalprice = $_POST['countitem'] * $result['product_price'];
+    $sql = "INSERT INTO `listproducts`(`product_id`, `acc_id`, `seller_id`, `list_counto`, `list_totalprice`, `list_state`) VALUES ('".$_GET['itemid']."', 
+    '".$_SESSION['Uall_id']."','".$result['acc_id']."', '".$_POST['countitem']."', '".$totalprice."' , 'wait')";
+    $query = mysqli_query($conn, $sql);
+    
+
+    $sql3 = "INSERT INTO `invoices`(`item_id`, `invoice_total`, `invoice_date`) VALUES ('".$_GET['itemid']."', '".$totalprice."', '".date("Y-m-d")."')";
+    $query3 = mysqli_query($conn, $sql3);
+
+    echo '
+    <script>
+        setTimeout(function(){
+            swal({
+                title: "สำเร็จ",
+                text: "คุณได้สั่งซื้อสิน [ '.$result['product_name'].' ] \n จำนวน [ '.$_POST['countitem'].' ] ชิ้น \n ในราคา [ ฿'.number_format($totalprice, 2).' ] เรียบร้อยแล้ว",
+                type: "success",
+                showButtonCancel: true,
+            }, function(isConfirm){
+                if(isConfirm) window.location = "'.$mylocalhost.'";
+                if(isCancel) window.location = "'.$mylocalhost.'";
+            });
+        }, 300);
+    </script>
+    ';
 ?>

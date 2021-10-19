@@ -30,6 +30,15 @@
         exit();
     }
 
+    $checkhave = "SELECT * FROM carts WHERE acc_id = '".$_SESSION['Uall_id']."'";
+    $query = mysqli_query($conn, $checkhave);
+    $resulthave = mysqli_fetch_array($query);
+
+    if(!$resulthave){
+        echo "<script>window.location='".$mylocalhost."cart';</script>";
+        exit();
+    }
+
     $removecart = "DELETE FROM carts WHERE item_id = '".$_GET['itemid']."'";
     $query = mysqli_query($conn, $removecart);
 
